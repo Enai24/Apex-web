@@ -295,18 +295,7 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
                     Request a Consultation
                   </Link>
                   <div className="mt-4 sm:mt-6 flex items-center justify-between">
-                    <Link
-                      to="/client/login"
-                      className="text-sm font-medium text-gray-700 hover:text-[#F68B1F]"
-                    >
-                      Client Login
-                    </Link>
-                    <Link
-                      to="/employee/login"
-                      className="text-sm font-medium text-gray-700 hover:text-[#F68B1F]"
-                    >
-                      Employee Portal
-                    </Link>
+                    
                   </div>
                 </div>
               </div>
