@@ -1,0 +1,25 @@
+# www.robotstxt.org/
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://apexenterprises.net/sitemap.xml
+
+# Disallow employee and client portal access
+Disallow: /employee/
+Disallow: /client/
+Disallow: /dashboard/
+
+# Disallow login pages
+Disallow: /employee/login
+Disallow: /client/login
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /backend/
+
+# Optimize crawl rate
+Crawl-delay: 10 

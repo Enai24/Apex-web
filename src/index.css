@@ -1,0 +1,412 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand Colors */
+  --color-primary: #F68B1F; /* Orange from logo */
+  --color-secondary: #1F4287; /* Dark blue for contrast */
+  --color-accent: #E94560; /* Red accent */
+  --color-gray-50: #F9FAFB;
+  --color-gray-100: #F3F4F6;
+  --color-gray-900: #111827;
+  
+  scroll-behavior: smooth;
+}
+
+/* Typography */
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-gray-900;
+  }
+
+  h1 { @apply text-4xl sm:text-6xl; }
+  h2 { @apply text-3xl sm:text-4xl; }
+  h3 { @apply text-2xl sm:text-3xl; }
+  h4 { @apply text-xl sm:text-2xl; }
+}
+
+/* Component Classes */
+@layer components {
+  .container-padding {
+    @apply px-6 lg:px-8 mx-auto max-w-7xl;
+  }
+
+  .section-padding {
+    @apply py-24 sm:py-32;
+  }
+
+  /* Add a utility class to specifically handle the last section before footer */
+  .last-section {
+    @apply pb-0 mb-0 border-b-0;
+  }
+
+  .btn-primary {
+    @apply rounded-md bg-[color:var(--color-primary)] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:opacity-90 transition-all;
+  }
+
+  .btn-secondary {
+    @apply rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-[color:var(--color-primary)] ring-1 ring-[color:var(--color-primary)] hover:bg-[color:var(--color-primary)] hover:text-white transition-all;
+  }
+
+  .nav-link {
+    @apply text-sm font-semibold leading-6 text-gray-900 hover:text-[color:var(--color-primary)] transition-colors;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-sm ring-1 ring-gray-200 p-6 hover:shadow-md transition-shadow;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Animation Delays */
+@layer utilities {
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+  
+  .animation-delay-1000 {
+    animation-delay: 1000ms;
+  }
+  
+  .animation-delay-2000 {
+    animation-delay: 2000ms;
+  }
+  
+  .animation-delay-3000 {
+    animation-delay: 3000ms;
+  }
+  
+  .animation-delay-4000 {
+    animation-delay: 4000ms;
+  }
+}
+
+/* About page animations and styles */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes blob {
+  0% {
+    transform: scale(1);
+  }
+  33% {
+    transform: scale(1.1);
+  }
+  66% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animate-card-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/* Animations for enhanced hero and homepage sections */
+@keyframes gradient-x {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes card-float {
+  0% {
+    transform: translateY(0) translateZ(0) rotateX(0) rotateY(0);
+  }
+  25% {
+    transform: translateY(-10px) translateZ(10px) rotateX(2deg) rotateY(-2deg);
+  }
+  50% {
+    transform: translateY(0) translateZ(20px) rotateX(4deg) rotateY(4deg);
+  }
+  75% {
+    transform: translateY(-10px) translateZ(10px) rotateX(2deg) rotateY(-2deg);
+  }
+  100% {
+    transform: translateY(0) translateZ(0) rotateX(0) rotateY(0);
+  }
+}
+
+@keyframes rotate-y {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 15s ease infinite;
+  background-size: 200% 200%;
+}
+
+.animate-float {
+  animation: float 7s ease-in-out infinite;
+}
+
+.animate-card-float {
+  animation: card-float 10s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+.animate-rotate-y {
+  animation: rotate-y 20s linear infinite;
+  transform-style: preserve-3d;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.rotate-y-3 {
+  transform: rotateY(3deg);
+}
+
+.rotate-y-6 {
+  transform: rotateY(6deg);
+}
+
+/* Slightly longer delay */
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Utilities for 3D effects */
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Gradients and overlays for enhanced sections */
+.bg-gradient-overlay {
+  background: linear-gradient(to right, rgba(59, 130, 246, 0.05), rgba(79, 70, 229, 0.05));
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Additional utilities for enhanced homepage UI */
+
+/* Custom perspective transforms */
+.perspective-500 {
+  perspective: 500px;
+}
+
+.perspective-2000 {
+  perspective: 2000px;
+}
+
+/* 3D card transforms */
+.rotate-y-3 {
+  transform: rotateY(3deg);
+}
+
+.rotate-y-6 {
+  transform: rotateY(6deg);
+}
+
+.rotate-y-12 {
+  transform: rotateY(12deg);
+}
+
+/* Additional hover animations */
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+}
+
+/* Advanced gradient animations */
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0) 40%);
+  background-size: 936px 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+/* Decorative background elements */
+.bg-grid {
+  background-image: linear-gradient(to right, rgba(209, 213, 219, 0.1) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(209, 213, 219, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-dots {
+  background-image: radial-gradient(rgba(209, 213, 219, 0.2) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Color accent utility for highlight effects */
+.accent-border-gradient {
+  border-image: linear-gradient(to right, #60a5fa, #6366f1) 1;
+  border-width: 2px;
+  border-style: solid;
+}
+
+/* 3D card movement utilities */
+.hover-rotate-x {
+  transition: transform 0.5s ease;
+}
+
+.hover-rotate-x:hover {
+  transform: rotateX(4deg);
+}
+
+.hover-rotate-y {
+  transition: transform 0.5s ease;
+}
+
+.hover-rotate-y:hover {
+  transform: rotateY(4deg);
+}
+
+/* Ring pulse animation for attention */
+@keyframes ring-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(99, 102, 241, 0);
+  }
+}
+
+.animate-ring-pulse {
+  animation: ring-pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Image zoom effect on hover */
+.img-zoom-container {
+  overflow: hidden;
+}
+
+.img-zoom {
+  transition: transform 0.6s ease;
+}
+
+.img-zoom:hover {
+  transform: scale(1.05);
+}
+
+/* Glass card effect for modern UI */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+/* Utilities for animated underlines */
+.animated-underline {
+  position: relative;
+}
+
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #60a5fa, #6366f1);
+  transition: width 0.3s ease;
+}
+
+.animated-underline:hover::after {
+  width: 100%;
+}
