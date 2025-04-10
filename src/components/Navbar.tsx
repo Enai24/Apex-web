@@ -93,6 +93,16 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
     };
   }, [activeDropdown]);
 
+  // Handle keyboard events for accessibility
+  const handleDropdownKeyDown = (e: React.KeyboardEvent, itemName: string) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setActiveDropdown(activeDropdown === itemName ? null : itemName);
+    } else if (e.key === 'Escape') {
+      setActiveDropdown(null);
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
       {/* Top Bar */}
@@ -132,12 +142,15 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
                 {item.dropdown ? (
                   <button
                     onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
+                    onKeyDown={(e) => handleDropdownKeyDown(e, item.name)}
                     className={`relative px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 transition-colors rounded-md ${
                       isActive(item.href)
                         ? 'text-[#F68B1F] bg-orange-50'
                         : 'text-gray-700 hover:text-[#F68B1F] hover:bg-gray-50'
                     }`}
                     aria-current={isActive(item.href) ? 'page' : undefined}
+                    aria-expanded={activeDropdown === item.name}
+                    aria-haspopup="true"
                   >
                     {item.icon && <item.icon className="h-4 w-4" />}
                     {item.name}
@@ -166,6 +179,9 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
                         ? 'transform opacity-100 scale-100' 
                         : 'transform opacity-0 scale-95 pointer-events-none'
                     }`}
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby={`${item.name}-button`}
                   >
                     <div className="py-2 divide-y divide-gray-100">
                       {item.dropdown.map((subItem) => (
@@ -177,6 +193,8 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
                               ? 'bg-orange-50 text-[#F68B1F] font-medium'
                               : 'text-gray-700 hover:bg-gray-50 hover:text-[#F68B1F]'
                           }`}
+                          role="menuitem"
+                          onClick={() => setActiveDropdown(null)}
                         >
                           {subItem.name}
                         </Link>
@@ -203,6 +221,7 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
               type="button"
               className="inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
               onClick={() => setMobileMenuOpen(true)}
+              aria-label="Open main menu"
             >
               <span className="sr-only">Open main menu</span>
               <Menu className="h-6 w-6" aria-hidden="true" />
@@ -214,10 +233,16 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-50">
-          <div className="fixed inset-0 bg-black/30 backdrop-blur-sm" aria-hidden="true" />
+          <div 
+            className="fixed inset-0 bg-black/30 backdrop-blur-sm" 
+            aria-hidden="true"
+            onClick={() => setMobileMenuOpen(false)}
+          />
           <div
             id="mobile-menu"
             className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-4 sm:px-6 py-4 sm:py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+            role="dialog"
+            aria-modal="true"
           >
             <div className="flex items-center justify-between">
               <Logo />
@@ -225,6 +250,7 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
                 type="button"
                 className="rounded-md p-2.5 text-gray-700"
                 onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close menu"
               >
                 <span className="sr-only">Close menu</span>
                 <X className="h-6 w-6" aria-hidden="true" />
@@ -239,11 +265,14 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
                         <>
                           <button
                             onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
+                            onKeyDown={(e) => handleDropdownKeyDown(e, item.name)}
                             className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-base font-medium transition-colors ${
                               isActive(item.href)
                                 ? 'bg-orange-50 text-[#F68B1F]'
                                 : 'text-gray-900 hover:bg-gray-50'
                             }`}
+                            aria-expanded={activeDropdown === item.name}
+                            aria-controls={`mobile-submenu-${item.name}`}
                           >
                             <div className="flex items-center gap-2">
                               {item.icon && <item.icon className="h-5 w-5" />}
@@ -253,7 +282,7 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
                           </button>
                           
                           {activeDropdown === item.name && (
-                            <div className="mt-1 space-y-1 pl-7">
+                            <div className="mt-1 space-y-1 pl-7" id={`mobile-submenu-${item.name}`}>
                               {item.dropdown.map((subItem) => (
                                 <Link
                                   key={subItem.name}
@@ -263,6 +292,10 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
                                       ? 'bg-orange-50 text-[#F68B1F]'
                                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                                   }`}
+                                  onClick={() => {
+                                    setMobileMenuOpen(false);
+                                    setActiveDropdown(null);
+                                  }}
                                 >
                                   {subItem.name}
                                 </Link>
@@ -279,6 +312,7 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
                               : 'text-gray-900 hover:bg-gray-50'
                           }`}
                           aria-current={isActive(item.href) ? 'page' : undefined}
+                          onClick={() => setMobileMenuOpen(false)}
                         >
                           {item.icon && <item.icon className="h-5 w-5" />}
                           {item.name}
@@ -291,6 +325,7 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
                   <Link
                     to="/contact"
                     className="block rounded-md bg-[#F68B1F] px-3 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#E57A1E] transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
                   >
                     Request a Consultation
                   </Link>
