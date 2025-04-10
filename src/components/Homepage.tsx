@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { 
@@ -22,6 +22,12 @@ import { AI_WORKFORCE_STATS } from '../utils/ai-workforce';
 import './homepage.css'; // Import CSS file with animations
 
 export default function Homepage() {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
   const keyFeatures = [
     { 
       name: "AI-Powered Talent Matching", 
@@ -47,6 +53,45 @@ export default function Homepage() {
       name: "AI Voice Calling Agent", 
       description: "Conversational AI system that conducts initial candidate screening calls, schedules interviews, and answers common queries in multiple Indian languages.",
       icon: MessageSquare
+    },
+  ];
+
+  const solutions = [
+    { 
+      name: "Contract Staffing",
+      description: "Short and long-term staffing solutions with complete EPF, ESI compliance across India",
+      href: "/services/contract-staffing",
+      icon: Users,
+    },
+    {
+      name: "Payroll & PF/ESI Compliance",
+      description: "End-to-end management of PF, ESI, Gratuity, LWF, and Professional Tax with statutory reporting",
+      href: "/services/payroll-compliance",
+      icon: Shield,
+    },
+    {
+      name: "Labour Law Advisory",
+      description: "Expert guidance on Shops & Establishment Act and Industrial Disputes Act compliance",
+      href: "/services/labour-law-advisory",
+      icon: Target,
+    },
+    {
+      name: "Blue & White-Collar Hiring",
+      description: "Specialised recruitment for IT, manufacturing, retail, and BFSI across Tier-1 & Tier-2 cities",
+      href: "/services/specialised-hiring",
+      icon: Building2,
+    },
+    {
+      name: "AI Workforce Analytics",
+      description: "Advanced data analytics powered by AI to optimize workforce planning and performance",
+      href: "/services/workforce-analytics",
+      icon: BarChart2,
+    },
+    {
+      name: "Pan-India Field Management",
+      description: "Field staff deployment across 25+ Indian cities with local compliance expertise",
+      href: "/services/india-deployment",
+      icon: Globe2,
     },
   ];
 
@@ -986,6 +1031,160 @@ export default function Homepage() {
       <Newsletter />
       <div className="pb-0 last-section">
         <ElevenLabsConvai agentId="hdYVmisQI4kAcZwuyCtC" />
+      </div>
+
+      {/* Add floating particles */}
+      <div className="absolute inset-0 overflow-hidden -z-5 pointer-events-none">
+        <div className="animate-float opacity-70 absolute top-20 left-[15%] w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-500/20"></div>
+        <div className="animate-float animation-delay-2000 opacity-70 absolute top-40 left-[80%] w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-indigo-500/20"></div>
+        <div className="animate-float animation-delay-4000 opacity-70 absolute top-[60%] left-[25%] w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-purple-500/20"></div>
+        <div className="animate-float opacity-70 absolute top-[30%] left-[60%] w-10 h-10 sm:w-16 sm:h-16 rounded-full bg-orange-500/20"></div>
+      </div>
+
+      {/* Trusted by section with enhanced hover effects and animations */}
+      <div className="bg-white py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className={`mx-auto text-center mb-8 sm:mb-12 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '1200ms' }}>
+            <div className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700 ring-1 ring-inset ring-blue-700/20 mb-4">
+              <Building2 className="mr-1.5 h-4 w-4" />
+              <span>Elite Partnerships</span>
+            </div>
+            <h2 className="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-gray-900">India's Top Corporations</h2>
+            <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
+              Trusted by industry leaders across the nation
+            </p>
+          </div>
+          
+          <div className={`mx-auto grid max-w-lg grid-cols-2 items-center gap-x-4 sm:gap-x-8 gap-y-8 sm:gap-y-12 sm:max-w-xl sm:grid-cols-3 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-5 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '1400ms' }}>
+            <img
+              className="col-span-1 max-h-10 sm:max-h-12 w-full object-contain opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 hover:scale-110"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Reliance_Industries_Logo.svg/1200px-Reliance_Industries_Logo.svg.png"
+              alt="Reliance Industries"
+              width={158}
+              height={48}
+            />
+            <img
+              className="col-span-1 max-h-10 sm:max-h-12 w-full object-contain opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 hover:scale-110"
+              src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cf/Tata_Consultancy_Services_Logo.svg/1200px-Tata_Consultancy_Services_Logo.svg.png"
+              alt="TCS"
+              width={158}
+              height={48}
+            />
+            <img
+              className="col-span-1 max-h-10 sm:max-h-12 w-full object-contain opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Infosys_logo.svg/1280px-Infosys_logo.svg.png"
+              alt="Infosys"
+              width={158}
+              height={48}
+            />
+            <img
+              className="col-span-1 max-h-10 sm:max-h-12 w-full object-contain opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+              src="https://upload.wikimedia.org/wikipedia/commons/4/41/Wipro_Logo.png"
+              alt="Wipro"
+              width={158}
+              height={48}
+            />
+            <img
+              className="col-span-1 max-h-10 sm:max-h-12 w-full object-contain opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/HDFC_Bank_Logo.svg/1200px-HDFC_Bank_Logo.svg.png"
+              alt="HDFC Bank"
+              width={158}
+              height={48}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Solutions section - improved with icons and better cards */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
+        <div className="mx-auto max-w-2xl lg:text-center">
+          <p className="text-base font-semibold leading-7 text-blue-700">India-Focused Solutions</p>
+          <h2 className="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Compliant Staffing for Indian Markets
+          </h2>
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600">
+            Discover how our services can help your business navigate India's complex labour laws while accessing quality talent across metropolitan and developing cities.
+          </p>
+        </div>
+        <div className="mx-auto mt-12 sm:mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+          <dl className="grid max-w-xl grid-cols-1 gap-x-6 sm:gap-x-8 gap-y-10 sm:gap-y-16 lg:max-w-none lg:grid-cols-3">
+            {solutions.map((solution, index) => (
+              <div 
+                key={solution.name} 
+                className="flex flex-col bg-white p-6 sm:p-8 rounded-2xl shadow-sm hover:shadow-lg border border-gray-100 transition-all duration-300 ease-in-out"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                <dt className="flex items-center gap-x-3 text-lg sm:text-xl font-semibold leading-7 text-gray-900">
+                  <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-lg bg-blue-50 text-blue-700">
+                    <solution.icon className="h-5 w-5 sm:h-6 sm:w-6" />
+                  </div>
+                  <span>{solution.name}</span>
+                </dt>
+                <dd className="mt-4 flex flex-auto flex-col text-sm sm:text-base leading-6 sm:leading-7 text-gray-600">
+                  <p className="flex-auto">{solution.description}</p>
+                  <p className="mt-6">
+                    <Link
+                      to={solution.href}
+                      className="text-sm font-semibold leading-6 text-blue-700 hover:text-blue-500 flex items-center group"
+                    >
+                      Learn more <ArrowRight className="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
+                  </p>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+
+      {/* AI metrics */}
+      <div className="bg-white py-12 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900">AI-Powered Performance</h2>
+            <p className="mt-4 text-base sm:text-lg leading-8 text-gray-600">
+              Our intelligent solutions deliver measurable improvements to your workforce processes
+            </p>
+          </div>
+          <div className="mx-auto mt-8 sm:mt-16 max-w-2xl grid grid-cols-1 gap-y-6 sm:gap-y-0 sm:grid-cols-2 lg:max-w-none lg:grid-cols-4 lg:gap-x-8 text-center">
+            {aiMetrics.map((metric) => (
+              <div key={metric.title} className="relative p-6 flex flex-col">
+                <div className="text-3xl sm:text-4xl font-bold tracking-tight text-indigo-600 mb-2">
+                  {metric.value}
+                </div>
+                <div className="text-base sm:text-lg font-semibold text-gray-900 mb-2">
+                  {metric.title}
+                </div>
+                <p className="text-sm sm:text-base leading-6 text-gray-500">{metric.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="bg-gray-50 py-12 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
+            <h2 className="text-2xl sm:text-3xl font-bold leading-10 tracking-tight text-gray-900 text-center mb-8 sm:mb-16">
+              Frequently asked questions
+            </h2>
+            <dl className="mt-8 space-y-6 divide-y divide-gray-900/10">
+              {faqs.map((faq) => (
+                <div key={faq.question} className="pt-6 md:grid md:grid-cols-12 md:gap-8">
+                  <dt className="text-base font-semibold leading-7 text-gray-900 md:col-span-5">
+                    {faq.question}
+                  </dt>
+                  <dd className="mt-2 md:mt-0 md:col-span-7">
+                    <p className="text-sm sm:text-base leading-6 sm:leading-7 text-gray-600">
+                      {faq.answer}
+                    </p>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
       </div>
     </main>
   );

@@ -133,20 +133,20 @@ export default function Hero() {
 
       {/* Enhanced hero content with 3D effects and animations */}
       <div className="relative isolate overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 pb-24 pt-16 sm:pt-32 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-12 lg:gap-x-16 lg:items-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 pb-16 sm:pb-24 pt-10 sm:pt-16 lg:pt-32 lg:px-8">
+          <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-12 lg:gap-x-8 xl:gap-x-16 lg:items-center">
             <div className={`col-span-7 w-full max-w-xl lg:shrink-0 xl:max-w-2xl transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
               <div className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700 ring-1 ring-inset ring-blue-700/20 mb-6">
                 <Sparkles className="mr-1.5 h-4 w-4" />
                 <span>Transforming Indian Workforce</span>
               </div>
               
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
+              <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
                 <span className="block">Leading Staffing Solutions in India</span>
                 <span className="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-700 via-indigo-600 to-blue-700 animate-gradient-x">Pan-India Excellence Since 2003</span>
               </h1>
               
-              <p className="relative mt-8 text-xl leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
+              <p className="relative mt-6 sm:mt-8 text-base sm:text-xl leading-7 sm:leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
                 <strong className="text-gray-900">India's trusted workforce partner across Tier-1 & Tier-2 cities.</strong> Apex Enterprises delivers compliant staffing solutions, specialised in EPF/ESI management, labour law advisory, and workforce deployment that addresses unique Indian market challenges.
               </p>
               
@@ -188,8 +188,8 @@ export default function Hero() {
             </div>
             
             {/* 3D perspective image grid */}
-            <div className={`col-span-5 mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0 perspective-1000 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '300ms' }}>
-              <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
+            <div className={`col-span-5 mt-10 sm:mt-14 flex justify-center sm:justify-end gap-4 sm:gap-8 lg:mt-0 lg:pl-0 perspective-1000 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '300ms' }}>
+              <div className="w-32 sm:w-44 flex-none space-y-4 sm:space-y-8 pt-12 sm:pt-32 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                 <div className="relative hover:scale-105 transition-transform duration-500 ease-in-out shadow-xl hover:shadow-2xl group">
                   <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
                   <img
@@ -200,7 +200,7 @@ export default function Hero() {
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
                 </div>
               </div>
-              <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
+              <div className="w-32 sm:w-44 flex-none space-y-4 sm:space-y-8 sm:pt-52 lg:pt-36">
                 <div className="relative hover:scale-105 transition-transform duration-500 ease-in-out shadow-xl hover:shadow-2xl group">
                   <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/10 to-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
                   <img
@@ -226,38 +226,38 @@ export default function Hero() {
       </div>
 
       {/* Enhanced stats section with animations and modern design */}
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8 py-16 sm:py-24">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="absolute inset-0 flex justify-center -z-10">
           <div className="w-full h-full max-w-7xl bg-gradient-to-b from-blue-50/30 via-transparent to-transparent rounded-3xl"></div>
         </div>
         
-        <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '600ms' }}>
+        <div className={`text-center mb-10 sm:mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '600ms' }}>
           <div className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700 ring-1 ring-inset ring-blue-700/20 mb-4">
             <TrendingUp className="mr-1.5 h-4 w-4" />
             <span>Our Growth Metrics</span>
           </div>
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Our Impact <span className="bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-transparent">in Numbers</span>
           </h2>
-          <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="mt-4 text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
             Two decades of excellence in workforce solutions across India
           </p>
         </div>
         
-        <dl className="grid grid-cols-2 gap-x-8 gap-y-12 text-center md:grid-cols-3 lg:grid-cols-6">
+        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-x-8 gap-y-8 sm:gap-y-12 text-center md:grid-cols-3 lg:grid-cols-6">
           {animatedStats.map((stat, index) => (
             <div 
               key={stat.id} 
               className={`mx-auto flex max-w-xs flex-col gap-y-4 transform hover:scale-105 transition-all duration-500 ease-in-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
               style={{ transitionDelay: `${800 + index * 100}ms` }}
             >
-              <dd className="order-first text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 text-blue-700 shadow-md group-hover:shadow-lg transition-all duration-300">
-                  <stat.icon className="h-8 w-8 transform transition-transform duration-300 group-hover:scale-110" />
+              <dd className="order-first text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 text-blue-700 shadow-md group-hover:shadow-lg transition-all duration-300">
+                  <stat.icon className="h-6 w-6 sm:h-8 sm:w-8 transform transition-transform duration-300 group-hover:scale-110" />
                 </div>
                 <span className="bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-transparent">{stat.animatedValue}</span>
               </dd>
-              <dt className="text-base leading-7 text-gray-600 font-medium">{stat.name}</dt>
+              <dt className="text-sm sm:text-base leading-6 sm:leading-7 text-gray-600 font-medium">{stat.name}</dt>
             </div>
           ))}
         </dl>
@@ -318,31 +318,31 @@ export default function Hero() {
       </div>
 
       {/* Solutions section - improved with icons and better cards */}
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
         <div className="mx-auto max-w-2xl lg:text-center">
           <p className="text-base font-semibold leading-7 text-blue-700">India-Focused Solutions</p>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Compliant Staffing for Indian Markets
           </h2>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600">
             Discover how our services can help your business navigate India's complex labour laws while accessing quality talent across metropolitan and developing cities.
           </p>
         </div>
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+        <div className="mx-auto mt-12 sm:mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+          <dl className="grid max-w-xl grid-cols-1 gap-x-6 sm:gap-x-8 gap-y-10 sm:gap-y-16 lg:max-w-none lg:grid-cols-3">
             {solutions.map((solution, index) => (
               <div 
                 key={solution.name} 
-                className="flex flex-col bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg border border-gray-100 transition-all duration-300 ease-in-out"
+                className="flex flex-col bg-white p-6 sm:p-8 rounded-2xl shadow-sm hover:shadow-lg border border-gray-100 transition-all duration-300 ease-in-out"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                <dt className="flex items-center gap-x-3 text-xl font-semibold leading-7 text-gray-900">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-blue-700">
-                    <solution.icon className="h-6 w-6" />
+                <dt className="flex items-center gap-x-3 text-lg sm:text-xl font-semibold leading-7 text-gray-900">
+                  <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-lg bg-blue-50 text-blue-700">
+                    <solution.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
                   <span>{solution.name}</span>
                 </dt>
-                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                <dd className="mt-4 flex flex-auto flex-col text-sm sm:text-base leading-6 sm:leading-7 text-gray-600">
                   <p className="flex-auto">{solution.description}</p>
                   <p className="mt-6">
                     <Link
@@ -360,40 +360,40 @@ export default function Hero() {
       </div>
 
       {/* Featured Testimonials Section - refined with better cards and spacing */}
-      <div className="relative bg-gradient-to-b from-gray-50 to-white py-16 sm:py-24 mt-8">
+      <div className="relative bg-gradient-to-b from-gray-50 to-white py-12 sm:py-16 mt-6 sm:mt-8">
         <div className="absolute inset-0 flex justify-center">
           <div className="w-full max-w-7xl bg-blue-50/30 h-full transform skew-y-3 -z-10"></div>
         </div>
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-lg font-semibold leading-8 tracking-tight text-blue-700">Client Testimonials</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-base sm:text-lg font-semibold leading-7 sm:leading-8 tracking-tight text-blue-700">Client Testimonials</h2>
+            <p className="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               Trusted by India's Leading Businesses
             </p>
           </div>
-          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-            <div className="flex flex-col justify-between rounded-2xl bg-white p-8 shadow-lg ring-1 ring-gray-200 xl:p-10 transform transition-transform duration-300 hover:scale-105">
-              <div className="mb-10">
+          <div className="mx-auto mt-10 sm:mt-16 grid max-w-2xl grid-cols-1 gap-y-6 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            <div className="flex flex-col justify-between rounded-2xl bg-white p-6 sm:p-8 shadow-lg ring-1 ring-gray-200 xl:p-10 transform transition-transform duration-300 hover:scale-105">
+              <div className="mb-6 sm:mb-10">
                 <div className="flex gap-x-1">
                   {[0, 1, 2, 3, 4].map((rating) => (
-                    <svg key={rating} className="h-5 w-5 text-[#F68B1F]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <svg key={rating} className="h-4 w-4 sm:h-5 sm:w-5 text-[#F68B1F]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                       <path fillRule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clipRule="evenodd" />
                     </svg>
                   ))}
                 </div>
-                <div className="mt-6 text-lg leading-7 text-gray-700">
+                <div className="mt-4 sm:mt-6 text-base sm:text-lg leading-6 sm:leading-7 text-gray-700">
                   <p>"Apex Enterprises has been instrumental in helping us build our pan-India team. Their understanding of regional labour laws and commitment to compliance is unmatched across all our locations."</p>
                 </div>
               </div>
               <div>
                 <div className="border-t border-gray-200 pt-4">
                   <div className="font-medium text-gray-900">Priya Sharma</div>
-                  <div className="text-sm text-gray-600">HR Director, Tech Mahindra</div>
+                  <div className="text-xs sm:text-sm text-gray-600">HR Director, Tech Mahindra</div>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-col justify-between rounded-2xl bg-white p-8 shadow-lg ring-1 ring-gray-200 xl:p-10 transform transition-transform duration-300 hover:scale-105 lg:translate-y-4">
+            <div className="flex flex-col justify-between rounded-2xl bg-white p-6 sm:p-8 shadow-lg ring-1 ring-gray-200 xl:p-10 transform transition-transform duration-300 hover:scale-105 lg:translate-y-4">
               <div className="mb-10">
                 <div className="flex gap-x-1">
                   {[0, 1, 2, 3, 4].map((rating) => (
@@ -414,7 +414,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="flex flex-col justify-between rounded-2xl bg-white p-8 shadow-lg ring-1 ring-gray-200 xl:p-10 transform transition-transform duration-300 hover:scale-105">
+            <div className="flex flex-col justify-between rounded-2xl bg-white p-6 sm:p-8 shadow-lg ring-1 ring-gray-200 xl:p-10 transform transition-transform duration-300 hover:scale-105">
               <div className="mb-10">
                 <div className="flex gap-x-1">
                   {[0, 1, 2, 3, 4].map((rating) => (

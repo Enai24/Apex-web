@@ -121,7 +121,7 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
 
       {/* Main Navigation */}
       <nav className="mx-auto max-w-full px-0 lg:px-0" aria-label="Main navigation">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-16 sm:h-20 items-center justify-between">
           <div className="flex lg:flex-none pl-2 sm:pl-4">
             <Logo />
           </div>
@@ -217,7 +217,7 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
           <div className="fixed inset-0 bg-black/30 backdrop-blur-sm" aria-hidden="true" />
           <div
             id="mobile-menu"
-            className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+            className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-4 sm:px-6 py-4 sm:py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
           >
             <div className="flex items-center justify-between">
               <Logo />
@@ -230,16 +230,16 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
                 <X className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
-            <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-gray-500/10">
-                <div className="space-y-2 py-6">
+            <div className="mt-4 sm:mt-6 flow-root">
+              <div className="-my-4 sm:-my-6 divide-y divide-gray-500/10">
+                <div className="space-y-1 py-4 sm:py-6">
                   {navigation.map((item) => (
                     <React.Fragment key={item.name}>
                       {item.dropdown ? (
                         <>
                           <button
                             onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
-                            className={`flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-base font-medium transition-colors ${
+                            className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-base font-medium transition-colors ${
                               isActive(item.href)
                                 ? 'bg-orange-50 text-[#F68B1F]'
                                 : 'text-gray-900 hover:bg-gray-50'
@@ -253,12 +253,12 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
                           </button>
                           
                           {activeDropdown === item.name && (
-                            <div className="mt-2 space-y-1 pl-7">
+                            <div className="mt-1 space-y-1 pl-7">
                               {item.dropdown.map((subItem) => (
                                 <Link
                                   key={subItem.name}
                                   to={subItem.href}
-                                  className={`block rounded-lg px-4 py-2.5 text-sm font-medium ${
+                                  className={`block rounded-lg px-3 py-2 text-sm font-medium ${
                                     isActive(subItem.href)
                                       ? 'bg-orange-50 text-[#F68B1F]'
                                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
@@ -273,7 +273,7 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
                       ) : (
                         <Link
                           to={item.href}
-                          className={`flex items-center gap-2 rounded-lg px-3 py-2.5 text-base font-medium transition-colors ${
+                          className={`flex items-center gap-2 rounded-lg px-3 py-2 text-base font-medium transition-colors ${
                             isActive(item.href)
                               ? 'bg-orange-50 text-[#F68B1F]'
                               : 'text-gray-900 hover:bg-gray-50'
@@ -287,14 +287,14 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
                     </React.Fragment>
                   ))}
                 </div>
-                <div className="py-6">
+                <div className="py-4 sm:py-6">
                   <Link
                     to="/contact"
                     className="block rounded-md bg-[#F68B1F] px-3 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#E57A1E] transition-colors"
                   >
                     Request a Consultation
                   </Link>
-                  <div className="mt-6 flex items-center justify-between">
+                  <div className="mt-4 sm:mt-6 flex items-center justify-between">
                     <Link
                       to="/client/login"
                       className="text-sm font-medium text-gray-700 hover:text-[#F68B1F]"

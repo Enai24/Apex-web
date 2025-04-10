@@ -45,44 +45,44 @@ export default function Footer() {
       </div>
 
       {/* Footer top section */}
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-16 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-8 gap-y-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-6 sm:pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-6 sm:gap-x-8 gap-y-8 sm:gap-y-12">
           {/* Company information */}
           <div className="lg:col-span-3">
             <Link to="/" className="inline-block">
               <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm p-2.5 rounded-xl hover:bg-white/10 transition-all duration-300 max-w-fit">
-                <img src="/logo.png" alt="Apex Enterprises" className="h-9 w-auto drop-shadow-md" />
+                <img src="/logo.png" alt="Apex Enterprises" className="h-8 sm:h-9 w-auto drop-shadow-md" />
                 <div className="border-l border-white/20 pl-3">
-                  <div className="text-lg font-bold tracking-wide bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">APEX</div>
+                  <div className="text-base sm:text-lg font-bold tracking-wide bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">APEX</div>
                   <div className="text-xs uppercase tracking-wider text-gray-400 -mt-1">Enterprises</div>
                 </div>
               </div>
             </Link>
             
-            <p className="mt-5 text-sm leading-relaxed text-gray-300 max-w-sm">
+            <p className="mt-4 sm:mt-5 text-sm leading-relaxed text-gray-300 max-w-sm">
               India's leading workforce solutions provider, offering end-to-end staffing, payroll, and AI-powered compliance services across multiple industries and states since 2001.
             </p>
 
             {/* Awards/Recognition */}
-            <div className="mt-6 inline-flex items-center rounded-lg bg-gradient-to-r from-blue-900/30 to-indigo-900/30 px-4 py-2 text-xs font-medium text-blue-300 backdrop-blur-sm">
-              <Globe className="h-3.5 w-3.5 mr-2" />
+            <div className="mt-5 sm:mt-6 inline-flex items-center rounded-lg bg-gradient-to-r from-blue-900/30 to-indigo-900/30 px-3 sm:px-4 py-1.5 sm:py-2 text-xs font-medium text-blue-300 backdrop-blur-sm">
+              <Globe className="h-3 w-3 sm:h-3.5 sm:w-3.5 mr-1.5 sm:mr-2" />
               <span>Operating in 25+ cities across India</span>
             </div>
           </div>
           
           {/* Contact information */}
           <div className="lg:col-span-3">
-            <div className="flex items-center gap-2 mb-5">
+            <div className="flex items-center gap-2 mb-4 sm:mb-5">
               <div className="h-1 w-6 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full"></div>
               <h3 className="text-sm font-semibold uppercase tracking-wider text-blue-300">
                 Contact Us
               </h3>
             </div>
             
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition-all group">
-                <div className="h-8 w-8 flex items-center justify-center rounded-lg bg-blue-900/20 group-hover:bg-blue-900/40 transition-all">
-                  <Phone className="h-4 w-4 text-blue-400" />
+                <div className="h-7 w-7 sm:h-8 sm:w-8 flex items-center justify-center rounded-lg bg-blue-900/20 group-hover:bg-blue-900/40 transition-all">
+                  <Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-blue-400" />
                 </div>
                 <a href="tel:+910124-2340139" className="text-sm text-gray-300 group-hover:text-white transition-colors">
                   +91 0124 2340139
@@ -90,8 +90,8 @@ export default function Footer() {
               </div>
               
               <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition-all group">
-                <div className="h-8 w-8 flex items-center justify-center rounded-lg bg-blue-900/20 group-hover:bg-blue-900/40 transition-all">
-                  <Mail className="h-4 w-4 text-blue-400" />
+                <div className="h-7 w-7 sm:h-8 sm:w-8 flex items-center justify-center rounded-lg bg-blue-900/20 group-hover:bg-blue-900/40 transition-all">
+                  <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-blue-400" />
                 </div>
                 <a href="mailto:mail@apexenterprises.net" className="text-sm text-gray-300 group-hover:text-white transition-colors">
                   mail@apexenterprises.net
@@ -99,8 +99,8 @@ export default function Footer() {
               </div>
               
               <div className="flex items-start gap-3 p-2 rounded-lg hover:bg-white/5 transition-all group">
-                <div className="h-8 w-8 flex-shrink-0 flex items-center justify-center rounded-lg bg-blue-900/20 group-hover:bg-blue-900/40 transition-all mt-1">
-                  <MapPin className="h-4 w-4 text-blue-400" />
+                <div className="h-7 w-7 sm:h-8 sm:w-8 flex-shrink-0 flex items-center justify-center rounded-lg bg-blue-900/20 group-hover:bg-blue-900/40 transition-all mt-1">
+                  <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-blue-400" />
                 </div>
                 <div className="text-sm text-gray-300 group-hover:text-white transition-colors">
                   <div className="font-medium">Gurgaon (Head Office)</div>
@@ -111,7 +111,7 @@ export default function Footer() {
             </div>
             
             {/* Social media */}
-            <div className="mt-6 flex space-x-3">
+            <div className="mt-5 sm:mt-6 flex space-x-3">
               {[
                 { icon: Linkedin, href: 'https://www.linkedin.com/company/apex-enterprises1/', label: 'LinkedIn', color: 'from-blue-400 to-blue-600' },
                 { icon: Twitter, href: 'https://twitter.com', label: 'Twitter', color: 'from-blue-300 to-blue-500' },
@@ -124,24 +124,24 @@ export default function Footer() {
                   aria-label={`Follow on ${social.label}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-center h-9 w-9 overflow-hidden rounded-lg bg-white/5 hover:bg-gradient-to-br hover:shadow-lg transition-all duration-300"
+                  className="group flex items-center justify-center h-8 w-8 sm:h-9 sm:w-9 overflow-hidden rounded-lg bg-white/5 hover:bg-gradient-to-br hover:shadow-lg transition-all duration-300"
                 >
-                  <social.icon className={`h-4 w-4 transition-all duration-300 group-hover:scale-110 group-hover:bg-gradient-to-br ${social.color} group-hover:bg-clip-text group-hover:text-transparent`} />
+                  <social.icon className={`h-3.5 w-3.5 sm:h-4 sm:w-4 transition-all duration-300 group-hover:scale-110 group-hover:bg-gradient-to-br ${social.color} group-hover:bg-clip-text group-hover:text-transparent`} />
                 </a>
               ))}
             </div>
           </div>
           
           {/* Quick links */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 lg:col-span-6">
+          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8 lg:col-span-6">
               <div>
-              <div className="flex items-center gap-2 mb-5">
+              <div className="flex items-center gap-2 mb-4 sm:mb-5">
                 <div className="h-1 w-6 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full"></div>
                 <h3 className="text-sm font-semibold uppercase tracking-wider text-blue-300">
                   Company
                 </h3>
               </div>
-              <ul className="space-y-2.5">
+              <ul className="space-y-2">
                 {[
                   { name: 'About Us', href: '/about' },
                   { name: 'Portfolio', href: '/portfolio' },
@@ -166,13 +166,13 @@ export default function Footer() {
             </div>
             
             <div>
-              <div className="flex items-center gap-2 mb-5">
+              <div className="flex items-center gap-2 mb-4 sm:mb-5">
                 <div className="h-1 w-6 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full"></div>
                 <h3 className="text-sm font-semibold uppercase tracking-wider text-blue-300">
                   Services
                 </h3>
               </div>
-              <ul className="space-y-2.5">
+              <ul className="space-y-2">
                 {[
                   { name: 'Contract Staffing', href: '/services/contract-staffing' },
                   { name: 'Payroll Services', href: '/services/payroll-services' },
@@ -193,13 +193,13 @@ export default function Footer() {
             </div>
             
             <div>
-              <div className="flex items-center gap-2 mb-5">
+              <div className="flex items-center gap-2 mb-4 sm:mb-5">
                 <div className="h-1 w-6 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full"></div>
                 <h3 className="text-sm font-semibold uppercase tracking-wider text-blue-300">
                   Locations
                 </h3>
               </div>
-              <ul className="space-y-2.5">
+              <ul className="space-y-2">
                 {[
                   { name: 'Delhi NCR', href: '/locations/delhi' },
                   { name: 'Bangalore', href: '/locations/bangalore' },
@@ -223,9 +223,9 @@ export default function Footer() {
           
           {/* Newsletter */}
           <div className="lg:col-span-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6 pt-8 border-t border-white/10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6 pt-6 sm:pt-8 border-t border-white/10">
               <div>
-                <div className="flex items-center gap-2 mb-4">
+                <div className="flex items-center gap-2 mb-3 sm:mb-4">
                   <div className="h-1 w-6 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full"></div>
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-blue-300">
                     Newsletter
@@ -234,7 +234,7 @@ export default function Footer() {
                 <p className="text-sm text-gray-300">
                   Stay updated with the latest workforce trends and regulatory changes across India.
                 </p>
-                <form className="mt-4" onSubmit={handleSubscribe}>
+                <form className="mt-3 sm:mt-4" onSubmit={handleSubscribe}>
                   <div className="relative max-w-sm overflow-hidden rounded-xl bg-gradient-to-r from-blue-900/30 to-indigo-900/30 p-0.5 shadow-lg shadow-blue-900/10">
                     <div className="relative flex">
                       <input
@@ -242,23 +242,23 @@ export default function Footer() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="Your email address"
-                        className="flex-1 bg-gray-900/80 border-0 py-3 pl-4 pr-12 text-sm text-gray-200 placeholder-gray-500 focus:ring-0 focus:outline-none"
+                        className="flex-1 bg-gray-900/80 border-0 py-2.5 sm:py-3 pl-3 sm:pl-4 pr-12 text-sm text-gray-200 placeholder-gray-500 focus:ring-0 focus:outline-none"
                         required
                       />
                       <button
                         type="submit"
-                        className={`absolute inset-y-0 right-0 flex items-center justify-center px-4 transition-colors ${
+                        className={`absolute inset-y-0 right-0 flex items-center justify-center px-3 sm:px-4 transition-colors ${
                           subscribed ? 'text-green-400 bg-green-900/20' : 'text-blue-400 hover:text-blue-300 hover:bg-blue-900/20'
                         }`}
                       >
                         {subscribed ? (
                           <div className="flex items-center justify-center">
-                            <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <svg className="h-4 w-4 sm:h-5 sm:w-5" fill="currentColor" viewBox="0 0 20 20">
                               <path d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586l-2.293-2.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" />
                             </svg>
                           </div>
                         ) : (
-                          <Send className="h-5 w-5" />
+                          <Send className="h-4 w-4 sm:h-5 sm:w-5" />
                         )}
                       </button>
                     </div>
@@ -269,10 +269,10 @@ export default function Footer() {
               {/* Certification */}
               <div className="flex flex-col justify-end">
                 <div className="flex flex-col md:items-end">
-                  <div className="inline-flex items-center rounded-xl bg-white/5 backdrop-blur-sm px-5 py-2.5 text-xs font-medium text-blue-300">
+                  <div className="inline-flex items-center rounded-xl bg-white/5 backdrop-blur-sm px-4 sm:px-5 py-2 sm:py-2.5 text-xs font-medium text-blue-300">
                     <span className="text-sm font-semibold">ISO 9001:2015 Certified</span>
                   </div>
-                  <p className="mt-2 text-sm text-gray-400 md:text-right">
+                  <p className="mt-2 text-xs sm:text-sm text-gray-400 md:text-right">
                     Committed to the highest standards of quality and service excellence
                   </p>
                 </div>
@@ -284,12 +284,12 @@ export default function Footer() {
       
       {/* Divider */}
       <div className="border-t border-white/10 backdrop-blur-sm">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center">
-          <div className="text-sm text-gray-400">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex flex-col sm:flex-row justify-between items-center">
+          <div className="text-xs sm:text-sm text-gray-400">
             <span>&copy; {new Date().getFullYear()} Apex Enterprises. All rights reserved.</span>
           </div>
           
-          <div className="mt-4 sm:mt-0 flex flex-wrap items-center justify-center gap-8 text-xs text-gray-400">
+          <div className="mt-3 sm:mt-0 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs text-gray-400">
             <Link to="/privacy-policy" className="hover:text-blue-300 transition-colors">Privacy Policy</Link>
             <Link to="/terms-of-service" className="hover:text-blue-300 transition-colors">Terms of Service</Link>
             <Link to="/legal-services" className="hover:text-blue-300 transition-colors">Legal Services</Link>
@@ -297,10 +297,10 @@ export default function Footer() {
             {/* Scroll to top button */}
             <button
               onClick={scrollToTop}
-              className="flex items-center justify-center h-8 w-8 rounded-lg bg-white/5 hover:bg-gradient-to-br from-blue-600 to-indigo-600 transition-all duration-300 shadow-lg"
+              className="flex items-center justify-center h-7 w-7 sm:h-8 sm:w-8 rounded-lg bg-white/5 hover:bg-gradient-to-br from-blue-600 to-indigo-600 transition-all duration-300 shadow-lg"
               aria-label="Scroll to top"
             >
-              <ArrowUp className="h-4 w-4 text-gray-400 group-hover:text-white transition-colors" />
+              <ArrowUp className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-gray-400 group-hover:text-white transition-colors" />
             </button>
           </div>
         </div>

@@ -24,20 +24,26 @@
     @apply font-bold tracking-tight text-gray-900;
   }
 
-  h1 { @apply text-4xl sm:text-6xl; }
-  h2 { @apply text-3xl sm:text-4xl; }
-  h3 { @apply text-2xl sm:text-3xl; }
-  h4 { @apply text-xl sm:text-2xl; }
+  /* Responsive typography */
+  h1 { @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl; }
+  h2 { @apply text-2xl sm:text-3xl md:text-4xl; }
+  h3 { @apply text-xl sm:text-2xl md:text-3xl; }
+  h4 { @apply text-lg sm:text-xl md:text-2xl; }
+  h5 { @apply text-base sm:text-lg; }
+  h6 { @apply text-sm sm:text-base; }
+  
+  /* Base responsive adjustments */
+  p { @apply text-sm sm:text-base; }
 }
 
 /* Component Classes */
 @layer components {
   .container-padding {
-    @apply px-6 lg:px-8 mx-auto max-w-7xl;
+    @apply px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl;
   }
 
   .section-padding {
-    @apply py-24 sm:py-32;
+    @apply py-12 sm:py-16 md:py-20 lg:py-24;
   }
 
   /* Add a utility class to specifically handle the last section before footer */
@@ -45,12 +51,13 @@
     @apply pb-0 mb-0 border-b-0;
   }
 
+  /* Responsive buttons */
   .btn-primary {
-    @apply rounded-md bg-[color:var(--color-primary)] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:opacity-90 transition-all;
+    @apply rounded-md bg-[color:var(--color-primary)] px-3 py-2 sm:px-3.5 sm:py-2.5 text-sm font-semibold text-white shadow-sm hover:opacity-90 transition-all;
   }
 
   .btn-secondary {
-    @apply rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-[color:var(--color-primary)] ring-1 ring-[color:var(--color-primary)] hover:bg-[color:var(--color-primary)] hover:text-white transition-all;
+    @apply rounded-md bg-white px-3 py-2 sm:px-3.5 sm:py-2.5 text-sm font-semibold text-[color:var(--color-primary)] ring-1 ring-inset ring-[color:var(--color-primary)]/30 hover:bg-[color:var(--color-primary)] hover:text-white transition-all;
   }
 
   .nav-link {
@@ -58,7 +65,37 @@
   }
 
   .card {
-    @apply bg-white rounded-xl shadow-sm ring-1 ring-gray-200 p-6 hover:shadow-md transition-shadow;
+    @apply bg-white rounded-xl shadow-sm ring-1 ring-gray-200 p-4 sm:p-6 hover:shadow-md transition-shadow;
+  }
+  
+  /* Mobile optimized grid layouts */
+  .mobile-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6;
+  }
+  
+  /* Responsive paddings */
+  .content-padding {
+    @apply px-4 sm:px-6 py-4 sm:py-6;
+  }
+  
+  /* Responsive margins */
+  .section-margin {
+    @apply my-8 sm:my-12 md:my-16;
+  }
+  
+  /* Responsive text alignment */
+  .responsive-text {
+    @apply text-left sm:text-center;
+  }
+  
+  /* Mobile optimized icon sizes */
+  .responsive-icon {
+    @apply h-4 w-4 sm:h-5 sm:w-5;
+  }
+  
+  /* Mobile-friendly containers with scroll */
+  .mobile-scroll-container {
+    @apply overflow-x-auto sm:overflow-visible pb-4 -mx-4 px-4 sm:mx-0 sm:px-0;
   }
 }
 
@@ -92,6 +129,49 @@
   
   .animation-delay-4000 {
     animation-delay: 4000ms;
+  }
+}
+
+/* Mobile responsive utilities */
+@layer utilities {
+  .text-responsive {
+    @apply text-sm sm:text-base;
+  }
+  
+  .heading-responsive {
+    @apply text-xl sm:text-2xl md:text-3xl font-bold;
+  }
+  
+  .subheading-responsive {
+    @apply text-lg sm:text-xl font-semibold;
+  }
+  
+  .spacing-responsive {
+    @apply space-y-4 sm:space-y-6 md:space-y-8;
+  }
+  
+  .padding-responsive {
+    @apply p-4 sm:p-6 md:p-8;
+  }
+  
+  .margin-responsive {
+    @apply my-4 sm:my-6 md:my-8;
+  }
+  
+  .icon-responsive {
+    @apply h-5 w-5 sm:h-6 sm:w-6; 
+  }
+  
+  .flex-responsive {
+    @apply flex flex-col sm:flex-row;
+  }
+  
+  .gap-responsive {
+    @apply gap-3 sm:gap-4 md:gap-6;
+  }
+  
+  .width-responsive {
+    @apply w-full sm:w-auto;
   }
 }
 
