@@ -200,11 +200,14 @@ export default function Homepage() {
               </div>
             </div>
             <h1 className="mt-10 max-w-lg text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              <span className="block">India's Premier</span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
-                Workforce Solutions
-              </span>
-            </h1>
+  <span className="block">India's Premier</span>
+  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+    Workforce Solutions
+  </span>
+</h1>
+<p className="mt-4 mb-2 text-base sm:text-lg font-medium text-green-700 bg-green-50 border border-green-200 rounded-lg px-4 py-2 inline-block shadow-sm">
+  Apex is <span className="font-semibold">MSME registered</span> and licensed under the <span className="font-semibold">Contract Labour (Regulation &amp; Abolition) Act, 1970</span>.
+</p>
             <p className="mt-6 text-lg leading-8 text-gray-600">
               Combining 23+ years of traditional staffing expertise with cutting-edge AI technology. We deliver both time-tested workforce solutions and innovative AI-powered talent management across all 28 Indian states.
             </p>
