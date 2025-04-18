@@ -205,8 +205,8 @@ export default function Homepage() {
     Workforce Solutions
   </span>
 </h1>
-<p className="mt-4 mb-2 text-base sm:text-lg font-medium text-green-700 bg-green-50 border border-green-200 rounded-lg px-4 py-2 inline-block shadow-sm">
-  Apex is <span className="font-semibold">MSME registered</span> and licensed under the <span className="font-semibold">Contract Labour (Regulation &amp; Abolition) Act, 1970</span>.
+<p className="mt-4 mb-2 text-base sm:text-lg font-medium text-green-800 bg-green-50 border border-green-200 rounded-lg px-4 py-2 inline-block shadow-sm">
+  <span className="font-semibold">Apex</span> is <span className="font-semibold">MSME</span> & <span className="font-semibold">NAPS</span> registered, and fully licensed under the <span className="font-semibold">Contract Labour (Regulation &amp; Abolition) Act, 1970</span>.
 </p>
             <p className="mt-6 text-lg leading-8 text-gray-600">
               Combining 23+ years of traditional staffing expertise with cutting-edge AI technology. We deliver both time-tested workforce solutions and innovative AI-powered talent management across all 28 Indian states.
