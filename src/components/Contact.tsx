@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle, Globe, Building, ChevronRight, Briefcase, Users } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { SEO, generateFAQSchema } from '../utils/seo';
-import { useLocation, useSearchParams } from 'react-router-dom';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
-import Map from '../components/common/Map';
-import ImageWithFallback from '../components/common/ImageWithFallback';
-import Head from './layout/Head';
+import { useSearchParams } from 'react-router-dom';
 
 // Add animation keyframes for blob and pulse effects
 import '../styles/animations.css';
@@ -93,22 +89,24 @@ export default function Contact() {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      // Simulating API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Here you would typically send the form data to your backend
-      console.log('Form submitted:', data);
-      
-      toast.success('Message sent successfully!');
-      setSubmitted(true);
-      reset();
-      
-      // Reset submission state after 5 seconds
-      setTimeout(() => {
-        setSubmitted(false);
-      }, 5000);
+      const response = await fetch('https://formsubmit.co/ajax/mail@apexenterprises.net', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const result = await response.json();
+      if (result.success === 'true') {
+        toast.success('Message sent successfully!');
+        setSubmitted(true);
+        reset();
+      } else {
+        toast.error('Failed to send message. Please try again later.');
+      }
     } catch (error) {
-      toast.error('Failed to send message. Please try again.');
+      console.error(error);
+      toast.error('An error occurred. Please try again.');
+    } finally {
+      setTimeout(() => setSubmitted(false), 5000);
     }
   };
 
@@ -244,7 +242,10 @@ export default function Contact() {
               
               <div className="hidden lg:block lg:w-1/2 mt-10 lg:mt-0">
                 <div className="relative h-[450px] w-full rounded-2xl bg-white/10 p-1 shadow-2xl backdrop-blur-sm border border-indigo-500/20 overflow-hidden group transform hover:scale-[1.01] transition-all duration-300">
-                  <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center opacity-20 transition-opacity duration-500 group-hover:opacity-30"></div>
+                  <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+                  <div className="absolute -left-40 -top-40 h-80 w-80 rounded-full bg-blue-500 opacity-20 blur-3xl animate-blob"></div>
+                  <div className="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-indigo-500 opacity-20 blur-3xl animate-blob animation-delay-2000"></div>
+                  <div className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-500 opacity-10 blur-3xl animate-blob animation-delay-4000"></div>
                   
                   {/* 3D Office Building Visualization */}
                   <div className="absolute right-4 bottom-4 w-1/2 h-1/2 opacity-70 group-hover:opacity-90 transition-all duration-500 transform group-hover:translate-y-[-10px] group-hover:scale-105">

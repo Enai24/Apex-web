@@ -63,6 +63,10 @@ const routeSeoConfig: Record<string, { title: string; description: string }> = {
     title: 'AI-Powered Workforce Services | Apex Enterprises India',
     description: 'Comprehensive AI-enhanced staffing, compliance, and payroll services tailored for Indian businesses of all sizes across 28 states.',
   },
+  '/services/marketing-services': {
+    title: 'Marketing Services | Apex Enterprises',
+    description: 'Full-stack marketing services: digital marketing, branding, and campaign execution for businesses in India.',
+  },
   '/contact': {
     title: 'Contact Apex Enterprises | AI Workforce Solutions',
     description: 'Connect with India\'s premier AI-powered workforce solutions provider. Offices in Mumbai, Delhi, Bangalore, Chennai, and Hyderabad.',
@@ -199,12 +203,23 @@ function PublicLayout({ children }: { children: React.ReactNode }) {
     }
   }
   
+  // Generate breadcrumbs for structured data
+  const paths = pathname.split('/').filter(Boolean);
+  const breadcrumbs = [{ name: 'Home', url: '/' }];
+  paths.forEach((segment, index) => {
+    breadcrumbs.push({
+      name: segment.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
+      url: `/${paths.slice(0, index + 1).join('/')}`,
+    });
+  });
+
   return (
     <div className="min-h-screen flex flex-col">
       <Head 
         title={seoConfig.title}
         description={seoConfig.description}
         canonicalPath={pathname}
+        breadcrumbs={breadcrumbs}
       />
       <Navbar mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
       <main className="flex-grow flex flex-col">{children}</main>
@@ -234,6 +249,7 @@ export default function App() {
             <Route path="/services/labour-law-advisory" element={<PublicLayout><Services /></PublicLayout>} />
             <Route path="/services/payroll-compliance" element={<PublicLayout><Services /></PublicLayout>} />
             <Route path="/services/specialised-hiring" element={<PublicLayout><Services /></PublicLayout>} />
+            <Route path="/services/marketing-services" element={<PublicLayout><Services /></PublicLayout>} />
             <Route path="/services/ai-workforce-analytics" element={<PublicLayout><AIWorkforceSolutions /></PublicLayout>} />
             
             {/* AI Solutions */}

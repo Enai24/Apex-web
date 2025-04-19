@@ -1,4 +1,3 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 interface HeadProps {
@@ -10,6 +9,7 @@ interface HeadProps {
   ogType?: string;
   twitterImage?: string;
   structuredData?: object | object[];
+  breadcrumbs?: { name: string; url: string }[];
   noindex?: boolean;
   locale?: string;
 }
@@ -26,6 +26,7 @@ export default function Head({
   ogType = 'website',
   twitterImage = '/twitter-image.jpg',
   structuredData,
+  breadcrumbs,
   noindex = false,
   locale = 'en_IN',
 }: HeadProps) {
@@ -66,7 +67,40 @@ export default function Head({
   };
   
   // Combine provided structured data with default organization data
-  const finalStructuredData = structuredData || defaultStructuredData;
+  const finalStructuredData = structuredData
+    ? Array.isArray(structuredData)
+      ? [defaultStructuredData, ...structuredData]
+      : [defaultStructuredData, structuredData]
+    : defaultStructuredData;
+  
+  // Always work with array for JSON-LD scripts
+  const schemaArray = Array.isArray(finalStructuredData) ? finalStructuredData : [finalStructuredData];
+  
+  // BreadcrumbList schema
+  if (breadcrumbs && breadcrumbs.length) {
+    schemaArray.push({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbs.map((bc, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        name: bc.name,
+        item: `${siteUrl}${bc.url}`,
+      })),
+    });
+  }
+  
+  // WebSite search schema for search box in SERPs
+  schemaArray.push({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    url: siteUrl,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${siteUrl}/search?query={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
+  });
   
   return (
     <Helmet>
@@ -74,6 +108,9 @@ export default function Head({
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
+      {/* SEO Enhancements */}
+      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="application-name" content="Apex Enterprises" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="author" content="Apex Enterprises" />
       <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
@@ -84,6 +121,9 @@ export default function Head({
       
       {/* Canonical Link */}
       <link rel="canonical" href={canonicalUrl} />
+      <link rel="alternate" hrefLang="en-IN" href={canonicalUrl} />
+      <link rel="alternate" hrefLang="en" href={canonicalUrl} />
+      <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={ogType} />
@@ -93,7 +133,9 @@ export default function Head({
       <meta property="og:image" content={ogImageUrl} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={description} />
       <meta property="og:locale" content={locale} />
+      <meta property="og:locale:alternate" content="en_US" />
       <meta property="og:site_name" content="Apex Enterprises" />
       
       {/* Twitter */}
@@ -102,7 +144,9 @@ export default function Head({
       <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={twitterImageUrl} />
+      <meta property="twitter:image:alt" content={description} />
       <meta property="twitter:site" content="@ApexEnterprisesIndia" />
+      <meta name="twitter:creator" content="@ApexEnterprisesIndia" />
       
       {/* Favicon */}
       <link rel="icon" href="/favicon.ico" />
@@ -118,13 +162,8 @@ export default function Head({
       
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json">
-        {typeof finalStructuredData === 'string' 
-          ? finalStructuredData 
-          : JSON.stringify(finalStructuredData)}
+        {JSON.stringify(schemaArray)}
       </script>
-      
-      {/* Security */}
-      <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self';" />
     </Helmet>
   );
 } 

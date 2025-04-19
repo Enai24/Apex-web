@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram, ArrowUp, Send, Globe } from 'lucide-react';
 
@@ -6,18 +7,28 @@ export default function Footer() {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      // Here you would typically send this to your backend
-      console.log('Subscribed with:', email);
-      setSubscribed(true);
-      setEmail('');
-      
-      // Reset the subscribed state after 3 seconds
-      setTimeout(() => {
-        setSubscribed(false);
-      }, 3000);
+    if (!email) return;
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/mail@apexenterprises.net', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const result = await response.json();
+      if (result.success === 'true') {
+        toast.success('Subscribed successfully!');
+        setSubscribed(true);
+        setEmail('');
+      } else {
+        toast.error('Subscription failed. Please try again.');
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error('An error occurred. Please try again.');
+    } finally {
+      setTimeout(() => setSubscribed(false), 3000);
     }
   };
 

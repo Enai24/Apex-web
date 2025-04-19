@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { SEO, generateServiceSchema } from '../utils/seo';
 import { 
   Users, FileCheck, FileSpreadsheet, BarChart2, Briefcase, 
-  Cpu, Zap, Brain, Award, Globe2, CheckCircle, ArrowRight, 
+  Cpu, Zap, Brain, Award, Globe2, CheckCircle, ArrowRight,
+  Megaphone,
   ChevronDown, ChevronUp, Shield, Clock, Database, Building2
 } from 'lucide-react';
 
@@ -233,6 +234,22 @@ const services = [
     ],
     color: "indigo",
     stat: { value: "500+", label: "Clients served" }
+  },
+  {
+    id: 15,
+    name: "Marketing Services",
+    description: "Comprehensive marketing solutions including digital marketing, brand strategy, and campaign management to boost your market presence across India.",
+    metaDescription: "Full-stack marketing services: digital marketing, branding, and campaign execution for businesses in India.",
+    icon: Megaphone,
+    href: "/services/marketing-services",
+    features: [
+      "Data-driven digital marketing campaigns",
+      "Brand strategy and identity development",
+      "Social media management and engagement",
+      "Performance analytics and ROI optimization"
+    ],
+    color: "teal",
+    stat: { value: "150+", label: "Campaigns run" }
   }
 ];
 
@@ -423,7 +440,7 @@ export default function Services() {
           {/* AI-powered services highlight section with enhanced content */}
           <section className="mt-24 mx-auto max-w-5xl" id="ai-solutions" aria-labelledby="ai-solutions-heading">
             <h2 id="ai-solutions-heading" className="sr-only">AI-Powered Workforce Solutions</h2>
-            <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-blue-600 to-indigo-700 shadow-xl">
+            <div className="relative rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 shadow-xl">
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" aria-hidden="true"></div>
               
               <div className="px-8 py-12 sm:px-12 relative z-10">
@@ -500,7 +517,7 @@ export default function Services() {
                 </ul>
                   <Link
                     to="/ai-resume-screening"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition-colors duration-300"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-indigo-600 text-white font-medium hover:bg-indigo-700 hover:shadow-md transition-all duration-300"
                   >
                     <span>Explore Resume Screening</span>
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
