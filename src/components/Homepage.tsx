@@ -6,6 +6,7 @@ import {
   Sparkles, Brain, Code, Database, Cpu, BarChart2, Network, Check, TrendingUp, 
   CheckCircle, ChevronDown, Clock, FileSearch, Bot, MessageSquare
 } from 'lucide-react';
+import OptimizedImage from './ui/OptimizedImage';
 import Hero from './Hero';
 import Services from './Services';
 import Industries from './Industries';
@@ -223,10 +224,14 @@ export default function Homepage() {
           </div>
           <div className="mt-16 sm:mt-24 lg:mt-0 lg:flex-shrink-0 lg:flex-grow relative z-10">
             <div className="relative mx-auto overflow-hidden rounded-3xl shadow-2xl border border-indigo-50 bg-white transition-transform duration-300 hover:scale-[1.02] md:h-[540px] md:w-[540px]">
-              <img
-                src="https://images.unsplash.com/photo-1639322537138-5e513100b36e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-                alt="AI-powered workforce management dashboard"
+              <OptimizedImage
+                src="https://images.unsplash.com/photo-1639322537138-5e513100b36e"
+                alt="AI-powered workforce management dashboard showing recruitment analytics and staffing solutions for Indian businesses | Apex Enterprises"
+                width={540}
+                height={540}
+                priority={true}
                 className="absolute inset-0 h-full w-full object-cover"
+                sizes="(max-width: 768px) 400px, 540px"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/40 to-purple-500/30 mix-blend-multiply"></div>
               
@@ -1037,66 +1042,14 @@ export default function Homepage() {
       </div>
 
       {/* Add floating particles */}
-      <div className="absolute inset-0 overflow-hidden -z-5 pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden -z-10 pointer-events-none">
         <div className="animate-float opacity-70 absolute top-20 left-[15%] w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-500/20"></div>
         <div className="animate-float animation-delay-2000 opacity-70 absolute top-40 left-[80%] w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-indigo-500/20"></div>
         <div className="animate-float animation-delay-4000 opacity-70 absolute top-[60%] left-[25%] w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-purple-500/20"></div>
         <div className="animate-float opacity-70 absolute top-[30%] left-[60%] w-10 h-10 sm:w-16 sm:h-16 rounded-full bg-orange-500/20"></div>
       </div>
 
-      {/* Trusted by section with enhanced hover effects and animations */}
-      <div className="bg-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className={`mx-auto text-center mb-8 sm:mb-12 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '1200ms' }}>
-            <div className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700 ring-1 ring-inset ring-blue-700/20 mb-4">
-              <Building2 className="mr-1.5 h-4 w-4" />
-              <span>Elite Partnerships</span>
-            </div>
-            <h2 className="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-gray-900">India's Top Corporations</h2>
-            <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
-              Trusted by industry leaders across the nation
-            </p>
-          </div>
-          
-          <div className={`mx-auto grid max-w-lg grid-cols-2 items-center gap-x-4 sm:gap-x-8 gap-y-8 sm:gap-y-12 sm:max-w-xl sm:grid-cols-3 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-5 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '1400ms' }}>
-            <img
-              className="col-span-1 max-h-10 sm:max-h-12 w-full object-contain opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 hover:scale-110"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Reliance_Industries_Logo.svg/1200px-Reliance_Industries_Logo.svg.png"
-              alt="Reliance Industries"
-              width={158}
-              height={48}
-            />
-            <img
-              className="col-span-1 max-h-10 sm:max-h-12 w-full object-contain opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 hover:scale-110"
-              src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cf/Tata_Consultancy_Services_Logo.svg/1200px-Tata_Consultancy_Services_Logo.svg.png"
-              alt="TCS"
-              width={158}
-              height={48}
-            />
-            <img
-              className="col-span-1 max-h-10 sm:max-h-12 w-full object-contain opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Infosys_logo.svg/1280px-Infosys_logo.svg.png"
-              alt="Infosys"
-              width={158}
-              height={48}
-            />
-            <img
-              className="col-span-1 max-h-10 sm:max-h-12 w-full object-contain opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
-              src="https://upload.wikimedia.org/wikipedia/commons/4/41/Wipro_Logo.png"
-              alt="Wipro"
-              width={158}
-              height={48}
-            />
-            <img
-              className="col-span-1 max-h-10 sm:max-h-12 w-full object-contain opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/HDFC_Bank_Logo.svg/1200px-HDFC_Bank_Logo.svg.png"
-              alt="HDFC Bank"
-              width={158}
-              height={48}
-            />
-          </div>
-        </div>
-      </div>
+
 
       {/* Solutions section - improved with icons and better cards */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
@@ -1161,31 +1114,6 @@ export default function Homepage() {
                 <p className="text-sm sm:text-base leading-6 text-gray-500">{metric.description}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </div>
-
-      {/* FAQ Section */}
-      <div className="bg-gray-50 py-12 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
-            <h2 className="text-2xl sm:text-3xl font-bold leading-10 tracking-tight text-gray-900 text-center mb-8 sm:mb-16">
-              Frequently asked questions
-            </h2>
-            <dl className="mt-8 space-y-6 divide-y divide-gray-900/10">
-              {faqs.map((faq) => (
-                <div key={faq.question} className="pt-6 md:grid md:grid-cols-12 md:gap-8">
-                  <dt className="text-base font-semibold leading-7 text-gray-900 md:col-span-5">
-                    {faq.question}
-                  </dt>
-                  <dd className="mt-2 md:mt-0 md:col-span-7">
-                    <p className="text-sm sm:text-base leading-6 sm:leading-7 text-gray-600">
-                      {faq.answer}
-                    </p>
-                  </dd>
-                </div>
-              ))}
-            </dl>
           </div>
         </div>
       </div>

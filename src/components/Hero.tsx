@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Users, Building2, Award, Globe2, TrendingUp, GraduationCap, ShieldCheck, FileCheck, Zap, Sparkles } from 'lucide-react';
+import OptimizedImage from './ui/OptimizedImage';
 
 interface SolutionType {
   name: string;
@@ -192,10 +193,14 @@ export default function Hero() {
               <div className="w-32 sm:w-44 flex-none space-y-4 sm:space-y-8 pt-12 sm:pt-32 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                 <div className="relative hover:scale-105 transition-transform duration-500 ease-in-out shadow-xl hover:shadow-2xl group">
                   <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
-                  <img
+                  <OptimizedImage
                     src="https://images.unsplash.com/photo-1551836022-d5d88e9218df"
-                    alt="Team collaboration"
+                    alt="Professional team collaboration in modern workplace - staffing solutions and workforce management | Apex Enterprises"
+                    width={176}
+                    height={264}
                     className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg transform transition-transform duration-700 group-hover:rotate-y-6"
+                    loading="lazy"
+                    sizes="(max-width: 640px) 128px, 176px"
                   />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
                 </div>
@@ -203,19 +208,27 @@ export default function Hero() {
               <div className="w-32 sm:w-44 flex-none space-y-4 sm:space-y-8 sm:pt-52 lg:pt-36">
                 <div className="relative hover:scale-105 transition-transform duration-500 ease-in-out shadow-xl hover:shadow-2xl group">
                   <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/10 to-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
-                  <img
+                  <OptimizedImage
                     src="https://images.unsplash.com/photo-1542744094-3a31f272c490"
-                    alt="Corporate office"
+                    alt="Modern corporate office environment with professional workspace - business staffing and recruitment services | Apex Enterprises"
+                    width={176}
+                    height={264}
                     className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg transform transition-transform duration-700 group-hover:rotate-y-6"
+                    loading="lazy"
+                    sizes="(max-width: 640px) 128px, 176px"
                   />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
                 </div>
                 <div className="relative hover:scale-105 transition-transform duration-500 ease-in-out shadow-xl hover:shadow-2xl group">
                   <div className="absolute inset-0 bg-gradient-to-tr from-green-500/10 to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
-                  <img
+                  <OptimizedImage
                     src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf"
-                    alt="Professional meeting"
+                    alt="Business professionals in strategic planning meeting - workforce consulting and HR solutions | Apex Enterprises"
+                    width={176}
+                    height={264}
                     className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg transform transition-transform duration-700 group-hover:rotate-y-6"
+                    loading="lazy"
+                    sizes="(max-width: 640px) 128px, 176px"
                   />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
                 </div>

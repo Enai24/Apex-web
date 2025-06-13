@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, X, Phone, Mail, ChevronDown, Shield, Brain, Globe2, Users, MapPin } from 'lucide-react';
+import { Menu, X, Phone, Mail, ChevronDown, Shield, Brain, Globe2, Users } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from './common/Logo';
 

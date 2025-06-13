@@ -6,11 +6,15 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:optimized": "node scripts/optimize-build.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "generate-sitemap": "node scripts/generate-sitemap.js",
     "build:with-sitemap": "npm run generate-sitemap && npm run build",
-    "check-seo": "node scripts/check-seo.js"
+    "build:production": "npm run generate-sitemap && node scripts/optimize-build.js",
+    "check-seo": "node scripts/check-seo.js",
+    "deploy:setup": "node scripts/deploy-optimizations.js",
+    "seo:validate": "npm run deploy:setup && echo 'SEO fixes generated - check deployment/ folder'"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
@@ -29,6 +33,7 @@
     "react-router-dom": "^6.22.0",
     "recharts": "^2.12.0",
     "tailwind-merge": "^2.2.1",
+    "web-vitals": "^5.0.3",
     "zod": "^3.22.4"
   },
   "devDependencies": {

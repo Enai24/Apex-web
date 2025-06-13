@@ -1,0 +1,45 @@
+{
+  "apo": {
+    "enabled": true,
+    "cf": true,
+    "wordpress": false,
+    "hostnames": [
+      "apexenterprises.net",
+      "www.apexenterprises.net"
+    ],
+    "cache_ttl": 2592000,
+    "api_cache_ttl": 3600
+  },
+  "page_rules": [
+    {
+      "targets": [
+        "apexenterprises.net/static/*"
+      ],
+      "actions": {
+        "cache_level": "cache_everything",
+        "edge_cache_ttl": 31536000,
+        "browser_cache_ttl": 31536000
+      }
+    },
+    {
+      "targets": [
+        "apexenterprises.net/api/*"
+      ],
+      "actions": {
+        "cache_level": "cache_everything",
+        "edge_cache_ttl": 3600,
+        "browser_cache_ttl": 300
+      }
+    },
+    {
+      "targets": [
+        "apexenterprises.net/cities/*"
+      ],
+      "actions": {
+        "cache_level": "cache_everything",
+        "edge_cache_ttl": 86400,
+        "browser_cache_ttl": 3600
+      }
+    }
+  ]
+}

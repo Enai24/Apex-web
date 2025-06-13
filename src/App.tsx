@@ -46,6 +46,8 @@ import Documents from './pages/Documents';
 import Settings from './pages/Settings';
 import { getCurrentUser, getCurrentClient } from './lib/auth';
 import Head from './components/layout/Head';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfService from './components/TermsOfService';
 
 const queryClient = new QueryClient();
 
@@ -110,6 +112,14 @@ const routeSeoConfig: Record<string, { title: string; description: string }> = {
   '/careers': {
     title: 'Careers at Apex Enterprises | AI Workforce Solutions',
     description: 'Join India\'s leading AI-powered workforce solutions provider. Explore exciting career opportunities across technology, operations, HR, and more.'
+  },
+  '/privacy-policy': {
+    title: 'Privacy Policy | Apex Enterprises',
+    description: 'Learn how Apex Enterprises collects, uses, shares and safeguards personal information in accordance with Indian data-protection laws.'
+  },
+  '/terms-of-service': {
+    title: 'Terms of Service | Apex Enterprises',
+    description: 'Review the terms and conditions that govern your use of the Apex Enterprises website and related services.'
   }
 };
 
@@ -321,6 +331,10 @@ export default function App() {
             <Route path="/careers" element={<PublicLayout><CareersPage /></PublicLayout>} />
             <Route path="/careers/listings" element={<PublicLayout><JobListing /></PublicLayout>} />
             <Route path="/careers/:jobId" element={<PublicLayout><JobDetailPage /></PublicLayout>} />
+
+            {/* Policy & Legal Pages */}
+            <Route path="/privacy-policy" element={<PublicLayout><PrivacyPolicy /></PublicLayout>} />
+            <Route path="/terms-of-service" element={<PublicLayout><TermsOfService /></PublicLayout>} />
           </Routes>
         </Router>
         <Toaster position="top-right" />
