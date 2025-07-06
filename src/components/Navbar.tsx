@@ -105,8 +105,8 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-premium border-b border-gray-100">
-      {/* Premium Top Bar */}
-      <div className="bg-executive-gradient">
+      {/* Premium Top Bar - hidden on small screens to save vertical space */}
+      <div className="bg-executive-gradient hidden sm:block">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="flex h-12 items-center justify-between">
             <div className="flex items-center gap-x-6">
@@ -136,7 +136,7 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
 
       {/* Premium Main Navigation */}
       <nav className="mx-auto max-w-full px-0 lg:px-0 bg-luxury-mesh" aria-label="Main navigation">
-        <div className="flex h-20 sm:h-24 items-center justify-between bg-white/90 backdrop-blur-sm">
+        <div className="flex h-16 sm:h-24 items-center justify-between bg-white/90 backdrop-blur-sm">
           <div className="flex lg:flex-none pl-6 sm:pl-8">
             <Logo />
           </div>
