@@ -227,6 +227,15 @@ function PublicLayout({ children }: { children: React.ReactNode }) {
     });
   });
 
+  // Prevent background scrolling when mobile menu is open
+  React.useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+  }, [mobileMenuOpen]);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Head 
