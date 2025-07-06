@@ -202,7 +202,7 @@ export default function Homepage() {
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
               India's <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-blue-600 to-green-600">#1 Recruitment</span>
               <br />
-              <span className="text-gray-800">& Staffing Agency</span>
+              <span className="text-gray-800">& Staffing Company</span>
             </h1>
             
             {/* Subheading */}
