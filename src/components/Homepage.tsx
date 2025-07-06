@@ -21,6 +21,7 @@ import InteractiveElements from './InteractiveElements';
 import ElevenLabsConvai from './ElevenLabsConvai';
 import ConversionCTA from './ConversionCTA';
 import TrustSignals from './TrustSignals';
+
 import { AI_WORKFORCE_STATS } from '../utils/ai-workforce';
 import './homepage.css'; // Import CSS file with animations
 
@@ -188,7 +189,7 @@ export default function Homepage() {
           }}>
           </div>
         </div>
-        
+
         {/* Hero Content */}
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
@@ -203,7 +204,7 @@ export default function Homepage() {
               India's <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-blue-600 to-green-600">#1 Recruitment</span>
               <br />
               <span className="text-gray-800">& Staffing Company</span>
-            </h1>
+</h1>
             
             {/* Subheading */}
             <p className="mt-6 text-lg leading-8 text-gray-600 max-w-2xl mx-auto">
@@ -234,7 +235,7 @@ export default function Homepage() {
               <div className="text-center">
                 <div className="hero-trust-number text-2xl font-bold text-orange-600">50,000+</div>
                 <div className="hero-trust-label text-sm text-gray-600">Successful Placements</div>
-              </div>
+                </div>
               <div className="text-center">
                 <div className="hero-trust-number text-2xl font-bold text-blue-600">500+</div>
                 <div className="hero-trust-label text-sm text-gray-600">Happy Clients</div>

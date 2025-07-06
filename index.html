@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://elevenlabs.io https://*.elevenlabs.io; style-src 'self' 'unsafe-inline'; connect-src 'self' https://elevenlabs.io https://*.elevenlabs.io wss://*.elevenlabs.io https://api.us.elevenlabs.io; img-src 'self' data: https:; font-src 'self' data:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://elevenlabs.io https://*.elevenlabs.io wss://*.elevenlabs.io https://api.us.elevenlabs.io; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://snap.licdn.com https://elevenlabs.io https://*.elevenlabs.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https://cdn.openai.com; img-src 'self' data: https:;">
 <!-- NOTE: The error 'Cannot define multiple custom elements with the same tag name' means a Web Component script (like convai-widget.js) is loaded more than once. Ensure it is only included once in your code. -->
 <!-- NOTE: You have missing images (photo-1607703703674, og-image.jpg). Please add these images to your public/ directory or update the paths in your code/meta tags to point to existing images. -->
 <!-- NOTE: The error 'Cannot define multiple custom elements with the same tag name' means a Web Component script (like convai-widget.js) is loaded more than once. Ensure it is only included once in your code. -->
@@ -31,7 +31,6 @@
     <meta property="og:url" content="https://www.apexenterprises.in/">
     <meta property="og:title" content="#1 Top Staffing & Recruitment Agency in India | Apex Enterprises">
     <meta property="og:description" content="As India's leading recruitment and HR consulting firm, Apex Enterprises delivers premier executive search, IT staffing, and manpower solutions. Partner with the best.">
-    <meta property="og:image" content="https://www.apexenterprises.in/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Apex Enterprises - India's Leading Staffing Solutions Company">
@@ -150,42 +149,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- OpenAI Sans Font -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-      @font-face {
-        font-family: 'OpenAI Sans';
-        src: url('https://cdn.openai.com/fonts/OpenAISans-Regular.woff2') format('woff2'),
-             url('https://cdn.openai.com/fonts/OpenAISans-Regular.woff') format('woff');
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'OpenAI Sans';
-        src: url('https://cdn.openai.com/fonts/OpenAISans-Medium.woff2') format('woff2'),
-             url('https://cdn.openai.com/fonts/OpenAISans-Medium.woff') format('woff');
-        font-weight: 500;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'OpenAI Sans';
-        src: url('https://cdn.openai.com/fonts/OpenAISans-SemiBold.woff2') format('woff2'),
-             url('https://cdn.openai.com/fonts/OpenAISans-SemiBold.woff') format('woff');
-        font-weight: 600;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'OpenAI Sans';
-        src: url('https://cdn.openai.com/fonts/OpenAISans-Bold.woff2') format('woff2'),
-             url('https://cdn.openai.com/fonts/OpenAISans-Bold.woff') format('woff');
-        font-weight: 700;
-        font-style: normal;
-        font-display: swap;
-      }
-    </style>
     
     <!-- Favicon information -->
     <link rel="apple-touch-icon" sizes="180x180" href="/logo.png">
@@ -197,8 +162,7 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <!-- Performance optimization script -->
-    <script async src="/performance.js"></script>
+    <!-- <script async src="/performance.js"></script> -->
     
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
@@ -254,45 +218,16 @@
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', 'YOUR_PIXEL_ID');
-      fbq('track', 'PageView');
+      // fbq('init', 'YOUR_PIXEL_ID'); // Commented out as YOUR_PIXEL_ID is not set
+      // fbq('track', 'PageView'); // Commented out as YOUR_PIXEL_ID is not set
     </script>
     <noscript>
       <img height="1" width="1" style="display:none" 
            src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/>
     </noscript>
     
-    <!-- LinkedIn Insight Tag -->
-    <script type="text/javascript">
-      _linkedin_partner_id = "YOUR_PARTNER_ID";
-      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-    </script>
-    <script type="text/javascript">
-      (function(l) {
-        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
-        window.lintrk.q=[]}
-        var s = document.getElementsByTagName("script")[0];
-        var b = document.createElement("script");
-        b.type = "text/javascript";b.async = true;
-        b.src = "https://snap.licdn.com/li.js";
-        s.parentNode.insertBefore(b, s);})(window.lintrk);
-    </script>
-    <noscript>
-      <img height="1" width="1" style="display:none;" alt="" 
-           src="https://px.ads.linkedin.com/collect/?pid=YOUR_PARTNER_ID&fmt=gif" />
-    </noscript>
+    <!-- LinkedIn Insight Tag (Commented out) -->
     
-    <!-- Hotjar Tracking -->
-    <script>
-      (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:YOUR_HOTJAR_ID,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-    </script>
+    <!-- Hotjar Tracking (Commented out) -->
   </body>
 </html>
