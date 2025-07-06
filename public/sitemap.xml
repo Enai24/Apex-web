@@ -1,138 +1,200 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Main pages -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  
+  <!-- Homepage - Highest Priority -->
   <url>
     <loc>https://apexenterprises.net/</loc>
-    <changefreq>weekly</changefreq>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <lastmod>2023-05-15</lastmod>
+    <image:image>
+      <image:loc>https://apexenterprises.net/og-home-image.jpg</image:loc>
+      <image:title>Apex Enterprises - India's Leading Staffing Solutions</image:title>
+    </image:image>
   </url>
-  <url>
-    <loc>https://apexenterprises.net/about</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2023-05-15</lastmod>
-  </url>
+  
+  <!-- Core Service Pages -->
   <url>
     <loc>https://apexenterprises.net/services</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2023-05-15</lastmod>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
-  <url>
-    <loc>https://apexenterprises.net/contact</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2023-05-15</lastmod>
-  </url>
-
-  <!-- Service pages -->
+  
   <url>
     <loc>https://apexenterprises.net/services/contract-staffing</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <lastmod>2023-05-15</lastmod>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
+  
   <url>
     <loc>https://apexenterprises.net/services/payroll-services</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <lastmod>2023-05-15</lastmod>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
+  
   <url>
     <loc>https://apexenterprises.net/services/regulatory-compliance</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <lastmod>2023-05-15</lastmod>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
+  
   <url>
     <loc>https://apexenterprises.net/services/workforce-analytics</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <lastmod>2023-05-15</lastmod>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
+  
   <url>
     <loc>https://apexenterprises.net/services/specialised-hiring</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <lastmod>2023-05-15</lastmod>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
-
-  <!-- AI Solutions pages -->
+  
+  <!-- AI Solutions - High Priority for Traffic -->
   <url>
     <loc>https://apexenterprises.net/ai-workforce-solutions</loc>
+    <lastmod>2024-12-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2023-05-15</lastmod>
   </url>
+  
   <url>
     <loc>https://apexenterprises.net/ai-resume-screening</loc>
+    <lastmod>2024-12-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2023-05-15</lastmod>
   </url>
+  
   <url>
     <loc>https://apexenterprises.net/ai-voice-connect</loc>
+    <lastmod>2024-12-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2023-05-15</lastmod>
   </url>
+  
   <url>
     <loc>https://apexenterprises.net/ai-workforce-solutions/ai-talent-matching</loc>
-    <changefreq>monthly</changefreq>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2023-05-15</lastmod>
   </url>
+  
   <url>
     <loc>https://apexenterprises.net/ai-workforce-solutions/predictive-analytics</loc>
-    <changefreq>monthly</changefreq>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2023-05-15</lastmod>
   </url>
-
-  <!-- Location pages - High priority for local SEO -->
+  
+  <!-- Location Pages - Local SEO -->
   <url>
     <loc>https://apexenterprises.net/locations/delhi</loc>
+    <lastmod>2024-12-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2023-05-15</lastmod>
   </url>
+  
   <url>
     <loc>https://apexenterprises.net/locations/bangalore</loc>
+    <lastmod>2024-12-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2023-05-15</lastmod>
   </url>
+  
   <url>
     <loc>https://apexenterprises.net/locations/mumbai</loc>
+    <lastmod>2024-12-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2023-05-15</lastmod>
   </url>
-
-  <!-- Industry pages -->
+  
+  <!-- Industry Pages -->
   <url>
     <loc>https://apexenterprises.net/industries</loc>
-    <changefreq>monthly</changefreq>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-    <lastmod>2023-05-15</lastmod>
   </url>
+  
   <url>
     <loc>https://apexenterprises.net/industries/manufacturing</loc>
+    <lastmod>2024-12-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <lastmod>2023-05-15</lastmod>
   </url>
+  
   <url>
     <loc>https://apexenterprises.net/industries/it-ites</loc>
+    <lastmod>2024-12-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <lastmod>2023-05-15</lastmod>
   </url>
+  
   <url>
     <loc>https://apexenterprises.net/industries/bfsi</loc>
+    <lastmod>2024-12-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <lastmod>2023-05-15</lastmod>
   </url>
+  
+  <!-- Company Pages -->
+  <url>
+    <loc>https://apexenterprises.net/about</loc>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://apexenterprises.net/careers</loc>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://apexenterprises.net/contact</loc>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Client Portals -->
+  <url>
+    <loc>https://apexenterprises.net/employers</loc>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://apexenterprises.net/job-seekers</loc>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://apexenterprises.net/privacy-policy</loc>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <url>
+    <loc>https://apexenterprises.net/terms-of-service</loc>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
 </urlset>

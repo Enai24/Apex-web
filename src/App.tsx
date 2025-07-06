@@ -29,9 +29,12 @@ import JobListing from './components/jobs/JobListing';
 import JobDetailPage from './components/jobs/JobDetailPage';
 
 // Location pages
-import MumbaiLocation from './components/locations/MumbaiLocation';
-import DelhiLocation from './components/locations/DelhiLocation';
-import BangaloreLocation from './components/locations/BangaloreLocation';
+import Mumbai from './components/locations/Mumbai';
+import Delhi from './components/locations/Delhi';
+import Bangalore from './components/locations/Bangalore';
+import Pune from './components/locations/Pune';
+import Chennai from './components/locations/Chennai';
+import Hyderabad from './components/locations/Hyderabad';
 
 // Employee portal
 import LoginForm from './components/auth/LoginForm';
@@ -48,6 +51,7 @@ import { getCurrentUser, getCurrentClient } from './lib/auth';
 import Head from './components/layout/Head';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
+import ConversionCTA from './components/ConversionCTA';
 
 const queryClient = new QueryClient();
 
@@ -269,9 +273,12 @@ export default function App() {
             <Route path="/ai-voice-connect" element={<PublicLayout><AIVoiceConnect /></PublicLayout>} />
             
             {/* Location Routes */}
-            <Route path="/locations/mumbai" element={<PublicLayout><MumbaiLocation /></PublicLayout>} />
-            <Route path="/locations/delhi" element={<PublicLayout><DelhiLocation /></PublicLayout>} />
-            <Route path="/locations/bangalore" element={<PublicLayout><BangaloreLocation /></PublicLayout>} />
+            <Route path="/locations/mumbai" element={<Mumbai />} />
+            <Route path="/locations/delhi" element={<Delhi />} />
+            <Route path="/locations/bangalore" element={<Bangalore />} />
+            <Route path="/locations/pune" element={<Pune />} />
+            <Route path="/locations/chennai" element={<Chennai />} />
+            <Route path="/locations/hyderabad" element={<Hyderabad />} />
             
             <Route path="/portfolio" element={<PublicLayout><Portfolio /></PublicLayout>} />
             <Route path="/clients" element={<PublicLayout><Clients /></PublicLayout>} />

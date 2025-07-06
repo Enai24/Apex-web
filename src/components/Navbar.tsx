@@ -104,35 +104,40 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-md">
-      {/* Top Bar */}
-      <div className="bg-gradient-to-r from-[#1F4287] to-[#162c5b]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-10 items-center justify-between">
-            <div className="flex items-center gap-x-4">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-premium border-b border-gray-100">
+      {/* Premium Top Bar */}
+      <div className="bg-executive-gradient">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <div className="flex h-12 items-center justify-between">
+            <div className="flex items-center gap-x-6">
               <a 
                 href="tel:+910124-2340139" 
-                className="flex items-center gap-x-1.5 text-sm text-white hover:text-blue-100 transition-colors"
+                className="flex items-center gap-x-2 text-sm font-medium text-white hover:text-luxury-gold transition-all duration-300 group"
               >
-                <Phone className="h-3.5 w-3.5" />
+                <Phone className="h-4 w-4 group-hover:scale-110 transition-transform" />
                 <span>+91 0124 2340139</span>
               </a>
               <a 
                 href="mailto:mail@apexenterprises.net" 
-                className="hidden sm:flex items-center gap-x-1.5 text-sm text-white hover:text-blue-100 transition-colors"
+                className="hidden sm:flex items-center gap-x-2 text-sm font-medium text-white hover:text-luxury-gold transition-all duration-300 group"
               >
-                <Mail className="h-3.5 w-3.5" />
+                <Mail className="h-4 w-4 group-hover:scale-110 transition-transform" />
                 <span>mail@apexenterprises.net</span>
               </a>
+            </div>
+            <div className="hidden md:flex items-center gap-x-4 text-xs font-medium text-white/80">
+              <span>MSME Registered</span>
+              <span className="w-1 h-1 bg-white/40 rounded-full"></span>
+              <span>NAPS Certified</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Main Navigation */}
-      <nav className="mx-auto max-w-full px-0 lg:px-0" aria-label="Main navigation">
-        <div className="flex h-16 sm:h-20 items-center justify-between">
-          <div className="flex lg:flex-none pl-2 sm:pl-4">
+      {/* Premium Main Navigation */}
+      <nav className="mx-auto max-w-full px-0 lg:px-0 bg-luxury-mesh" aria-label="Main navigation">
+        <div className="flex h-20 sm:h-24 items-center justify-between bg-white/90 backdrop-blur-sm">
+          <div className="flex lg:flex-none pl-6 sm:pl-8">
             <Logo />
           </div>
           
@@ -143,10 +148,10 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
                   <button
                     onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
                     onKeyDown={(e) => handleDropdownKeyDown(e, item.name)}
-                    className={`relative px-3 py-2.5 text-sm font-medium flex items-center gap-1.5 transition-colors rounded-md ${
+                    className={`relative px-4 py-3 text-sm font-medium flex items-center gap-2 transition-all duration-300 rounded-xl ${
                       isActive(item.href)
-                        ? 'text-[#F68B1F] bg-orange-50'
-                        : 'text-gray-700 hover:text-[#F68B1F] hover:bg-gray-50'
+                        ? 'text-luxury-gold bg-gradient-to-r from-luxury-gold/10 to-luxury-gold/5 shadow-sm'
+                        : 'text-gray-700 hover:text-luxury-gold hover:bg-luxury-silver/50 hover:shadow-sm'
                     }`}
                     aria-current={isActive(item.href) ? 'page' : undefined}
                     aria-expanded={activeDropdown === item.name}
@@ -159,10 +164,10 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
                 ) : (
                   <Link
                     to={item.href}
-                    className={`relative px-3 py-2.5 text-sm font-medium transition-colors rounded-md flex items-center gap-1.5 ${
+                    className={`relative px-4 py-3 text-sm font-medium transition-all duration-300 rounded-xl flex items-center gap-2 ${
                       isActive(item.href)
-                        ? 'text-[#F68B1F] bg-orange-50'
-                        : 'text-gray-700 hover:text-[#F68B1F] hover:bg-gray-50'
+                        ? 'text-luxury-gold bg-gradient-to-r from-luxury-gold/10 to-luxury-gold/5 shadow-sm'
+                        : 'text-gray-700 hover:text-luxury-gold hover:bg-luxury-silver/50 hover:shadow-sm'
                     }`}
                     aria-current={isActive(item.href) ? 'page' : undefined}
                   >
@@ -174,7 +179,7 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
                 {/* Dropdown menu */}
                 {item.dropdown && (
                   <div 
-                    className={`absolute top-full left-0 mt-1 w-64 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-20 transition-all duration-200 origin-top-left ${
+                    className={`absolute top-full left-0 mt-2 w-72 rounded-2xl bg-white/95 backdrop-blur-md shadow-premium border border-gray-100 focus:outline-none z-20 transition-all duration-300 origin-top-left ${
                       activeDropdown === item.name 
                         ? 'transform opacity-100 scale-100' 
                         : 'transform opacity-0 scale-95 pointer-events-none'
@@ -183,16 +188,16 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen }: NavbarProp
                     aria-orientation="vertical"
                     aria-labelledby={`${item.name}-button`}
                   >
-                    <div className="py-2 divide-y divide-gray-100">
-                      {item.dropdown.map((subItem) => (
-                        <Link
-                          key={subItem.name}
-                          to={subItem.href}
-                          className={`block px-5 py-3 text-sm ${
-                            isActive(subItem.href)
-                              ? 'bg-orange-50 text-[#F68B1F] font-medium'
-                              : 'text-gray-700 hover:bg-gray-50 hover:text-[#F68B1F]'
-                          }`}
+                                          <div className="py-3 divide-y divide-gray-50">
+                        {item.dropdown.map((subItem) => (
+                          <Link
+                            key={subItem.name}
+                            to={subItem.href}
+                            className={`block px-6 py-4 text-sm font-medium transition-all duration-200 ${
+                              isActive(subItem.href)
+                                ? 'bg-gradient-to-r from-luxury-gold/10 to-luxury-gold/5 text-luxury-gold border-l-4 border-luxury-gold'
+                                : 'text-gray-700 hover:bg-luxury-silver/30 hover:text-luxury-gold hover:translate-x-1'
+                            }`}
                           role="menuitem"
                           onClick={() => setActiveDropdown(null)}
                         >

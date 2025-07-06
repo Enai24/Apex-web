@@ -4,22 +4,43 @@
 User-agent: *
 Allow: /
 
+# Optimize crawling for important pages
+Allow: /about
+Allow: /services
+Allow: /contact
+Allow: /ai-workforce-solutions
+Allow: /locations
+Allow: /careers
+Allow: /industries
+
+# Block unnecessary pages
+Disallow: /admin
+Disallow: /private
+Disallow: /api
+Disallow: /_next
+Disallow: /temp
+Disallow: /*.json$
+Disallow: /*?*utm_source=
+Disallow: /*?*utm_medium=
+Disallow: /*?*utm_campaign=
+
+# Allow specific search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
 # Sitemap location
 Sitemap: https://apexenterprises.net/sitemap.xml
 
-# Disallow employee and client portal access
-Disallow: /employee/
-Disallow: /client/
-Disallow: /dashboard/
-
-# Disallow login pages
-Disallow: /employee/login
-Disallow: /client/login
-
-# Disallow admin areas
-Disallow: /admin/
-Disallow: /private/
-Disallow: /backend/
-
-# Optimize crawl rate
-Crawl-delay: 10 
+# Additional sitemaps for better indexing
+Sitemap: https://apexenterprises.net/sitemap-services.xml
+Sitemap: https://apexenterprises.net/sitemap-locations.xml
+Sitemap: https://apexenterprises.net/sitemap-jobs.xml 

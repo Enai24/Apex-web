@@ -137,54 +137,70 @@ export default function Hero() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 pb-16 sm:pb-24 pt-10 sm:pt-16 lg:pt-32 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-12 lg:gap-x-8 xl:gap-x-16 lg:items-center">
             <div className={`col-span-7 w-full max-w-xl lg:shrink-0 xl:max-w-2xl transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <div className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700 ring-1 ring-inset ring-blue-700/20 mb-6">
-                <Sparkles className="mr-1.5 h-4 w-4" />
+              <div className="inline-flex items-center rounded-full bg-gradient-to-r from-luxury-gold/10 to-luxury-gold/5 px-4 py-2 text-sm font-semibold text-luxury-gold border border-luxury-gold/20 shadow-sm mb-8 animate-luxuryGlow">
+                <Sparkles className="mr-2 h-4 w-4 animate-premiumPulse" />
                 <span>Transforming Indian Workforce</span>
               </div>
               
-              <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
-                <span className="block">Leading Staffing Solutions in India</span>
-                <span className="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-700 via-indigo-600 to-blue-700 animate-gradient-x">Pan-India Excellence Since 2003</span>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-gray-900 leading-none">
+                <span className="block animate-fadeInUp">Leading Staffing Solutions</span>
+                <span className="block mt-2 animate-fadeInUp animation-delay-200">in <span className="bg-clip-text text-transparent bg-gradient-to-r from-luxury-gold via-primary to-luxury-gold animate-gradientShift">India</span></span>
+                <span className="block mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-600 animate-fadeInUp animation-delay-400">Pan-India Excellence Since 2003</span>
               </h1>
               
-              <p className="relative mt-6 sm:mt-8 text-base sm:text-xl leading-7 sm:leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
-                <strong className="text-gray-900">India's trusted workforce partner across Tier-1 & Tier-2 cities.</strong> Apex Enterprises delivers compliant staffing solutions, specialised in EPF/ESI management, labour law advisory, and workforce deployment that addresses unique Indian market challenges.
+              <p className="relative mt-8 sm:mt-10 text-lg sm:text-xl lg:text-2xl leading-relaxed text-gray-600 sm:max-w-md lg:max-w-none animate-fadeInUp animation-delay-600">
+                <strong className="text-gray-900 font-semibold">India's trusted workforce partner across Tier-1 & Tier-2 cities.</strong> Apex Enterprises delivers compliant staffing solutions, specialised in EPF/ESI management, labour law advisory, and workforce deployment that addresses unique Indian market challenges.
               </p>
               
-              <div className="mt-12 flex flex-col sm:flex-row items-center gap-4 sm:gap-x-6">
+              <div className="mt-12 flex flex-col sm:flex-row items-center gap-6 sm:gap-x-8 animate-fadeInUp animation-delay-800">
                 <Link
                   to="/contact"
-                  className="w-full sm:w-auto rounded-md bg-gradient-to-r from-[#1F4287] to-[#2D5FB3] px-6 py-4 text-center text-base font-semibold text-white shadow-md hover:shadow-xl hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F4287] transition-all duration-300 ease-in-out group relative overflow-hidden"
+                  className="btn-luxury group w-full sm:w-auto"
                 >
                   <span className="relative z-10 flex items-center justify-center">
                     Request a Consultation
-                    <Zap className="ml-2 h-4 w-4 animate-pulse" />
+                    <Zap className="ml-2 h-5 w-5 animate-premiumPulse" />
                   </span>
-                  <div className="absolute inset-0 h-full w-full scale-0 rounded-md transition-all duration-300 group-hover:scale-100 group-hover:bg-opacity-10 bg-white/20"></div>
                 </Link>
                 
                 <Link
                   to="/services"
-                  className="w-full sm:w-auto rounded-md bg-white px-6 py-4 text-center text-base font-semibold text-[#F68B1F] shadow-sm ring-1 ring-inset ring-[#F68B1F]/30 hover:bg-orange-50 hover:ring-[#F68B1F]/40 hover:scale-105 transition-all duration-300 ease-in-out flex items-center justify-center group"
+                  className="w-full sm:w-auto rounded-2xl bg-white/90 backdrop-blur-sm px-8 py-4 text-center text-base font-semibold text-luxury-gold shadow-premium ring-1 ring-inset ring-luxury-gold/30 hover:bg-luxury-silver/50 hover:ring-luxury-gold/60 hover:scale-105 hover:shadow-xl transition-all duration-300 ease-in-out flex items-center justify-center group"
                 >
                   Explore Our Services
-                  <ArrowRight className="ml-2 h-4 w-4 transform transition-transform duration-300 group-hover:translate-x-1" />
+                  <ArrowRight className="ml-2 h-5 w-5 transform transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </div>
               
-              <div className="mt-8 flex flex-wrap items-center gap-3 text-sm text-gray-500">
-                <span className="inline-flex items-center rounded-full bg-green-50 px-3 py-1.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 hover:scale-110 transition-transform duration-300">
-                  ISO 9001 Certified
-                </span>
-                <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-600/20 hover:scale-110 transition-transform duration-300">
-                  MSME Registered
-                </span>
-                <span className="inline-flex items-center rounded-full bg-orange-50 px-3 py-1.5 text-xs font-medium text-orange-700 ring-1 ring-inset ring-orange-600/20 hover:scale-110 transition-transform duration-300">
-                  Pan-India Presence
-                </span>
-                <span className="inline-flex items-center rounded-full bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-700 ring-1 ring-inset ring-gray-600/20 hover:scale-110 transition-transform duration-300">
-                  24x7 Support
-                </span>
+              {/* Conversion-focused trust signals */}
+              <div className="mt-8 space-y-4 animate-fadeInUp animation-delay-1000">
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="inline-flex items-center rounded-full bg-green-50 px-3 py-1.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 hover:scale-110 transition-transform duration-300 animate-luxuryGlow">
+                    ✅ ISO 9001 Certified
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-600/20 hover:scale-110 transition-transform duration-300">
+                    🏆 MSME Registered
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-orange-50 px-3 py-1.5 text-xs font-medium text-orange-700 ring-1 ring-inset ring-orange-600/20 hover:scale-110 transition-transform duration-300">
+                    🌍 Pan-India Presence
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-purple-50 px-3 py-1.5 text-xs font-medium text-purple-700 ring-1 ring-inset ring-purple-600/20 hover:scale-110 transition-transform duration-300">
+                    ⚡ 24x7 Support
+                  </span>
+                </div>
+                
+                {/* Urgency and social proof */}
+                <div className="bg-gradient-to-r from-luxury-gold/10 to-luxury-gold/5 border border-luxury-gold/20 rounded-2xl p-4 shadow-sm">
+                  <div className="flex items-center justify-between flex-wrap gap-2">
+                    <div className="flex items-center gap-2 text-sm font-medium text-gray-700">
+                      <span className="flex h-2 w-2 bg-green-500 rounded-full animate-pulse"></span>
+                      <span>🔥 <strong>500+</strong> companies hired this month</span>
+                    </div>
+                    <div className="text-xs text-gray-600 font-medium">
+                      ⏰ Free consultation expires in 24h
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             
