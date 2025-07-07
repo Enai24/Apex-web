@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { MapPin, Briefcase, Clock, ArrowRight, CheckCircle, DollarSign, Users, Building, BookOpen, Award, Star, ChevronRight } from 'lucide-react';
+import React from 'react';
+import { MapPin, Briefcase, Clock, ArrowRight, CheckCircle, DollarSign, Users, Building, BookOpen, Award, Star, ChevronRight, Mail, Phone } from 'lucide-react';
 import { SEO, generateFAQSchema } from '../utils/seo';
 import { Link } from 'react-router-dom';
 
@@ -227,21 +227,6 @@ const featuredJobs = [
 ];
 
 export default function CareersPage() {
-  const [selectedDepartment, setSelectedDepartment] = useState<string>('all');
-  
-  // Filter jobs based on selected department
-  const filteredJobs = selectedDepartment === 'all' 
-    ? jobListings 
-    : jobListings.filter(job => job.department.toLowerCase().replace(/[^a-z0-9]/g, '-') === selectedDepartment);
-
-  // Calculate days ago for job posting date
-  const calculateDaysAgo = (dateString: string) => {
-    const postDate = new Date(dateString);
-    const today = new Date();
-    const diffTime = Math.abs(today.getTime() - postDate.getTime());
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return diffDays;
-  };
 
   return (
     <div className="bg-white">
@@ -275,10 +260,10 @@ export default function CareersPage() {
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 <a
-                  href="#open-positions"
+                  href="#email-cv"
                   className="rounded-md bg-white px-5 py-3 text-base font-semibold text-indigo-700 shadow-sm hover:bg-indigo-50 transition-colors"
                 >
-                  Explore Open Positions
+                  Email Your CV
                 </a>
                 <a
                   href="#company-culture"
@@ -720,8 +705,7 @@ export default function CareersPage() {
               {departments.map((dept) => (
                 <div 
                   key={dept.id}
-                  className="bg-white rounded-xl p-8 shadow-sm ring-1 ring-gray-200 hover:shadow-md transition-all cursor-pointer"
-                  onClick={() => setSelectedDepartment(dept.id)}
+                  className="bg-white rounded-xl p-8 shadow-sm ring-1 ring-gray-200 hover:shadow-md transition-all"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-600">
                     <dept.icon className="h-6 w-6 text-white" />
@@ -729,17 +713,12 @@ export default function CareersPage() {
                   <h3 className="mt-4 text-lg font-semibold text-gray-900">{dept.name}</h3>
                   <p className="mt-2 text-gray-600">{dept.description}</p>
                   <div className="mt-6">
-                    <button 
+                    <a 
+                      href="#email-cv"
                       className="text-sm font-medium text-indigo-600 hover:text-indigo-800 flex items-center"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setSelectedDepartment(dept.id);
-                        const element = document.getElementById('open-positions');
-                        element?.scrollIntoView({ behavior: 'smooth' });
-                      }}
                     >
-                      View roles <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </button>
+                      Join this team <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </a>
                   </div>
                 </div>
               ))}
@@ -748,131 +727,74 @@ export default function CareersPage() {
         </div>
       </div>
 
-      {/* Open positions section */}
-      <div id="open-positions" className="py-24 sm:py-32">
+      {/* Email CV section */}
+      <div id="email-cv" className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base font-semibold leading-7 text-indigo-600">Open Positions</h2>
+            <h2 className="text-base font-semibold leading-7 text-indigo-600">Join Our Team</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Current Opportunities
+              Email Your CV
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Find your next career opportunity and join our team of innovators shaping the future of workforce management.
+              We're always looking for talented professionals to join our team. Send us your CV and we'll consider you for current and future opportunities.
             </p>
           </div>
           
-          {/* Department filters */}
-          <div className="mt-12 flex flex-wrap justify-center gap-2">
-            <button
-              onClick={() => setSelectedDepartment('all')}
-              className={`rounded-full px-4 py-1.5 text-sm font-medium ${
-                selectedDepartment === 'all'
-                  ? 'bg-indigo-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              All Departments
-            </button>
-            {departments.map((dept) => (
-              <button
-                key={dept.id}
-                onClick={() => setSelectedDepartment(dept.id)}
-                className={`rounded-full px-4 py-1.5 text-sm font-medium ${
-                  selectedDepartment === dept.id
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                {dept.name}
-              </button>
-            ))}
-          </div>
-          
-          {/* Jobs list */}
-          <div className="mt-16">
-            {filteredJobs.length > 0 ? (
-              <div className="overflow-hidden bg-white shadow sm:rounded-md">
-                <ul role="list" className="divide-y divide-gray-200">
-                  {filteredJobs.map((job) => {
-                    const daysAgo = calculateDaysAgo(job.postedDate);
-                    
-                    return (
-                      <li key={job.id}>
-                        <div className="relative hover:bg-gray-50">
-                          {job.isNew && (
-                            <div className="absolute top-4 right-4">
-                              <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
-                                New
-                              </span>
-                            </div>
-                          )}
-                          {job.isFeatured && (
-                            <div className="absolute top-4 right-16">
-                              <span className="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
-                                Featured
-                              </span>
-                            </div>
-                          )}
-                          <Link to={`/careers/${job.id}`} className="block px-6 py-6">
-                            <div className="flex items-center justify-between">
-                              <p className="truncate text-xl font-semibold text-indigo-700">{job.title}</p>
-                            </div>
-                            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-4">
-                              <div className="flex items-center text-sm text-gray-600">
-                                <Briefcase className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-500" />
-                                {job.department}
-                              </div>
-                              <div className="flex items-center text-sm text-gray-600">
-                                <MapPin className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-500" />
-                                {job.location}
-                              </div>
-                              <div className="flex items-center text-sm text-gray-600">
-                                <Clock className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-500" />
-                                Posted {daysAgo} days ago
-                              </div>
-                            </div>
-                            <div className="mt-4 flex flex-wrap gap-2">
-                              <span className="inline-flex items-center rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-inset ring-indigo-700/10">
-                                {job.type}
-                              </span>
-                              <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-                                {job.experience}
-                              </span>
-                            </div>
-                          </Link>
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            ) : (
-              <div className="text-center py-12">
-                <p className="text-lg text-gray-600">No positions currently available in this department.</p>
-                <button
-                  onClick={() => setSelectedDepartment('all')}
-                  className="mt-4 inline-flex items-center px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-50 rounded-md hover:bg-indigo-100"
-                >
-                  View all departments
-                </button>
-              </div>
-            )}
-          </div>
-          
-          {/* Don't see a role call to action */}
+          {/* Email CV Instructions */}
           <div className="mt-16 flex justify-center">
-            <div className="rounded-2xl bg-indigo-50 px-6 py-10 sm:p-10 max-w-3xl w-full">
-              <h3 className="text-xl font-semibold text-indigo-900">Don't see a role that fits?</h3>
-              <p className="mt-2 text-indigo-700">
-                We're always looking for talented individuals to join our team. Send us your resume and we'll keep it on file for future opportunities.
-              </p>
-              <div className="mt-6">
-                <a
-                  href="mailto:careers@apexenterprises.net"
-                  className="inline-flex items-center rounded-md bg-indigo-600 px-5 py-3 text-base font-semibold text-white shadow-sm hover:bg-indigo-500 transition-colors"
-                >
-                  Contact Our Recruiting Team
-                </a>
+            <div className="rounded-2xl bg-indigo-50 px-6 py-10 sm:p-10 max-w-4xl w-full">
+              <div className="text-center">
+                <h3 className="text-2xl font-semibold text-indigo-900 mb-4">Ready to Join Our Team?</h3>
+                <p className="text-lg text-indigo-700 mb-6">
+                  Send us your CV and we'll consider you for opportunities that match your skills and experience.
+                </p>
+                
+                {/* Email Instructions */}
+                <div className="bg-white rounded-lg p-6 mb-6 shadow-sm">
+                  <div className="flex items-center justify-center mb-4">
+                    <Mail className="h-8 w-8 text-indigo-600 mr-3" />
+                    <span className="text-xl font-semibold text-gray-900">careers@apexenterprises.net</span>
+                  </div>
+                  <p className="text-gray-600 mb-4">
+                    Please include the following in your email:
+                  </p>
+                  <ul className="text-left text-gray-600 space-y-2 max-w-md mx-auto">
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                      Your updated CV/Resume
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                      Brief cover letter or introduction
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                      Preferred job location(s)
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                      Area of expertise or interest
+                    </li>
+                  </ul>
+                </div>
+                
+                {/* Contact Button */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a
+                    href="mailto:careers@apexenterprises.net?subject=CV Submission - [Your Name]&body=Dear Apex Enterprises Team,%0D%0A%0D%0AI am interested in joining your team. Please find my CV attached.%0D%0A%0D%0APreferred Location: %0D%0AArea of Expertise: %0D%0A%0D%0AThank you for your consideration.%0D%0A%0D%0ABest regards,"
+                    className="inline-flex items-center rounded-md bg-indigo-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-indigo-500 transition-colors"
+                  >
+                    <Mail className="mr-2 h-5 w-5" />
+                    Email Your CV
+                  </a>
+                  <a
+                    href="tel:+911234567890"
+                    className="inline-flex items-center rounded-md bg-white px-6 py-3 text-base font-semibold text-indigo-600 shadow-sm border border-indigo-600 hover:bg-indigo-50 transition-colors"
+                  >
+                    <Phone className="mr-2 h-5 w-5" />
+                    Call Us: +91 123 456 7890
+                  </a>
+                </div>
               </div>
             </div>
           </div>
