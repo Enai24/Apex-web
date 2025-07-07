@@ -753,7 +753,7 @@ export default function CareersPage() {
                 <div className="bg-white rounded-lg p-6 mb-6 shadow-sm">
                   <div className="flex items-center justify-center mb-4">
                     <Mail className="h-8 w-8 text-indigo-600 mr-3" />
-                    <span className="text-xl font-semibold text-gray-900">careers@apexenterprises.net</span>
+                    <span className="text-xl font-semibold text-gray-900">mail@apexenterprises.net</span>
                   </div>
                   <p className="text-gray-600 mb-4">
                     Please include the following in your email:
@@ -781,7 +781,7 @@ export default function CareersPage() {
                 {/* Contact Button */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a
-                    href="mailto:careers@apexenterprises.net?subject=CV Submission - [Your Name]&body=Dear Apex Enterprises Team,%0D%0A%0D%0AI am interested in joining your team. Please find my CV attached.%0D%0A%0D%0APreferred Location: %0D%0AArea of Expertise: %0D%0A%0D%0AThank you for your consideration.%0D%0A%0D%0ABest regards,"
+                    href="mailto:mail@apexenterprises.net?subject=CV Submission - [Your Name]&body=Dear Apex Enterprises Team,%0D%0A%0D%0AI am interested in joining your team. Please find my CV attached.%0D%0A%0D%0APreferred Location: %0D%0AArea of Expertise: %0D%0A%0D%0AThank you for your consideration.%0D%0A%0D%0ABest regards,"
                     className="inline-flex items-center rounded-md bg-indigo-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-indigo-500 transition-colors"
                   >
                     <Mail className="mr-2 h-5 w-5" />
