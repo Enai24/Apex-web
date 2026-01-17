@@ -131,12 +131,12 @@ export default function Footer() {
     <footer className="w-full bg-[#1B292E] font-sans text-white">
       {/* 1. Final CTA Section - Only visible on Landing Page */}
       {isLandingPage && (
-        <section className="py-24 border-b border-white/10">
+        <section className="py-16 sm:py-24 border-b border-white/10">
           <div className="container mx-auto px-6 max-w-[1280px] text-center">
-            <h2 className="text-4xl md:text-6xl font-medium text-white mb-6 leading-[1.1] tracking-tight text-balance font-sans">
+            <h2 className="text-[32px] sm:text-4xl md:text-6xl font-medium text-white mb-6 leading-[1.1] tracking-tight text-balance font-sans">
               Ready to transform your<br />workforce in India?
             </h2>
-            <p className="text-lg md:text-xl text-[#A0AAB0] mb-10 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-[#A0AAB0] mb-8 sm:mb-10 max-w-2xl mx-auto">
               Join 500+ companies that trust Apex for scale, compliance, and excellence.
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -158,19 +158,19 @@ export default function Footer() {
       )}
 
       {/* 2. Main Sitemap Section */}
-      <section className="py-20">
+      <section className="py-12 sm:py-20">
         <div className="container mx-auto px-6 max-w-[1280px]">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-12 mb-20">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-10 sm:gap-y-12 mb-16 sm:mb-20">
             {/* Column 1: Company Profile (Logo + Text Branding) */}
             <div className="col-span-2 lg:col-span-1">
-              <Link href="/" className="inline-block mb-8">
-                <div className="flex items-center gap-3">
+              <Link href="/" className="inline-block mb-8 lg:text-left text-center">
+                <div className="flex items-center lg:justify-start justify-center gap-3">
                   <img
                     src="/logo.png"
                     alt="Apex Enterprises"
                     className="h-10 w-auto object-contain"
                   />
-                  <div className="flex flex-col justify-center">
+                  <div className="flex flex-col justify-center text-left">
                     <span className="text-[20px] font-bold text-[#F68B1F] leading-none tracking-tight">APEX</span>
                     <span className="text-[11px] uppercase tracking-[0.15em] text-white/90 mt-0.5 font-bold">Enterprises</span>
                     <span className="text-[8px] font-bold text-white/50 tracking-widest mt-1">EST. 2003</span>
@@ -178,31 +178,33 @@ export default function Footer() {
                 </div>
               </Link>
 
-              <div className="text-[14px] text-[#A0AAB0] leading-[1.6] space-y-2 mb-8 font-medium">
+              <div className="text-[14px] text-[#A0AAB0] leading-[1.6] space-y-2 mb-8 font-medium lg:text-left text-center">
                 <p className="text-white">Apex Enterprises (HQ)</p>
                 <p>11, Shankar Chowk Road</p>
                 <p>Gurgaon - 122016, Haryana</p>
                 <p className="text-[#EE3D2C] mt-2">+91 0124 2340139</p>
               </div>
 
-              <div className="flex items-center gap-4 mb-10">
-                <a href="https://www.linkedin.com/company/apex-enterprises1/" target="_blank" rel="noopener noreferrer" className="text-[#A0AAB0] hover:text-[#EE3D2C] transition-colors"><Linkedin size={20} strokeWidth={1.5} /></a>
-                <a href="#" className="text-[#A0AAB0] hover:text-[#EE3D2C] transition-colors"><Facebook size={20} strokeWidth={1.5} /></a>
-                <a href="#" className="text-[#A0AAB0] hover:text-[#EE3D2C] transition-colors"><Twitter size={20} strokeWidth={1.5} /></a>
-                <a href="#" className="text-[#A0AAB0] hover:text-[#EE3D2C] transition-colors"><Instagram size={20} strokeWidth={1.5} /></a>
-                <a href="#" className="text-[#A0AAB0] hover:text-[#EE3D2C] transition-colors"><Youtube size={20} strokeWidth={1.5} /></a>
+              <div className="flex items-center justify-center lg:justify-start gap-5 mb-10">
+                <a href="https://www.linkedin.com/company/apex-enterprises1/" target="_blank" rel="noopener noreferrer" className="text-[#A0AAB0] hover:text-[#EE3D2C] transition-colors p-2 -m-2"><Linkedin size={22} strokeWidth={1.5} /></a>
+                <a href="#" className="text-[#A0AAB0] hover:text-[#EE3D2C] transition-colors p-2 -m-2"><Facebook size={22} strokeWidth={1.5} /></a>
+                <a href="#" className="text-[#A0AAB0] hover:text-[#EE3D2C] transition-colors p-2 -m-2"><Twitter size={22} strokeWidth={1.5} /></a>
+                <a href="#" className="text-[#A0AAB0] hover:text-[#EE3D2C] transition-colors p-2 -m-2"><Instagram size={22} strokeWidth={1.5} /></a>
+                <a href="#" className="text-[#A0AAB0] hover:text-[#EE3D2C] transition-colors p-2 -m-2"><Youtube size={22} strokeWidth={1.5} /></a>
               </div>
 
-              <Link href="/careers" className="inline-flex items-center group">
-                <div className="relative w-12 h-12 flex items-center justify-center">
-                  <div className="absolute inset-0 bg-[#EE3D2C] opacity-10 rounded-full group-hover:opacity-20 transition-opacity"></div>
-                  <Users className="text-[#EE3D2C] w-6 h-6" strokeWidth={1.5} />
-                </div>
-                <div className="ml-3">
-                  <span className="text-white text-[14px] font-bold block leading-tight border-b border-transparent group-hover:border-[#EE3D2C] transition-all">See Careers</span>
-                  <span className="text-[#A0AAB0] text-[13px] leading-tight transition-colors">Join our team</span>
-                </div>
-              </Link>
+              <div className="flex justify-center lg:justify-start">
+                <Link href="/careers" className="inline-flex items-center group">
+                  <div className="relative w-12 h-12 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-[#EE3D2C] opacity-10 rounded-full group-hover:opacity-20 transition-opacity"></div>
+                    <Users className="text-[#EE3D2C] w-6 h-6" strokeWidth={1.5} />
+                  </div>
+                  <div className="ml-3 text-left">
+                    <span className="text-white text-[14px] font-bold block leading-tight border-b border-transparent group-hover:border-[#EE3D2C] transition-all">See Careers</span>
+                    <span className="text-[#A0AAB0] text-[13px] leading-tight transition-colors">Join our team</span>
+                  </div>
+                </Link>
+              </div>
             </div>
 
             {/* Columns 2-6: Nav Items */}

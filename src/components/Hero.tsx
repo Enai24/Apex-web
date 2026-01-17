@@ -75,12 +75,12 @@ export default function Hero() {
   // Animation effect when component comes into view
   useEffect(() => {
     setIsVisible(true);
-    
+
     // Animate the stats when component mounts
     const timer = setTimeout(() => {
       stats.forEach((stat, index) => {
         const numericValue = parseInt(stat.value.replace(/\D/g, ''));
-        
+
         // Animate the counters with incrementing values
         let startValue = 0;
         const incrementValue = Math.ceil(numericValue / 30);
@@ -95,7 +95,7 @@ export default function Hero() {
           } else {
             startValue += incrementValue;
             if (startValue > numericValue) startValue = numericValue;
-            
+
             setAnimatedStats(prev => {
               const newStats = [...prev];
               let displayValue = startValue.toString();
@@ -108,7 +108,7 @@ export default function Hero() {
         }, 50);
       });
     }, 500);
-    
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -125,7 +125,7 @@ export default function Hero() {
           }}
         />
       </div>
-      
+
       {/* Add floating particles */}
       <div className="absolute inset-0 overflow-hidden -z-5 pointer-events-none">
         <div className="animate-float opacity-70 absolute top-20 left-[15%] w-8 h-8 rounded-full bg-blue-500/20"></div>
@@ -143,17 +143,17 @@ export default function Hero() {
                 <Sparkles className="mr-2 h-4 w-4 animate-premiumPulse" />
                 <span>Transforming Indian Workforce</span>
               </div>
-              
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-gray-900 leading-none">
+
+              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-gray-900 leading-[1.1] sm:leading-none">
                 <span className="block animate-fadeInUp">Leading Staffing Solutions</span>
-                <span className="block mt-2 animate-fadeInUp animation-delay-200">in <span className="bg-clip-text text-transparent bg-gradient-to-r from-luxury-gold via-primary to-luxury-gold animate-gradientShift">India</span></span>
-                <span className="block mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-600 animate-fadeInUp animation-delay-400">Pan-India Excellence Since 2003</span>
+                <span className="block mt-1 sm:mt-2 animate-fadeInUp animation-delay-200">in <span className="bg-clip-text text-transparent bg-gradient-to-r from-luxury-gold via-primary to-luxury-gold animate-gradientShift">India</span></span>
+                <span className="block mt-3 sm:mt-4 text-xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-600 animate-fadeInUp animation-delay-400">Pan-India Excellence Since 2003</span>
               </h1>
-              
-              <p className="relative mt-8 sm:mt-10 text-lg sm:text-xl lg:text-2xl leading-relaxed text-gray-600 sm:max-w-md lg:max-w-none animate-fadeInUp animation-delay-600">
+
+              <p className="relative mt-6 sm:mt-10 text-[16px] sm:text-xl lg:text-2xl leading-relaxed text-gray-600 sm:max-w-md lg:max-w-none animate-fadeInUp animation-delay-600">
                 <strong className="text-gray-900 font-semibold">India's trusted workforce partner across Tier-1 & Tier-2 cities.</strong> Apex Enterprises delivers compliant staffing solutions, specialised in EPF/ESI management, labour law advisory, and workforce deployment that addresses unique Indian market challenges.
               </p>
-              
+
               <div className="mt-12 flex flex-col sm:flex-row items-center gap-6 sm:gap-x-8 animate-fadeInUp animation-delay-800">
                 <Link
                   href="/contact"
@@ -164,7 +164,7 @@ export default function Hero() {
                     <Zap className="ml-2 h-5 w-5 animate-premiumPulse" />
                   </span>
                 </Link>
-                
+
                 <Link
                   href="/services"
                   className="w-full sm:w-auto rounded-2xl bg-white/90 backdrop-blur-sm px-8 py-4 text-center text-base font-semibold text-luxury-gold shadow-premium ring-1 ring-inset ring-luxury-gold/30 hover:bg-luxury-silver/50 hover:ring-luxury-gold/60 hover:scale-105 hover:shadow-xl transition-all duration-300 ease-in-out flex items-center justify-center group"
@@ -173,7 +173,7 @@ export default function Hero() {
                   <ArrowRight className="ml-2 h-5 w-5 transform transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </div>
-              
+
               {/* Conversion-focused trust signals */}
               <div className="mt-8 space-y-4 animate-fadeInUp animation-delay-1000">
                 <div className="flex flex-wrap items-center gap-3">
@@ -190,7 +190,7 @@ export default function Hero() {
                     ⚡ 24x7 Support
                   </span>
                 </div>
-                
+
                 {/* Urgency and social proof */}
                 <div className="bg-gradient-to-r from-luxury-gold/10 to-luxury-gold/5 border border-luxury-gold/20 rounded-2xl p-4 shadow-sm">
                   <div className="flex items-center justify-between flex-wrap gap-2">
@@ -205,7 +205,7 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-            
+
             {/* 3D perspective image grid */}
             <div className={`col-span-5 mt-10 sm:mt-14 flex justify-center sm:justify-end gap-4 sm:gap-8 lg:mt-0 lg:pl-0 perspective-1000 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '300ms' }}>
               <div className="w-32 sm:w-44 flex-none space-y-4 sm:space-y-8 pt-12 sm:pt-32 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
@@ -261,7 +261,7 @@ export default function Hero() {
         <div className="absolute inset-0 flex justify-center -z-10">
           <div className="w-full h-full max-w-7xl bg-gradient-to-b from-blue-50/30 via-transparent to-transparent rounded-3xl"></div>
         </div>
-        
+
         <div className={`text-center mb-10 sm:mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '600ms' }}>
           <div className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700 ring-1 ring-inset ring-blue-700/20 mb-4">
             <TrendingUp className="mr-1.5 h-4 w-4" />
@@ -274,11 +274,11 @@ export default function Hero() {
             Two decades of excellence in workforce solutions across India
           </p>
         </div>
-        
+
         <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-x-8 gap-y-8 sm:gap-y-12 text-center md:grid-cols-3 lg:grid-cols-6">
           {animatedStats.map((stat, index) => (
-            <div 
-              key={stat.id} 
+            <div
+              key={stat.id}
               className={`mx-auto flex max-w-xs flex-col gap-y-4 transform hover:scale-105 transition-all duration-500 ease-in-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
               style={{ transitionDelay: `${800 + index * 100}ms` }}
             >
@@ -307,7 +307,7 @@ export default function Hero() {
               Trusted by industry leaders across the nation
             </p>
           </div>
-          
+
           <div className={`mx-auto grid max-w-lg grid-cols-2 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-3 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-5 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '1400ms' }}>
             <img
               className="col-span-1 max-h-12 w-full object-contain opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 hover:scale-110"
@@ -362,8 +362,8 @@ export default function Hero() {
         <div className="mx-auto mt-12 sm:mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
           <dl className="grid max-w-xl grid-cols-1 gap-x-6 sm:gap-x-8 gap-y-10 sm:gap-y-16 lg:max-w-none lg:grid-cols-3">
             {solutions.map((solution, index) => (
-              <div 
-                key={solution.name} 
+              <div
+                key={solution.name}
                 className="flex flex-col bg-white p-6 sm:p-8 rounded-2xl shadow-sm hover:shadow-lg border border-gray-100 transition-all duration-300 ease-in-out"
                 style={{ animationDelay: `${index * 150}ms` }}
               >

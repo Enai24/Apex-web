@@ -95,13 +95,13 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="py-24 lg:py-32 bg-oat-medium">
+    <section className="py-16 lg:py-32 bg-oat-medium">
       <div className="container">
         {/* Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16">
+        <div className="max-w-2xl mx-auto text-center mb-12 sm:mb-16">
           <p className="eyebrow mb-4">Our Service Suite</p>
-          <h2 className="text-navy text-4xl lg:text-5xl">AI-Driven Workforce Solutions & Managed Services</h2>
-          <p className="mt-4 text-lg text-teal-gray">
+          <h2 className="text-navy text-3xl sm:text-4xl lg:text-5xl">AI-Driven Workforce Solutions & Managed Services</h2>
+          <p className="mt-4 text-base sm:text-lg text-teal-gray">
             End-to-end workforce intelligence and staffing excellence across 28 Indian states.
           </p>
         </div>

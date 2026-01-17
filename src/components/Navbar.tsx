@@ -116,16 +116,16 @@ export default function Navbar() {
                 <div className="container mx-auto px-4 md:px-8 xl:px-10 flex items-center justify-between w-full max-w-[1440px]">
                     {/* Logo Section */}
                     <div className="flex items-center">
-                        <a href="/" className="flex items-center mr-12 gap-3 group">
+                        <a href="/" className="flex items-center lg:mr-12 mr-8 gap-2 sm:gap-3 group">
                             <img
                                 src="/logo.png"
                                 alt="Apex Enterprises"
-                                className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                                className="h-8 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                             />
                             <div className="flex flex-col justify-center">
-                                <span className="text-[18px] font-bold text-[#F68B1F] leading-none tracking-tight">APEX</span>
-                                <span className="text-[10px] uppercase tracking-[0.15em] text-[#1B292E] mt-0.5 font-extrabold">Enterprises</span>
-                                <span className="text-[7px] font-bold text-[#1B292E]/60 tracking-widest mt-1">EST. 2003</span>
+                                <span className="text-[16px] sm:text-[18px] font-bold text-[#F68B1F] leading-none tracking-tight">APEX</span>
+                                <span className="text-[8px] sm:text-[10px] uppercase tracking-[0.12em] sm:tracking-[0.15em] text-[#1B292E] mt-0.5 font-extrabold">Enterprises</span>
+                                <span className="text-[6px] sm:text-[7px] font-bold text-[#1B292E]/60 tracking-widest mt-0.5 sm:mt-1">EST. 2003</span>
                             </div>
                         </a>
 
@@ -243,7 +243,7 @@ export default function Navbar() {
 
                         <a
                             href="/contact"
-                            className="bg-[#EE3D2C] text-white text-[16px] font-semibold px-5 py-2.5 rounded-[4px] hover:opacity-90 transition-opacity flex items-center gap-2"
+                            className="hidden lg:flex bg-[#EE3D2C] text-white text-[16px] font-semibold px-5 py-2.5 rounded-[4px] hover:opacity-90 transition-opacity items-center gap-2"
                         >
                             {t('common.getStarted')}
                             <ArrowRight size={16} />
@@ -300,11 +300,21 @@ export default function Navbar() {
                                 )}
                             </div>
                         ))}
-                        <div className="flex flex-col mt-4 space-y-4 px-4 pb-6">
-                            <a href="/contact" className="text-[#1B292E] font-medium">Contact Us</a>
+                        <div className="flex flex-col mt-4 space-y-4 px-4 pb-8">
+                            <a
+                                href="/contact"
+                                className="bg-[#EE3D2C] text-white text-center py-4 rounded-[4px] font-bold flex items-center justify-center gap-2 mb-4"
+                            >
+                                {t('common.getStarted')}
+                                <ArrowRight size={18} />
+                            </a>
 
-                            <div className="pt-2 border-t border-[#F9F7F2]">
-                                <p className="text-[12px] uppercase tracking-wider text-[#5a6f77] font-bold mb-3 px-1">Select Language</p>
+                            <a href="/contact" className="text-[#1B292E] font-semibold text-[16px] py-2 border-b border-[#F9F7F2]">
+                                {t('nav.contact')}
+                            </a>
+
+                            <div className="pt-4">
+                                <p className="text-[11px] uppercase tracking-wider text-[#5a6f77] font-bold mb-4 px-1">Select Language</p>
                                 <div className="grid grid-cols-2 gap-2">
                                     {locales.map((loc) => {
                                         const langInfo = localeNames[loc];
@@ -312,13 +322,13 @@ export default function Navbar() {
                                         return (
                                             <button
                                                 key={loc}
-                                                className={`text-left py-2 px-3 text-[14px] font-medium rounded-sm flex items-center gap-2 ${isActive
-                                                    ? 'text-[#EE3D2C] bg-[#F9F7F2]'
-                                                    : 'text-[#1B292E] hover:bg-[#F9F7F2]'
+                                                className={`text-left py-3 px-4 text-[14px] font-medium rounded-md flex items-center gap-2 border ${isActive
+                                                    ? 'text-[#EE3D2C] bg-[#F9F7F2] border-[#EE3D2C]'
+                                                    : 'text-[#1B292E] bg-white border-[#E5E1DA]'
                                                     }`}
                                                 onClick={() => setLocale(loc)}
                                             >
-                                                {isActive && <Check size={12} />}
+                                                {isActive && <Check size={14} />}
                                                 {langInfo.name}
                                             </button>
                                         );
@@ -326,9 +336,12 @@ export default function Navbar() {
                                 </div>
                             </div>
 
-                            <div className="flex items-center space-x-6 pt-4 border-t border-[#F9F7F2]">
+                            <div className="flex items-center space-x-8 pt-6 border-t border-[#F9F7F2] mt-4">
+                                <a href="tel:+9101242340139" className="text-[#1B292E] hover:text-[#EE3D2C] flex items-center gap-2 text-sm font-medium">
+                                    <Globe size={20} className="text-[#EE3D2C]" />
+                                    Support
+                                </a>
                                 <Search size={22} className="text-[#1B292E]" />
-                                <Globe size={22} className="text-[#1B292E]" />
                             </div>
                         </div>
                     </div>
