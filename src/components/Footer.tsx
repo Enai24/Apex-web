@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import toast from 'react-hot-toast';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Linkedin, Facebook, Twitter, Rss, Youtube, Instagram, Users, ArrowRight } from 'lucide-react';
+import { useI18n } from '@/i18n/client';
 
 /**
  * Databricks-Style Global Footer (Refined)
@@ -92,10 +93,15 @@ const footerNavigation: FooterSection[] = [
 ];
 
 export default function Footer() {
+  const { translate, translateData } = useI18n();
   const pathname = usePathname();
   const isLandingPage = pathname === '/';
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const localizedFooterNavigation = useMemo(
+    () => translateData(footerNavigation, { skipKeys: ['href'] }),
+    [translateData]
+  );
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -118,12 +124,12 @@ export default function Footer() {
       if (response.ok) {
         setSubscribed(true);
         setEmail('');
-        toast.success('Thank you for subscribing!');
+        toast.success(translate('Thank you for subscribing!'));
       } else {
-        toast.error('Subscription failed. Please try again.');
+        toast.error(translate('Subscription failed. Please try again.'));
       }
     } catch (error) {
-      toast.error('An error occurred. Please try again.');
+      toast.error(translate('An error occurred. Please try again.'));
     }
   };
 
@@ -134,23 +140,23 @@ export default function Footer() {
         <section className="py-16 sm:py-24 border-b border-white/10">
           <div className="container mx-auto px-6 max-w-[1280px] text-center">
             <h2 className="text-[32px] sm:text-4xl md:text-6xl font-medium text-white mb-6 leading-[1.1] tracking-tight text-balance font-sans">
-              Ready to transform your<br />workforce in India?
+              {translate('Ready to transform your')}<br />{translate('workforce in India?')}
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-[#A0AAB0] mb-8 sm:mb-10 max-w-2xl mx-auto">
-              Join 500+ companies that trust Apex for scale, compliance, and excellence.
+              {translate('Join 500+ companies that trust Apex for scale, compliance, and excellence.')}
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
               <Link
                 href="/contact"
                 className="w-full sm:w-auto min-w-[200px] bg-white text-[#1B292E] px-8 py-4 rounded-[4px] font-bold text-base hover:bg-[#F9F7F2] transition-colors text-center shadow-lg"
               >
-                Request Consultation
+                {translate('Request Consultation')}
               </Link>
               <Link
                 href="/services"
                 className="w-full sm:w-auto min-w-[200px] border border-white/30 text-white px-8 py-4 rounded-[4px] font-bold text-base hover:bg-white/10 transition-colors text-center"
               >
-                Explore Solutions
+                {translate('Explore Solutions')}
               </Link>
             </div>
           </div>
@@ -167,7 +173,7 @@ export default function Footer() {
                 <div className="flex items-center lg:justify-start justify-center gap-3">
                   <img
                     src="/logo.png"
-                    alt="Apex Enterprises"
+                    alt={translate('Apex Enterprises')}
                     className="h-10 w-auto object-contain"
                   />
                   <div className="flex flex-col justify-center text-left">
@@ -179,9 +185,9 @@ export default function Footer() {
               </Link>
 
               <div className="text-[14px] text-[#A0AAB0] leading-[1.6] space-y-2 mb-8 font-medium lg:text-left text-center">
-                <p className="text-white">Apex Enterprises (HQ)</p>
-                <p>11, Shankar Chowk Road</p>
-                <p>Gurgaon - 122016, Haryana</p>
+                <p className="text-white">{translate('Apex Enterprises (HQ)')}</p>
+                <p>{translate('11, Shankar Chowk Road')}</p>
+                <p>{translate('Gurgaon - 122016, Haryana')}</p>
                 <p className="text-[#EE3D2C] mt-2">+91 0124 2340139</p>
               </div>
 
@@ -200,15 +206,15 @@ export default function Footer() {
                     <Users className="text-[#EE3D2C] w-6 h-6" strokeWidth={1.5} />
                   </div>
                   <div className="ml-3 text-left">
-                    <span className="text-white text-[14px] font-bold block leading-tight border-b border-transparent group-hover:border-[#EE3D2C] transition-all">See Careers</span>
-                    <span className="text-[#A0AAB0] text-[13px] leading-tight transition-colors">Join our team</span>
+                    <span className="text-white text-[14px] font-bold block leading-tight border-b border-transparent group-hover:border-[#EE3D2C] transition-all">{translate('See Careers')}</span>
+                    <span className="text-[#A0AAB0] text-[13px] leading-tight transition-colors">{translate('Join our team')}</span>
                   </div>
                 </Link>
               </div>
             </div>
 
             {/* Columns 2-6: Nav Items */}
-            {footerNavigation.map((section, idx) => (
+            {localizedFooterNavigation.map((section, idx) => (
               <div key={idx} className="flex flex-col">
                 <h4 className="text-[#EE3D2C] font-mono text-[14px] uppercase tracking-wider mb-8 font-bold">
                   {section.title}
@@ -245,15 +251,15 @@ export default function Footer() {
             <div className="flex flex-wrap gap-4">
               <div className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-[4px] text-[11px] font-mono text-white/60 uppercase tracking-widest flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                ISO 9001:2015
+                {translate('ISO 9001:2015')}
               </div>
               <div className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-[4px] text-[11px] font-mono text-white/60 uppercase tracking-widest flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
-                NAPS Certified
+                {translate('NAPS Certified')}
               </div>
               <div className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-[4px] text-[11px] font-mono text-white/60 uppercase tracking-widest flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
-                MSME Registered
+                {translate('MSME Registered')}
               </div>
             </div>
             <form onSubmit={handleSubscribe} className="flex gap-2 group">
@@ -261,7 +267,7 @@ export default function Footer() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Subscribe to workforce updates"
+                placeholder={translate('Subscribe to workforce updates')}
                 className="flex-1 bg-white/5 border border-white/10 py-3 px-4 text-[14px] text-white placeholder-white/30 rounded-[4px] focus:ring-1 focus:ring-[#EE3D2C] focus:outline-none transition-all"
                 required
               />
@@ -269,7 +275,7 @@ export default function Footer() {
                 type="submit"
                 className="px-6 py-3 bg-[#EE3D2C] text-white font-bold rounded-[4px] text-[14px] hover:bg-[#D32F2F] transition-colors whitespace-nowrap"
               >
-                {subscribed ? 'Thank You!' : 'Subscribe'}
+                {subscribed ? translate('Thank You!') : translate('Subscribe')}
               </button>
             </form>
           </div>
@@ -278,18 +284,17 @@ export default function Footer() {
           <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-start gap-8">
             <div className="text-[#A0AAB0] text-[12px] space-y-3 max-w-4xl">
               <p className="leading-relaxed">
-                © {new Date().getFullYear()} Apex Enterprises. All rights reserved.
-                Operating across 25+ cities in India. MSME Registered | NAPS Certified | ISO 9001 Certified.
+                {translate('© {year} Apex Enterprises. All rights reserved. Operating across 25+ cities in India. MSME Registered | NAPS Certified | ISO 9001 Certified.', { year: new Date().getFullYear() })}
               </p>
               <div className="flex flex-wrap gap-x-6 gap-y-2 font-bold uppercase tracking-[0.05em]">
-                <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-                <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Use</Link>
-                <Link href="/legal-services" className="hover:text-white transition-colors">Trust Center</Link>
-                <Link href="/legal" className="hover:text-white transition-colors">Legal</Link>
+                <Link href="/privacy-policy" className="hover:text-white transition-colors">{translate('Privacy Policy')}</Link>
+                <Link href="/terms-of-service" className="hover:text-white transition-colors">{translate('Terms of Use')}</Link>
+                <Link href="/legal-services" className="hover:text-white transition-colors">{translate('Trust Center')}</Link>
+                <Link href="/legal" className="hover:text-white transition-colors">{translate('Legal')}</Link>
               </div>
             </div>
             <div className="text-[#A0AAB0] text-[12px] font-mono uppercase tracking-widest">
-              Built for Excellence 🇮🇳
+              {translate('Built for Excellence 🇮🇳')}
             </div>
           </div>
         </div>

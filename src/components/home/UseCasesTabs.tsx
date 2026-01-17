@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import Image from "next/image";
 import { Check } from "lucide-react";
+import { useI18n } from "@/i18n/client";
 
 interface UseCase {
     id: string;
@@ -89,26 +90,32 @@ const useCases: UseCase[] = [
 ];
 
 export default function UseCasesTabs() {
-    const [activeTab, setActiveTab] = useState(useCases[0]);
+    const { translate, translateData } = useI18n();
+    const localizedUseCases = useMemo(
+        () => translateData(useCases, { skipKeys: ["id", "image"] }),
+        [translateData]
+    );
+    const [activeTabId, setActiveTabId] = useState(useCases[0].id);
+    const activeTab = localizedUseCases.find((useCase) => useCase.id === activeTabId) ?? localizedUseCases[0];
 
     return (
         <section className="bg-white py-[80px] md:py-[120px]">
             <div className="container px-6 lg:px-8">
                 <div className="text-center mb-12">
                     <span className="font-mono text-[14px] font-medium uppercase tracking-[0.1em] text-[#F68B1F] block mb-4">
-                        USE CASES
+                        {translate("USE CASES")}
                     </span>
                     <h2 className="text-[#1B292E] text-[36px] md:text-[48px] font-medium leading-[1.1] tracking-[-0.02em]">
-                        Unify Your AI Recruitment & HR Strategy
+                        {translate("Unify Your AI Recruitment & HR Strategy")}
                     </h2>
                 </div>
 
                 {/* Custom Tabs Navigation */}
                 <div className="flex flex-wrap justify-center gap-2 mb-16 md:mb-24">
-                    {useCases.map((useCase) => (
+                    {localizedUseCases.map((useCase) => (
                         <button
                             key={useCase.id}
-                            onClick={() => setActiveTab(useCase)}
+                            onClick={() => setActiveTabId(useCase.id)}
                             className={`px-5 py-2.5 rounded-full text-[16px] font-medium transition-all duration-300 border ${activeTab.id === useCase.id
                                 ? "bg-[#1B292E] border-[#1B292E] text-white"
                                 : "bg-[#F9F7F2] border-transparent text-[#1B292E] hover:bg-[#E5E1DA]"

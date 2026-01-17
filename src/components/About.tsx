@@ -1,18 +1,20 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   Target, Award, Heart, Scale, Users, Building2, Clock, MapPin, Globe, BarChart2,
   Shield, Zap, Star, TrendingUp, Briefcase, ArrowRight, Check, ChevronRight, Eye,
   CheckCircle2
 } from 'lucide-react';
 import { SEO } from '../utils/seo';
+import { useI18n } from '@/i18n/client';
 
 export default function About() {
+  const { translate, translateData } = useI18n();
   const [activeValue, setActiveValue] = useState('innovation');
 
   // Company core values content
-  const coreValues = {
+  const coreValues = useMemo(() => ({
     innovation: {
       title: "Innovation",
       icon: Zap,
@@ -53,22 +55,46 @@ export default function About() {
         "Customized service level agreements"
       ]
     }
-  };
+  }), []);
 
-  const timelineItems = [
+  const localizedCoreValues = useMemo(
+    () => translateData(coreValues, { skipKeys: ['icon'] }),
+    [coreValues, translateData]
+  );
+
+  const timelineItems = useMemo(() => translateData([
     { year: '2001', title: 'Foundation', description: 'Established in Gurgaon with a vision to transform workforce management in India', icon: Building2 },
     { year: '2005', title: 'Expansion', description: 'Extended operations to multiple cities across North India', icon: MapPin },
     { year: '2010', title: 'Diversification', description: 'Added specialized services including Facility Management and Payroll Solutions', icon: Briefcase },
     { year: '2015', title: 'Technology Integration', description: 'Implemented advanced systems for enhanced service delivery and monitoring', icon: BarChart2 },
     { year: '2020', title: 'National Presence', description: 'Achieved pan-India coverage with clients across diverse industries', icon: Globe },
     { year: '2023', title: 'Digital Transformation', description: 'Launched AI-powered workforce management platform', icon: Zap },
-  ];
+  ], { skipKeys: ['year', 'icon'] }), [translateData]);
+
+  const stats = useMemo(() => translateData([
+    { label: 'Years of Excellence', value: '20+', icon: Clock },
+    { label: 'Cities Covered', value: '50+', icon: MapPin },
+    { label: 'Satisfied Clients', value: '200+', icon: Building2 },
+    { label: 'Team Members', value: '1,000+', icon: Users },
+  ], { skipKeys: ['value', 'icon'] }), [translateData]);
+
+  const originHighlights = useMemo(() => translateData([
+    'ISO 9001:2015 certified processes',
+    '100% statutory compliance guarantee',
+    'Pan-India management network'
+  ]), [translateData]);
+
+  const leadershipTeam = useMemo(() => translateData([
+    { name: 'Rajiv Kumar', role: 'Chief Operations Officer', desc: 'Oversees all operational aspects across India, ensuring consistent quality.' },
+    { name: 'Priya Sharma', role: 'Head of Legal Services', desc: 'Leads legal advisory, providing expert guidance on compliance and regulations.' },
+    { name: 'Anand Patel', role: 'Director of Business Development', desc: 'Spearheads expansion initiatives and develops strategic partnerships.' }
+  ], { skipKeys: ['name'] }), [translateData]);
 
   return (
     <div className="flex min-h-screen flex-col bg-background font-sans">
       <SEO
-        title="About Us | Apex Enterprises | 20+ Years of Excellence"
-        description="Learn about Apex Enterprises - India's leading workforce management company with over 20 years of excellence in staffing solutions."
+        title={translate("About Us | Apex Enterprises | 20+ Years of Excellence")}
+        description={translate("Learn about Apex Enterprises - India's leading workforce management company with over 20 years of excellence in staffing solutions.")}
       />
 
       {/* Hero Section - Clean White/Oat */}
@@ -82,21 +108,20 @@ export default function About() {
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <span className="font-mono text-[14px] font-medium tracking-[0.1em] text-orange-red uppercase mb-4 block">
-              ESTABLISHED 2001 • 20+ YEARS OF EXCELLENCE
+              {translate('ESTABLISHED 2001 • 20+ YEARS OF EXCELLENCE')}
             </span>
             <h1 className="text-navy text-[44px] md:text-[64px] lg:text-[72px] font-medium leading-[1.05] tracking-[-0.03em] mb-8">
-              Transforming <span className="text-orange-red">Workforce Management</span> Across India
+              {translate('Transforming')} <span className="text-orange-red">{translate('Workforce Management')}</span> {translate('Across India')}
             </h1>
             <p className="text-teal-gray text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
-              At Apex Enterprises, we're not just a service provider—we're your strategic partner in
-              navigating India's complex labor ecosystem.
+              {translate("At Apex Enterprises, we're not just a service provider—we're your strategic partner in navigating India's complex labor ecosystem.")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="#our-story" className="bg-navy text-white px-8 py-4 font-semibold hover:opacity-90 transition-all">
-                Our Journey
+                {translate('Our Journey')}
               </a>
               <a href="#leadership" className="border border-navy/20 text-navy px-8 py-4 font-semibold hover:bg-navy/5 transition-all">
-                Meet Our Team
+                {translate('Meet Our Team')}
               </a>
             </div>
           </div>
@@ -107,12 +132,7 @@ export default function About() {
       <section className="bg-oat py-16">
         <div className="container mx-auto px-6 lg:px-8 text-center">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
-            {[
-              { label: 'Years of Excellence', value: '20+', icon: Clock },
-              { label: 'Cities Covered', value: '50+', icon: MapPin },
-              { label: 'Satisfied Clients', value: '200+', icon: Building2 },
-              { label: 'Team Members', value: '1,000+', icon: Users },
-            ].map((stat, idx) => (
+            {stats.map((stat, idx) => (
               <div key={idx} className="group">
                 <div className="flex justify-center mb-4">
                   <div className="h-12 w-12 rounded-lg bg-white shadow-premium flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -132,31 +152,26 @@ export default function About() {
         <div className="container mx-auto px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-16 items-start">
             <div className="lg:w-1/2">
-              <span className="font-mono text-sm text-orange-red uppercase tracking-widest mb-4 block">OUR ORIGIN</span>
+              <span className="font-mono text-sm text-orange-red uppercase tracking-widest mb-4 block">{translate('OUR ORIGIN')}</span>
               <h2 className="text-navy text-[40px] md:text-[56px] font-medium leading-[1.1] mb-8">
-                Pioneering excellence in <br />workforce innovation.
+                {translate('Pioneering excellence in')} <br />{translate('workforce innovation.')}
               </h2>
               <div className="bg-oat p-8 border-l-4 border-orange-red">
                 <p className="italic text-navy text-xl leading-relaxed">
-                  "Our mission is to transform workforce management in India by empowering businesses
-                  with innovative, compliant solutions."
+                  {translate('"Our mission is to transform workforce management in India by empowering businesses with innovative, compliant solutions."')}
                 </p>
-                <p className="mt-4 text-teal-gray font-bold text-sm uppercase">— MR. DEVENDER S. NEHRA, Founder</p>
+                <p className="mt-4 text-teal-gray font-bold text-sm uppercase">{translate('— MR. DEVENDER S. NEHRA, Founder')}</p>
               </div>
             </div>
             <div className="lg:w-1/2 space-y-8 text-teal-gray text-lg leading-relaxed">
               <p>
-                <strong className="text-navy font-bold">APEX ENTERPRISES</strong>, headquartered in the National Capital Region, has emerged as a premier provider of workforce solutions across diverse sectors including corporate, hospitality, education, and government institutions.
+                <strong className="text-navy font-bold">{translate('APEX ENTERPRISES')}</strong>, {translate('headquartered in the National Capital Region, has emerged as a premier provider of workforce solutions across diverse sectors including corporate, hospitality, education, and government institutions.')}
               </p>
               <p>
-                Under the visionary leadership of our founder, <strong className="text-navy font-bold">MR. DEVENDER S. NEHRA (M.A., LL.B)</strong>, we've transformed from a regional service provider to a national leader with an innovative approach to workforce management.
+                {translate('Under the visionary leadership of our founder,')} <strong className="text-navy font-bold">{translate('MR. DEVENDER S. NEHRA (M.A., LL.B)')}</strong>, {translate("we've transformed from a regional service provider to a national leader with an innovative approach to workforce management.")}
               </p>
               <ul className="space-y-4 pt-4">
-                {[
-                  'ISO 9001:2015 certified processes',
-                  '100% statutory compliance guarantee',
-                  'Pan-India management network'
-                ].map((item, idx) => (
+                {originHighlights.map((item, idx) => (
                   <li key={idx} className="flex items-center gap-3 text-navy font-semibold text-base">
                     <CheckCircle2 className="h-5 w-5 text-orange-red" />
                     {item}
@@ -172,7 +187,7 @@ export default function About() {
       <section className="bg-oat py-24 lg:py-32">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-navy text-[40px] md:text-[48px] font-medium mb-6">Two Decades of Transformation</h2>
+            <h2 className="text-navy text-[40px] md:text-[48px] font-medium mb-6">{translate('Two Decades of Transformation')}</h2>
           </div>
 
           <div className="max-w-4xl mx-auto relative">
@@ -207,14 +222,14 @@ export default function About() {
       <section className="bg-white py-24 lg:py-32">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="text-center mb-20">
-            <span className="font-mono text-sm text-orange-red uppercase tracking-widest mb-4 block">OUR VALUES</span>
+            <span className="font-mono text-sm text-orange-red uppercase tracking-widest mb-4 block">{translate('OUR VALUES')}</span>
             <h2 className="text-navy text-[40px] md:text-[56px] font-medium leading-[1.1] mb-6">
-              The Principles That Define Us
+              {translate('The Principles That Define Us')}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24">
-            {Object.entries(coreValues).map(([key, value]) => (
+            {Object.entries(localizedCoreValues).map(([key, value]) => (
               <div key={key} className="group">
                 <div className="flex gap-6 items-start">
                   <div className="flex-shrink-0 mt-1">
@@ -247,10 +262,9 @@ export default function About() {
       <section id="leadership" className="bg-oat py-24 lg:py-32">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-navy text-[40px] md:text-[48px] font-medium mb-6">Our Leadership</h2>
+            <h2 className="text-navy text-[40px] md:text-[48px] font-medium mb-6">{translate('Our Leadership')}</h2>
             <p className="text-teal-gray text-lg max-w-2xl mx-auto">
-              Our experienced leadership team brings decades of industry expertise
-              to guide Apex Enterprises toward continued excellence.
+              {translate('Our experienced leadership team brings decades of industry expertise to guide Apex Enterprises toward continued excellence.')}
             </p>
           </div>
 
@@ -262,26 +276,21 @@ export default function About() {
                   DSN
                 </div>
                 <div>
-                  <h3 className="text-navy text-[32px] font-medium mb-2">MR. DEVENDER S. NEHRA</h3>
-                  <p className="text-orange-red font-bold uppercase tracking-[0.2em] text-sm mb-6">Founder & Managing Director • M.A., LL.B</p>
+                  <h3 className="text-navy text-[32px] font-medium mb-2">{translate('MR. DEVENDER S. NEHRA')}</h3>
+                  <p className="text-orange-red font-bold uppercase tracking-[0.2em] text-sm mb-6">{translate('Founder & Managing Director • M.A., LL.B')}</p>
                   <p className="text-teal-gray text-lg leading-relaxed mb-6">
-                    With over 25 years of experience in workforce management and legal advisory,
-                    Mr. Nehra transformed Apex from a regional operation to a national leader.
+                    {translate('With over 25 years of experience in workforce management and legal advisory, Mr. Nehra transformed Apex from a regional operation to a national leader.')}
                   </p>
                   <div className="flex gap-4">
-                    <div className="py-2 px-4 bg-oat text-navy text-xs font-bold uppercase tracking-widest">Legal Expertise</div>
-                    <div className="py-2 px-4 bg-oat text-navy text-xs font-bold uppercase tracking-widest">Strategic Vision</div>
+                    <div className="py-2 px-4 bg-oat text-navy text-xs font-bold uppercase tracking-widest">{translate('Legal Expertise')}</div>
+                    <div className="py-2 px-4 bg-oat text-navy text-xs font-bold uppercase tracking-widest">{translate('Strategic Vision')}</div>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Executive Team Rows */}
-            {[
-              { name: 'Rajiv Kumar', role: 'Chief Operations Officer', desc: 'Oversees all operational aspects across India, ensuring consistent quality.' },
-              { name: 'Priya Sharma', role: 'Head of Legal Services', desc: 'Leads legal advisory, providing expert guidance on compliance and regulations.' },
-              { name: 'Anand Patel', role: 'Director of Business Development', desc: 'Spearheads expansion initiatives and develops strategic partnerships.' }
-            ].map((leader, idx) => (
+            {leadershipTeam.map((leader, idx) => (
               <div key={idx} className="bg-white p-8 hover:bg-navy hover:text-white transition-all duration-300 group border-b border-border flex flex-col md:flex-row md:items-center justify-between gap-8">
                 <div className="md:w-1/3">
                   <h4 className="text-xl font-bold mb-1">{leader.name}</h4>
@@ -308,14 +317,13 @@ export default function About() {
                 <div className="h-16 w-16 bg-orange-red flex items-center justify-center mb-8">
                   <Target className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-navy text-[36px] font-medium mb-6">Our Mission</h3>
+                <h3 className="text-navy text-[36px] font-medium mb-6">{translate('Our Mission')}</h3>
                 <p className="text-teal-gray text-lg leading-relaxed">
-                  To transform workforce management across India by providing innovative, compliant,
-                  and efficient solutions that enable our clients to focus on their core business.
+                  {translate('To transform workforce management across India by providing innovative, compliant, and efficient solutions that enable our clients to focus on their core business.')}
                 </p>
               </div>
               <div className="absolute -bottom-12 -right-12 text-navy/[0.03] font-bold text-[100px] md:text-[180px] leading-none select-none group-hover:scale-110 transition-transform pointer-events-none whitespace-nowrap">
-                MISSION
+                {translate('MISSION')}
               </div>
             </div>
 
@@ -324,15 +332,13 @@ export default function About() {
                 <div className="h-16 w-16 bg-white flex items-center justify-center mb-8">
                   <Eye className="h-8 w-8 text-navy" />
                 </div>
-                <h3 className="text-white text-[36px] font-medium mb-6">Our Vision</h3>
+                <h3 className="text-white text-[36px] font-medium mb-6">{translate('Our Vision')}</h3>
                 <p className="text-white/60 text-lg leading-relaxed">
-                  To be India's most trusted workforce solutions provider, known for our
-                  technological innovation, compliance expertise, and ability to deliver
-                  exceptional value.
+                  {translate("To be India's most trusted workforce solutions provider, known for our technological innovation, compliance expertise, and ability to deliver exceptional value.")}
                 </p>
               </div>
               <div className="absolute -bottom-12 -right-12 text-white/[0.03] font-bold text-[100px] md:text-[180px] leading-none select-none group-hover:scale-110 transition-transform pointer-events-none whitespace-nowrap">
-                VISION
+                {translate('VISION')}
               </div>
             </div>
           </div>
@@ -346,14 +352,14 @@ export default function About() {
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
             <div className="relative z-10">
               <h2 className="text-white text-[32px] md:text-[56px] font-medium leading-[1.1] mb-8">
-                Ready to transform <br />your workforce?
+                {translate('Ready to transform')} <br />{translate('your workforce?')}
               </h2>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <a href="/contact" className="bg-orange-red text-white px-8 py-4 font-bold hover:brightness-110 transition-all uppercase tracking-widest text-sm">
-                  Contact Us Today
+                  {translate('Contact Us Today')}
                 </a>
                 <a href="/services" className="border border-white/20 text-white px-8 py-4 font-bold hover:bg-white/10 transition-all uppercase tracking-widest text-sm">
-                  View Solutions
+                  {translate('View Solutions')}
                 </a>
               </div>
             </div>

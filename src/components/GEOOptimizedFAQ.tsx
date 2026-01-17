@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { generateFAQSchema } from '../utils/seo';
+import { useI18n } from '@/i18n/client';
 
 interface FAQ {
   id: string;
@@ -85,11 +86,13 @@ export default function GEOOptimizedFAQ({
   category = 'general',
   showSchema = true
 }: GEOOptimizedFAQProps) {
+  const { translate, translateData } = useI18n();
   const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set());
 
+  const localizedFAQs = translateData(geoOptimizedFAQs, { skipKeys: ['id'] });
   const filteredFAQs = category === 'general'
-    ? geoOptimizedFAQs
-    : geoOptimizedFAQs.filter(faq => faq.category === category);
+    ? localizedFAQs
+    : localizedFAQs.filter(faq => faq.category === category);
 
   const toggleExpanded = (id: string) => {
     const newExpanded = new Set(expandedItems);
@@ -117,9 +120,9 @@ export default function GEOOptimizedFAQ({
       <div className="container">
         {/* Header */}
         <div className="max-w-2xl mx-auto text-center mb-16">
-          <p className="eyebrow mb-4">FAQ</p>
-          <h2>{title}</h2>
-          <p className="mt-4 text-lg text-teal-gray">{subtitle}</p>
+          <p className="eyebrow mb-4">{translate('FAQ')}</p>
+          <h2>{translate(title)}</h2>
+          <p className="mt-4 text-lg text-teal-gray">{translate(subtitle)}</p>
         </div>
 
         {/* FAQ List */}
@@ -156,16 +159,16 @@ export default function GEOOptimizedFAQ({
         {/* CTA */}
         <div className="mt-16 max-w-xl mx-auto text-center">
           <div className="card p-8">
-            <h3 className="mb-3">Have a specific question?</h3>
+            <h3 className="mb-3">{translate('Have a specific question?')}</h3>
             <p className="text-teal-gray mb-6">
-              Our workforce experts are ready to help with your requirements.
+              {translate('Our workforce experts are ready to help with your requirements.')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact" className="btn-primary">
-                Contact Our Experts
+                {translate('Contact Our Experts')}
               </Link>
               <a href="tel:+91-0124-2340139" className="btn-secondary">
-                Call: +91-0124-2340139
+                {translate('Call: +91-0124-2340139')}
               </a>
             </div>
           </div>

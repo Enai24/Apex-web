@@ -314,7 +314,7 @@ export default function Navbar() {
                             </a>
 
                             <div className="pt-4">
-                                <p className="text-[11px] uppercase tracking-wider text-[#5a6f77] font-bold mb-4 px-1">Select Language</p>
+                                <p className="text-[11px] uppercase tracking-wider text-[#5a6f77] font-bold mb-4 px-1">{t('language.selectLanguage')}</p>
                                 <div className="grid grid-cols-2 gap-2">
                                     {locales.map((loc) => {
                                         const langInfo = localeNames[loc];

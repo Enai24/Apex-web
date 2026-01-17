@@ -1,22 +1,40 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight, ChevronRight, CheckCircle2, ArrowLeft, Shield, Zap, Settings, Languages, Quote } from 'lucide-react';
 import { aiSolutions, AI_WORKFORCE_STATS, AI_CASE_STUDIES, PLATFORM_CAPABILITIES } from '../data/ai-solutions';
 import { AI_ICON_MAP } from '../utils/ai-workforce';
 import { SEO } from '../utils/seo';
+import { useI18n } from '@/i18n/client';
 
 // Databricks-style: Sharp corners, generous padding, small orange icons
 export default function AIWorkforceSolutions() {
+  const { translate, translateData } = useI18n();
   const [activeSection, setActiveSection] = useState<'solutions' | 'case-studies' | 'integrations'>('solutions');
   const [caseStudyIndex, setCaseStudyIndex] = useState(0);
+  const localizedSolutions = useMemo(
+    () => translateData(aiSolutions, { skipKeys: ['id', 'image', 'iconName'] }),
+    [translateData]
+  );
+  const localizedStats = useMemo(
+    () => translateData(AI_WORKFORCE_STATS, { skipKeys: ['value'] }),
+    [translateData]
+  );
+  const localizedCaseStudies = useMemo(
+    () => translateData(AI_CASE_STUDIES, { skipKeys: ['id', 'company'] }),
+    [translateData]
+  );
+  const localizedCapabilities = useMemo(
+    () => translateData(PLATFORM_CAPABILITIES, { skipKeys: ['iconName'] }),
+    [translateData]
+  );
 
   return (
     <>
       <SEO
-        title="AI-Powered Workforce Solutions | Apex Enterprises India"
-        description="Leading AI recruitment and workforce management in India. Precision talent matching, predictive analytics, and compliance automation."
+        title={translate('AI-Powered Workforce Solutions | Apex Enterprises India')}
+        description={translate('Leading AI recruitment and workforce management in India. Precision talent matching, predictive analytics, and compliance automation.')}
       />
 
       <div className="bg-white font-sans">
@@ -26,23 +44,23 @@ export default function AIWorkforceSolutions() {
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               <div>
                 <h1 className="text-[40px] md:text-[48px] lg:text-[56px] font-medium leading-[1.1] tracking-[-0.01em] text-[#1b3139]">
-                  Production-quality AI for your workforce
+                  {translate('Production-quality AI for your workforce')}
                 </h1>
                 <p className="mt-6 text-[20px] leading-[28px] text-[#5a6f77] max-w-[520px]">
-                  Deploy intelligent talent matching and predictive workforce analytics built for India's enterprise scale.
+                  {translate("Deploy intelligent talent matching and predictive workforce analytics built for India's enterprise scale.")}
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Link
                     href="/contact"
                     className="inline-flex items-center justify-center bg-[#eb1600] px-6 py-3 text-[16px] font-medium text-white transition-colors hover:bg-[#bd2b26]"
                   >
-                    Get started
+                    {translate('Get started')}
                   </Link>
                   <Link
                     href="/ai-resume-screening"
                     className="inline-flex items-center justify-center border border-[#1b3139] px-6 py-3 text-[16px] font-medium text-[#1b3139] transition-colors hover:bg-[#1b3139] hover:text-white"
                   >
-                    See demo
+                    {translate('See demo')}
                   </Link>
                 </div>
               </div>
@@ -52,14 +70,14 @@ export default function AIWorkforceSolutions() {
                 <div className="bg-white shadow-[0px_72px_104px_rgba(27,49,57,.07),0px_32px_40px_rgba(27,49,57,.05),0px_16px_24px_rgba(27,49,57,.04)]">
                   <img
                     src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop"
-                    alt="AI Workforce Dashboard"
+                    alt={translate('AI Workforce Dashboard')}
                     className="w-full"
                   />
                 </div>
                 {/* Floating stat */}
                 <div className="absolute -bottom-6 -left-6 bg-[#1b3139] px-6 py-4 shadow-lg">
                   <p className="text-[32px] font-medium text-white">94%</p>
-                  <p className="text-[14px] text-[#90a5b1]">Match Accuracy</p>
+                  <p className="text-[14px] text-[#90a5b1]">{translate('Match Accuracy')}</p>
                 </div>
               </div>
             </div>
@@ -71,9 +89,9 @@ export default function AIWorkforceSolutions() {
           <div className="mx-auto max-w-[1456px] px-4 lg:px-8">
             <nav className="flex gap-6" aria-label="Section Navigation">
               {[
-                { id: 'solutions', label: 'AI Products' },
-                { id: 'capabilities', label: 'Key Capabilities' },
-                { id: 'case-studies', label: 'Customer Stories' }
+                { id: 'solutions', label: translate('AI Products') },
+                { id: 'capabilities', label: translate('Key Capabilities') },
+                { id: 'case-studies', label: translate('Customer Stories') }
               ].map((tab) => (
                 <button
                   key={tab.id}
@@ -103,15 +121,15 @@ export default function AIWorkforceSolutions() {
           <div className="mx-auto max-w-[1456px] px-4 lg:px-8">
             <div className="mb-10">
               <span className="block text-[16px] font-normal tracking-[0.01em] text-[#bd2b26] uppercase mb-3">
-                INTELLIGENT MODULES
+                {translate('INTELLIGENT MODULES')}
               </span>
               <h2 className="text-[40px] md:text-[48px] font-medium leading-[1.15] text-[#1b3139]">
-                Tools for end-to-end workforce systems
+                {translate('Tools for end-to-end workforce systems')}
               </h2>
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {aiSolutions.map((solution, idx) => {
+              {localizedSolutions.map((solution, idx) => {
                 const Icon = AI_ICON_MAP[solution.iconName] || CheckCircle2;
                 return (
                   <Link
@@ -127,7 +145,7 @@ export default function AIWorkforceSolutions() {
                       {solution.description}
                     </p>
                     <div className="flex items-center gap-2 text-white text-[14px] font-medium opacity-60 group-hover:opacity-100 transition-opacity">
-                      <span>Explore module</span>
+                      <span>{translate('Explore module')}</span>
                       <ArrowRight className="h-4 w-4" />
                     </div>
                   </Link>
@@ -142,15 +160,15 @@ export default function AIWorkforceSolutions() {
           <div className="mx-auto max-w-[1456px] px-4 lg:px-8">
             <div className="mb-12">
               <span className="block text-[16px] font-normal tracking-[0.01em] text-[#bd2b26] uppercase mb-3">
-                CORE CAPABILITIES
+                {translate('CORE CAPABILITIES')}
               </span>
               <h2 className="text-[40px] md:text-[48px] font-medium leading-[1.15] text-[#1b3139]">
-                Built for enterprise scale and security
+                {translate('Built for enterprise scale and security')}
               </h2>
             </div>
 
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-              {PLATFORM_CAPABILITIES.map((cap, idx) => {
+              {localizedCapabilities.map((cap, idx) => {
                 const Icon = AI_ICON_MAP[cap.iconName] || Settings;
                 return (
                   <div key={idx} className="bg-[#f9f7f4] p-8">
@@ -170,10 +188,10 @@ export default function AIWorkforceSolutions() {
             <div className="flex items-end justify-between mb-12">
               <div>
                 <span className="block text-[16px] font-normal tracking-[0.01em] text-[#bd2b26] uppercase mb-3">
-                  CUSTOMER STORIES
+                  {translate('CUSTOMER STORIES')}
                 </span>
                 <h2 className="text-[40px] md:text-[48px] font-medium leading-[1.15] text-[#1b3139]">
-                  Customers deploy production-<br />quality workforce solutions
+                  {translate('Customers deploy production-')}<br />{translate('quality workforce solutions')}
                 </h2>
               </div>
 
@@ -186,9 +204,9 @@ export default function AIWorkforceSolutions() {
                   <ArrowLeft className="h-5 w-5 text-[#1b3139]" />
                 </button>
                 <button
-                  onClick={() => setCaseStudyIndex(Math.min(AI_CASE_STUDIES.length - 1, caseStudyIndex + 1))}
+                  onClick={() => setCaseStudyIndex(Math.min(localizedCaseStudies.length - 1, caseStudyIndex + 1))}
                   className="w-12 h-12 bg-[#ff3621] flex items-center justify-center hover:bg-[#bd2b26] transition-colors"
-                  disabled={caseStudyIndex === AI_CASE_STUDIES.length - 1}
+                  disabled={caseStudyIndex === localizedCaseStudies.length - 1}
                 >
                   <ArrowRight className="h-5 w-5 text-white" />
                 </button>
@@ -202,17 +220,17 @@ export default function AIWorkforceSolutions() {
                 <div className="relative aspect-[4/3] lg:aspect-auto bg-[#eeede9]">
                   <img
                     src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop"
-                    alt={AI_CASE_STUDIES[caseStudyIndex].company}
+                    alt={localizedCaseStudies[caseStudyIndex].company}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-[#1b3139]/10" />
                   <div className="absolute bottom-8 left-8 right-8 bg-[#1b3139] p-6 text-white max-w-[400px]">
                     <Quote className="h-6 w-6 text-[#ff5f46] mb-3" />
                     <p className="text-[18px] font-medium leading-[26px]">
-                      "{AI_CASE_STUDIES[caseStudyIndex].quote || 'The standard for enterprise AI in India.'}"
+                      "{localizedCaseStudies[caseStudyIndex].quote || translate('The standard for enterprise AI in India.')}"
                     </p>
                     <p className="mt-2 text-[14px] text-[#90a5b1]">
-                      — Hiring Manager, {AI_CASE_STUDIES[caseStudyIndex].company}
+                      {translate('— Hiring Manager, {company}', { company: localizedCaseStudies[caseStudyIndex].company })}
                     </p>
                   </div>
                 </div>
@@ -221,25 +239,25 @@ export default function AIWorkforceSolutions() {
                 <div className="p-8 lg:p-12 flex flex-col justify-center">
                   <div className="mb-8">
                     <span className="text-[20px] font-medium text-[#1b3139] block mb-1">
-                      {AI_CASE_STUDIES[caseStudyIndex].company}
+                      {localizedCaseStudies[caseStudyIndex].company}
                     </span>
                     <span className="text-[14px] text-[#5a6f77]">
-                      {AI_CASE_STUDIES[caseStudyIndex].industry} • {AI_CASE_STUDIES[caseStudyIndex].location}
+                      {localizedCaseStudies[caseStudyIndex].industry} • {localizedCaseStudies[caseStudyIndex].location}
                     </span>
                   </div>
 
                   <div className="grid gap-8">
                     <div>
-                      <h4 className="text-[14px] font-semibold text-[#bd2b26] uppercase tracking-wider mb-2">The Challenge</h4>
+                      <h4 className="text-[14px] font-semibold text-[#bd2b26] uppercase tracking-wider mb-2">{translate('The Challenge')}</h4>
                       <p className="text-[18px] text-[#5a6f77] leading-[28px]">
-                        {AI_CASE_STUDIES[caseStudyIndex].challenge}
+                        {localizedCaseStudies[caseStudyIndex].challenge}
                       </p>
                     </div>
 
                     <div>
-                      <h4 className="text-[14px] font-semibold text-[#bd2b26] uppercase tracking-wider mb-2">The Results</h4>
+                      <h4 className="text-[14px] font-semibold text-[#bd2b26] uppercase tracking-wider mb-2">{translate('The Results')}</h4>
                       <div className="grid gap-4">
-                        {AI_CASE_STUDIES[caseStudyIndex].results.map((result, idx) => (
+                        {localizedCaseStudies[caseStudyIndex].results.map((result, idx) => (
                           <div key={idx} className="flex items-start gap-3">
                             <CheckCircle2 className="h-5 w-5 text-[#ff3621] mt-1 shrink-0" />
                             <span className="text-[20px] font-medium text-[#1b3139]">{result}</span>
@@ -254,7 +272,7 @@ export default function AIWorkforceSolutions() {
                       href="/contact"
                       className="inline-flex items-center gap-2 text-[16px] font-medium text-[#eb1600] group"
                     >
-                      Read full case study
+                      {translate('Read full case study')}
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </div>
@@ -268,7 +286,7 @@ export default function AIWorkforceSolutions() {
         <section className="bg-[#1b3139] py-16 lg:py-20">
           <div className="mx-auto max-w-[1456px] px-4 lg:px-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {AI_WORKFORCE_STATS.slice(0, 4).map((stat, idx) => (
+              {localizedStats.slice(0, 4).map((stat, idx) => (
                 <div key={idx} className="text-center">
                   <p className="text-[40px] md:text-[56px] font-medium text-white">{stat.value}</p>
                   <p className="text-[14px] text-[#90a5b1]">{stat.label}</p>
@@ -282,23 +300,23 @@ export default function AIWorkforceSolutions() {
         <section className="bg-white py-16 lg:py-24">
           <div className="mx-auto max-w-[1456px] px-4 lg:px-8 text-center">
             <h2 className="text-[32px] md:text-[40px] font-medium text-[#1b3139] mb-4">
-              Ready to transform your workforce?
+              {translate('Ready to transform your workforce?')}
             </h2>
             <p className="text-[20px] text-[#5a6f77] max-w-[600px] mx-auto mb-8">
-              Join the network of enterprise leaders scaling with Apex AI across India.
+              {translate('Join the network of enterprise leaders scaling with Apex AI across India.')}
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center bg-[#eb1600] px-8 py-4 text-[16px] font-medium text-white transition-colors hover:bg-[#bd2b26]"
               >
-                Contact sales
+                {translate('Contact sales')}
               </Link>
               <Link
                 href="/ai-resume-screening"
                 className="inline-flex items-center justify-center border border-[#1b3139] px-8 py-4 text-[16px] font-medium text-[#1b3139] transition-colors hover:bg-[#1b3139] hover:text-white"
               >
-                Try demo
+                {translate('Try demo')}
               </Link>
             </div>
           </div>

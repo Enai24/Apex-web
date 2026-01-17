@@ -1,21 +1,42 @@
-import React from 'react';
+'use client';
+
+import React, { useMemo } from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import { useI18n } from '@/i18n/client';
 
 /**
  * ResourcesHelp component - Clones the "More than meets the AI" section 
  * with two large interactive panels for "Get help" and "See what's new".
  */
 export default function ResourcesHelp() {
+    const { translate, translateData } = useI18n();
+    const helpLinks = useMemo(
+        () => translateData([
+            { text: 'Customer Support', href: '/contact' },
+            { text: 'HR Training', href: '/services' },
+            { text: 'Employer Community', href: '/partners' }
+        ], { skipKeys: ['href'] }),
+        [translateData]
+    );
+    const newsLinks = useMemo(
+        () => translateData([
+            { text: 'Apex Blog', href: '/updates' },
+            { text: 'Market News', href: '/updates' },
+            { text: 'Industry Events', href: '/updates' }
+        ], { skipKeys: ['href'] }),
+        [translateData]
+    );
+
     return (
         <section className="bg-white py-20 md:py-[120px]">
             <div className="container mx-auto px-4 md:px-8 max-w-[1440px]">
                 {/* Eyebrow & Headline */}
                 <div className="text-center mb-12 md:mb-16">
                     <p className="font-mono text-[14px] font-bold tracking-[0.1em] uppercase text-[#F68B1F] mb-4">
-                        Resources
+                        {translate('Resources')}
                     </p>
                     <h2 className="text-[#1B292E] text-[32px] md:text-[48px] font-medium leading-[1.1] mb-8">
-                        More than meets the AI
+                        {translate('More than meets the AI')}
                     </h2>
                 </div>
 
@@ -25,32 +46,42 @@ export default function ResourcesHelp() {
                     {/* Get Help Panel */}
                     <div className="bg-[#1B292E] p-10 md:p-[60px] flex flex-col min-h-[480px] rounded-sm shadow-2xl">
                         <h3 className="text-white text-[28px] md:text-[32px] font-medium mb-4">
-                            Get help
+                            {translate('Get help')}
                         </h3>
                         <p className="text-[#E5E1DA] text-[18px] mb-12 opacity-80">
-                            Everything you need to succeed with Apex workforce solutions
+                            {translate('Everything you need to succeed with Apex workforce solutions')}
                         </p>
 
                         <div className="mt-auto space-y-0">
-                            <ResourceLink text="Customer Support" href="/contact" />
-                            <ResourceLink text="HR Training" href="/services" />
-                            <ResourceLink text="Employer Community" href="/partners" borderBottom={false} />
+                            {helpLinks.map((link, index) => (
+                                <ResourceLink
+                                    key={link.href}
+                                    text={link.text}
+                                    href={link.href}
+                                    borderBottom={index !== helpLinks.length - 1}
+                                />
+                            ))}
                         </div>
                     </div>
 
                     {/* See What's New Panel */}
                     <div className="bg-[#1B292E] p-10 md:p-[60px] flex flex-col min-h-[480px] rounded-sm shadow-2xl">
                         <h3 className="text-white text-[28px] md:text-[32px] font-medium mb-4">
-                            See what’s new
+                            {translate('See what’s new')}
                         </h3>
                         <p className="text-[#E5E1DA] text-[18px] mb-12 opacity-80">
-                            Our latest announcements, expert analyses and upcoming events
+                            {translate('Our latest announcements, expert analyses and upcoming events')}
                         </p>
 
                         <div className="mt-auto space-y-0">
-                            <ResourceLink text="Apex Blog" href="/updates" />
-                            <ResourceLink text="Market News" href="/updates" />
-                            <ResourceLink text="Industry Events" href="/updates" borderBottom={false} />
+                            {newsLinks.map((link, index) => (
+                                <ResourceLink
+                                    key={`${link.href}-${link.text}`}
+                                    text={link.text}
+                                    href={link.href}
+                                    borderBottom={index !== newsLinks.length - 1}
+                                />
+                            ))}
                         </div>
                     </div>
 

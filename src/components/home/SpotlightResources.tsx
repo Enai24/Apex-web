@@ -1,8 +1,12 @@
-import React from 'react';
+'use client';
+
+import React, { useMemo } from 'react';
 import Image from 'next/image';
+import { useI18n } from '@/i18n/client';
 
 const SpotlightResources = () => {
-    const resources = [
+    const { translate, translateData } = useI18n();
+    const resources = useMemo(() => translateData([
         {
             type: "REPORT",
             title: "India Labor Market Outlook 2026: The AI Workforce Transition",
@@ -31,14 +35,14 @@ const SpotlightResources = () => {
             linkText: "Read now",
             linkHref: "/resources",
         }
-    ];
+    ], { skipKeys: ['image', 'linkHref'] }), [translateData]);
 
     return (
         <section className="bg-[#F9F7F2] py-[80px] md:py-[100px] lg:py-[120px]">
             <div className="container mx-auto px-4 md:px-8 max-w-[1440px]">
                 <div className="text-center mb-12 md:mb-16">
                     <h2 className="text-[32px] md:text-[40px] lg:text-[48px] font-medium text-[#1B292E] tracking-tight">
-                        In the spotlight
+                        {translate('In the spotlight')}
                     </h2>
                 </div>
 
@@ -81,7 +85,7 @@ const SpotlightResources = () => {
                         href="/resources"
                         className="bg-[#1B292E] text-white text-[14px] font-bold py-3 px-8 transition-colors hover:bg-opacity-90 shadow-lg"
                     >
-                        See more resources
+                        {translate('See more resources')}
                     </a>
                 </div>
             </div>

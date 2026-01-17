@@ -1,9 +1,13 @@
-import React from 'react';
+'use client';
+
+import React, { useMemo } from 'react';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import { useI18n } from '@/i18n/client';
 
 const PlatformIntro = () => {
-    const features = [
+    const { translate, translateData } = useI18n();
+    const features = useMemo(() => translateData([
         {
             icon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/1df43dfa-eab5-4753-ba4c-1431675fa885-databricks-com/assets/svgs/icon-succeed-with-ai-16.svg",
             title: "Succeed with AI",
@@ -19,7 +23,7 @@ const PlatformIntro = () => {
             title: "Drive down costs",
             description: "Gain efficiency through unified payroll, compliance, and automated recruitment workflows."
         }
-    ];
+    ], { skipKeys: ['icon'] }), [translateData]);
 
     return (
         <section className="bg-[#F9F7F2] py-20 md:py-[120px]">
@@ -27,13 +31,13 @@ const PlatformIntro = () => {
                 {/* Header Section */}
                 <div className="text-center mb-16 md:mb-20">
                     <span className="font-mono text-[14px] font-medium tracking-[0.1em] text-[#EE3D2C] uppercase mb-4 block">
-                        PLATFORM
+                        {translate('PLATFORM')}
                     </span>
                     <h2 className="font-sans text-[40px] md:text-[48px] leading-[1.1] font-medium text-[#1B292E] mb-6 tracking-[-0.02em]">
-                        India's Smartest AI-Powered<br />Workforce Intelligence Platform
+                        {translate("India's Smartest AI-Powered")}<br />{translate('Workforce Intelligence Platform')}
                     </h2>
                     <p className="font-sans text-[18px] leading-[1.6] text-[#5D6B6F] max-w-[600px] mx-auto">
-                        Apex integrates advanced AI with 20+ years of Indian staffing expertise to help you hire, manage, and scale with absolute precision across 28 states.
+                        {translate('Apex integrates advanced AI with 20+ years of Indian staffing expertise to help you hire, manage, and scale with absolute precision across 28 states.')}
                     </p>
                 </div>
 
@@ -66,13 +70,13 @@ const PlatformIntro = () => {
                         href="/services"
                         className="bg-[#1B292E] text-white font-sans text-[16px] font-semibold px-8 py-3.5 hover:opacity-90 transition-opacity"
                     >
-                        Explore the platform
+                        {translate('Explore the platform')}
                     </a>
                     <a
                         href="/contact"
                         className="text-[#0060FE] font-sans text-[16px] font-semibold flex items-center group"
                     >
-                        Schedule a demo
+                        {translate('Schedule a demo')}
                         <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
                     </a>
                 </div>

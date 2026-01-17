@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useMemo, useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { ArrowLeft, ArrowRight, Building2, TrendingUp, Shield, CheckCircle2, RefreshCw, BarChart, Zap, Award, Users } from 'lucide-react';
+import { useI18n } from '@/i18n/client';
 
 /**
  * CustomerStories component
@@ -107,9 +108,14 @@ const stories: Story[] = [
 ];
 
 export default function CustomerStories() {
+    const { translate, translateData } = useI18n();
     const scrollContainerRef = useRef<HTMLDivElement>(null);
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(true);
+    const localizedStories = useMemo(
+        () => translateData(stories, { skipKeys: ['id', 'client', 'metric', 'icon', 'quoteAuthor'] }),
+        [translateData]
+    );
 
     const checkScrollButtons = () => {
         if (scrollContainerRef.current) {
@@ -142,22 +148,22 @@ export default function CustomerStories() {
                 <div className="flex flex-col mb-12">
                     <div className="text-center mb-8">
                         <p className="font-mono text-[14px] font-medium uppercase tracking-[0.1em] text-orange-red mb-4">
-                            SUCCESS STORIES
+                            {translate('SUCCESS STORIES')}
                         </p>
                         <h2 className="text-white text-3xl md:text-[48px] font-medium leading-[1.1] tracking-[-0.02em] mb-6">
-                            Unmatched Excellence in Indian Staffing & Operations
+                            {translate('Unmatched Excellence in Indian Staffing & Operations')}
                         </h2>
                     </div>
 
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                         <p className="text-[#E5E1DA] text-lg max-w-[500px] leading-relaxed">
-                            Discover how India's top enterprises achieve operational scale and compliant growth with our AI-powered workforce intelligence.
+                            {translate("Discover how India's top enterprises achieve operational scale and compliant growth with our AI-powered workforce intelligence.")}
                         </p>
 
                         {/* Slider Controls */}
                         <div className="flex gap-4">
                             <button
-                                aria-label="Previous story"
+                                aria-label={translate('Previous story')}
                                 onClick={() => scroll('left')}
                                 disabled={!canScrollLeft}
                                 className={`w-12 h-12 rounded-full border flex items-center justify-center text-white transition-all ${canScrollLeft
@@ -168,7 +174,7 @@ export default function CustomerStories() {
                                 <ArrowLeft size={24} />
                             </button>
                             <button
-                                aria-label="Next story"
+                                aria-label={translate('Next story')}
                                 onClick={() => scroll('right')}
                                 disabled={!canScrollRight}
                                 className={`w-12 h-12 rounded-full flex items-center justify-center text-white transition-all ${canScrollRight
@@ -188,7 +194,7 @@ export default function CustomerStories() {
                         ref={scrollContainerRef}
                         className="flex overflow-x-auto gap-8 scrollbar-hide pb-8 -mx-6 px-6 lg:mx-0 lg:px-0 snap-x snap-mandatory"
                     >
-                        {stories.map((story, index) => (
+                        {localizedStories.map((story, index) => (
                             <div
                                 key={story.id}
                                 className="min-w-[85vw] md:min-w-[700px] lg:min-w-[900px] bg-white flex flex-col md:flex-row overflow-hidden shadow-premium group cursor-pointer snap-start"
@@ -232,7 +238,7 @@ export default function CustomerStories() {
                                         href="/portfolio"
                                         className="inline-flex items-center text-link-blue font-semibold hover:underline group/link"
                                     >
-                                        See the full story
+                                        {translate('See the full story')}
                                         <ArrowRight className="ml-1 transition-transform group-hover/link:translate-x-1" size={16} />
                                     </a>
                                 </div>
@@ -268,7 +274,7 @@ export default function CustomerStories() {
                         href="/portfolio"
                         className="inline-flex items-center text-white font-medium hover:text-orange-red transition-colors group"
                     >
-                        See all Success Stories
+                        {translate('See all Success Stories')}
                         <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" size={18} />
                     </a>
                 </div>

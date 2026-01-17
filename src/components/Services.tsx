@@ -1,108 +1,110 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import Link from 'next/link';
 import {
   Users, FileCheck, Shield, BarChart2, Briefcase,
   Globe2, ArrowRight, CheckCircle
 } from 'lucide-react';
+import { useI18n } from '@/i18n/client';
 
 /**
  * Databricks-Style Services Component
  * Design: Clean oat background, navy text, orange-red accent
  */
 
-const services = [
-  {
-    id: 1,
-    name: "Contract Staffing",
-    href: "/services/contract-staffing",
-    description: "AI-powered contract staffing solutions across all 28 states with 100% PF, ESI, and labor law compliance.",
-    features: [
-      "AI-driven candidate matching",
-      "Real-time associate management",
-      "Statutory compliance guarantee"
-    ],
-    stat: { value: "280K+", label: "Associates deployed" },
-    icon: Users,
-  },
-  {
-    id: 2,
-    name: "Payroll & Compliance",
-    href: "/services/payroll-compliance",
-    description: "End-to-end payroll processing with statutory compliance for businesses of all sizes.",
-    features: [
-      "Multi-state processing",
-      "Automated PF/ESI",
-      "Zero-error filing"
-    ],
-    stat: { value: "₹850Cr+", label: "Monthly processing" },
-    icon: FileCheck,
-  },
-  {
-    id: 3,
-    name: "Industrial Housekeeping",
-    href: "/services/industrial-housekeeping",
-    description: "Specialized facility management and housekeeping for manufacturing and plant operations.",
-    features: [
-      "Hazardous zone expert",
-      "EHS-compliant protocols",
-      "Real-time safety audits"
-    ],
-    stat: { value: "25M+ Sqft", label: "Managed monthly" },
-    icon: Shield,
-  },
-  {
-    id: 4,
-    name: "Labour Law Advisory",
-    href: "/services/labour-law-advisory",
-    description: "Expert advisory on Indian labor laws, CLRA management, and statutory audit readiness.",
-    features: [
-      "Auditor-grade reporting",
-      "Litigation support",
-      "Statutory inteligencia"
-    ],
-    stat: { value: "100%", label: "Audit-ready rate" },
-    icon: BarChart2,
-  },
-  {
-    id: 5,
-    name: "Specialised Hiring",
-    href: "/services/specialised-hiring",
-    description: "Precision recruitment for niche technical roles in IT, Pharma, and BFSI sectors.",
-    features: [
-      "AI skill mapping",
-      "Global GCC expertise",
-      "90-day replacement"
-    ],
-    stat: { value: "8K+", label: "Speciailists placed" },
-    icon: Briefcase,
-  },
-  {
-    id: 6,
-    name: "GCC Setup & Staffing",
-    href: "/services/specialised-hiring", // Point to specialised hiring or common setup page
-    description: "Strategic talent acquisition for Global Capability Centers (GCCs) in Bangalore, Hyderabad, and Pune.",
-    features: [
-      "Niche tech hiring",
-      "Operational excellence",
-      "Scalable infrastructure"
-    ],
-    stat: { value: "150+", label: "GCCs empowered" },
-    icon: Globe2,
-  },
-];
-
 export default function Services() {
+  const { t, translate } = useI18n();
+  const services = useMemo(() => ([
+    {
+      id: 1,
+      name: t('services.contractStaffing.name'),
+      href: "/services/contract-staffing",
+      description: t('services.contractStaffing.description'),
+      features: [
+        t('services.contractStaffing.features.0'),
+        t('services.contractStaffing.features.1'),
+        t('services.contractStaffing.features.2'),
+      ],
+      stat: { value: "280K+", label: translate('Associates deployed') },
+      icon: Users,
+    },
+    {
+      id: 2,
+      name: t('services.payrollCompliance.name'),
+      href: "/services/payroll-compliance",
+      description: t('services.payrollCompliance.description'),
+      features: [
+        t('services.payrollCompliance.features.0'),
+        t('services.payrollCompliance.features.1'),
+        t('services.payrollCompliance.features.2'),
+      ],
+      stat: { value: "₹850Cr+", label: translate('Monthly processing') },
+      icon: FileCheck,
+    },
+    {
+      id: 3,
+      name: t('services.industrialHousekeeping.name'),
+      href: "/services/industrial-housekeeping",
+      description: t('services.industrialHousekeeping.description'),
+      features: [
+        t('services.industrialHousekeeping.features.0'),
+        t('services.industrialHousekeeping.features.1'),
+        t('services.industrialHousekeeping.features.2'),
+      ],
+      stat: { value: "25M+ Sqft", label: translate('Managed monthly') },
+      icon: Shield,
+    },
+    {
+      id: 4,
+      name: t('services.labourLawAdvisory.name'),
+      href: "/services/labour-law-advisory",
+      description: t('services.labourLawAdvisory.description'),
+      features: [
+        t('services.labourLawAdvisory.features.0'),
+        t('services.labourLawAdvisory.features.1'),
+        t('services.labourLawAdvisory.features.2'),
+      ],
+      stat: { value: "100%", label: translate('Audit-ready rate') },
+      icon: BarChart2,
+    },
+    {
+      id: 5,
+      name: t('services.specialisedHiring.name'),
+      href: "/services/specialised-hiring",
+      description: t('services.specialisedHiring.description'),
+      features: [
+        t('services.specialisedHiring.features.0'),
+        t('services.specialisedHiring.features.1'),
+        t('services.specialisedHiring.features.2'),
+      ],
+      stat: { value: "8K+", label: translate('Specialists placed') },
+      icon: Briefcase,
+    },
+    {
+      id: 6,
+      name: t('services.gccSetup.name'),
+      href: "/services/specialised-hiring", // Point to specialised hiring or common setup page
+      description: t('services.gccSetup.description'),
+      features: [
+        t('services.gccSetup.features.0'),
+        t('services.gccSetup.features.1'),
+        t('services.gccSetup.features.2'),
+      ],
+      stat: { value: "150+", label: translate('GCCs empowered') },
+      icon: Globe2,
+    },
+  ]), [t, translate]);
+
   return (
     <section className="py-16 lg:py-32 bg-oat-medium">
       <div className="container">
         {/* Header */}
         <div className="max-w-2xl mx-auto text-center mb-12 sm:mb-16">
-          <p className="eyebrow mb-4">Our Service Suite</p>
-          <h2 className="text-navy text-3xl sm:text-4xl lg:text-5xl">AI-Driven Workforce Solutions & Managed Services</h2>
+          <p className="eyebrow mb-4">{t('services.title')}</p>
+          <h2 className="text-navy text-3xl sm:text-4xl lg:text-5xl">{t('services.heading')}</h2>
           <p className="mt-4 text-base sm:text-lg text-teal-gray">
-            End-to-end workforce intelligence and staffing excellence across 28 Indian states.
+            {t('services.description')}
           </p>
         </div>
 
@@ -144,7 +146,7 @@ export default function Services() {
                   href={service.href}
                   className="text-sm font-bold text-orange-red hover:opacity-80 transition-opacity inline-flex items-center gap-1"
                 >
-                  Learn more
+                  {t('common.learnMore')}
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -155,7 +157,7 @@ export default function Services() {
         {/* CTA */}
         <div className="mt-16 text-center">
           <Link href="/contact" className="btn-primary">
-            Discuss Your Requirements
+            {t('services.cta')}
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

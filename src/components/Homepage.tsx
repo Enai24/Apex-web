@@ -20,7 +20,7 @@ import { useI18n } from '@/i18n/client';
  */
 
 export default function Homepage() {
-    const { t } = useI18n();
+    const { t, translate } = useI18n();
 
     const stats = [
         { label: t('stats.placementsLabel'), value: t('stats.placements') },
@@ -99,8 +99,8 @@ export default function Homepage() {
 
             {/* 9. FAQ Section */}
             <GEOOptimizedFAQ
-                title="Frequently Asked Questions"
-                subtitle="Everything you need to know about our workforce solutions"
+                title={translate('Frequently Asked Questions')}
+                subtitle={translate('Everything you need to know about our workforce solutions')}
                 category="general"
             />
         </main>
