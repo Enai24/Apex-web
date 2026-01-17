@@ -1,0 +1,139 @@
+{
+    "common": {
+        "company": "Apex Enterprises",
+        "tagline": "AI-Powered Workforce Solutions",
+        "getStarted": "Get Started",
+        "learnMore": "Learn more",
+        "contactUs": "Contact Us",
+        "viewAll": "View All",
+        "exploreServices": "Explore All Services",
+        "trustedBy": "Trusted by 500+ Companies",
+        "yearsOfExcellence": "Years of Excellence",
+        "statesCovered": "States Covered",
+        "successfulPlacements": "Successful Placements",
+        "indianClients": "Indian Clients"
+    },
+    "nav": {
+        "services": "Services",
+        "aiSolutions": "AI Solutions",
+        "industries": "Industries",
+        "about": "About",
+        "careers": "Careers",
+        "contact": "Contact Us",
+        "contractStaffing": "Contract Staffing",
+        "payrollCompliance": "Payroll & Compliance",
+        "industrialHousekeeping": "Industrial Housekeeping",
+        "labourLawAdvisory": "Labour Law Advisory",
+        "specializedHiring": "Specialized Hiring",
+        "aiResumeScreening": "AI Resume Screening",
+        "talentMatching": "Talent Matching",
+        "predictiveAnalytics": "Predictive Analytics",
+        "automatedCompliance": "Automated Compliance",
+        "aiVoiceAgent": "AI Voice Agent"
+    },
+    "hero": {
+        "eyebrow": "AI-Powered Workforce Intelligence",
+        "heading": "India's Leading AI-Powered Staffing & Workforce Intelligence Company",
+        "subheading": "For over 23 years, we've connected exceptional talent with successful companies. AI-powered solutions for the modern workforce.",
+        "cta1": "Get Free Consultation",
+        "cta2": "Explore Services"
+    },
+    "stats": {
+        "placements": "280,000+",
+        "placementsLabel": "Successful Placements",
+        "clients": "3,500+",
+        "clientsLabel": "Indian Clients",
+        "years": "23+",
+        "yearsLabel": "Years of Excellence",
+        "states": "28",
+        "statesLabel": "States Covered"
+    },
+    "services": {
+        "title": "Our Service Suite",
+        "heading": "AI-Driven Workforce Solutions & Managed Services",
+        "description": "End-to-end workforce intelligence and staffing excellence across 28 Indian states.",
+        "contractStaffing": {
+            "name": "Contract Staffing",
+            "description": "AI-powered contract staffing solutions across all 28 states with 100% PF, ESI, and labor law compliance.",
+            "features": [
+                "AI-driven candidate matching",
+                "Real-time associate management",
+                "Statutory compliance guarantee"
+            ]
+        },
+        "payrollCompliance": {
+            "name": "Payroll & Compliance",
+            "description": "End-to-end payroll processing with statutory compliance for businesses of all sizes.",
+            "features": [
+                "Multi-state processing",
+                "Automated PF/ESI",
+                "Zero-error filing"
+            ]
+        },
+        "industrialHousekeeping": {
+            "name": "Industrial Housekeeping",
+            "description": "Specialized facility management and housekeeping for manufacturing and plant operations.",
+            "features": [
+                "Hazardous zone expert",
+                "EHS-compliant protocols",
+                "Real-time safety audits"
+            ]
+        },
+        "labourLawAdvisory": {
+            "name": "Labour Law Advisory",
+            "description": "Expert advisory on Indian labor laws, CLRA management, and statutory audit readiness.",
+            "features": [
+                "Auditor-grade reporting",
+                "Litigation support",
+                "Statutory intelligence"
+            ]
+        },
+        "specialisedHiring": {
+            "name": "Specialised Hiring",
+            "description": "Precision recruitment for niche technical roles in IT, Pharma, and BFSI sectors.",
+            "features": [
+                "AI skill mapping",
+                "Global GCC expertise",
+                "90-day replacement"
+            ]
+        },
+        "gccSetup": {
+            "name": "GCC Setup & Staffing",
+            "description": "Strategic talent acquisition for Global Capability Centers (GCCs) in Bangalore, Hyderabad, and Pune.",
+            "features": [
+                "Niche tech hiring",
+                "Operational excellence",
+                "Scalable infrastructure"
+            ]
+        },
+        "cta": "Discuss Your Requirements"
+    },
+    "footer": {
+        "description": "India's leading AI-powered workforce solutions provider since 2002. Transforming businesses with intelligent staffing, compliance automation, and predictive analytics.",
+        "quickLinks": "Quick Links",
+        "ourServices": "Our Services",
+        "contactInfo": "Contact Info",
+        "copyright": "© 2026 Apex Enterprises. All rights reserved.",
+        "privacyPolicy": "Privacy Policy",
+        "termsOfService": "Terms of Service",
+        "home": "Home",
+        "about": "About Us",
+        "services": "Services",
+        "industries": "Industries",
+        "careers": "Careers",
+        "contact": "Contact",
+        "address": "11, Near Hanuman Mandir, Shankar Chowk Road, Dundahera, Gurgaon - 122016",
+        "phone": "+91 0124 2340139",
+        "email": "mail@apexenterprises.net"
+    },
+    "cta": {
+        "scheduleConsultation": "Schedule Consultation",
+        "getQuote": "Get a Quote",
+        "letsChat": "Let's Chat",
+        "exploreUseCases": "Explore Use Cases",
+        "getFreeConsultation": "Get Free Consultation"
+    },
+    "language": {
+        "selectLanguage": "Select Language"
+    }
+}

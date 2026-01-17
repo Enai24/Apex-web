@@ -1,0 +1,46 @@
+# www.robotstxt.org/
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Optimize crawling for important pages
+Allow: /about
+Allow: /services
+Allow: /contact
+Allow: /ai-workforce-solutions
+Allow: /locations
+Allow: /careers
+Allow: /industries
+
+# Block unnecessary pages
+Disallow: /admin
+Disallow: /private
+Disallow: /api
+Disallow: /_next
+Disallow: /temp
+Disallow: /*.json$
+Disallow: /*?*utm_source=
+Disallow: /*?*utm_medium=
+Disallow: /*?*utm_campaign=
+
+# Allow specific search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://apexenterprises.net/sitemap.xml
+
+# Additional sitemaps for better indexing
+Sitemap: https://apexenterprises.net/sitemap-services.xml
+Sitemap: https://apexenterprises.net/sitemap-locations.xml
+Sitemap: https://apexenterprises.net/sitemap-jobs.xml 
