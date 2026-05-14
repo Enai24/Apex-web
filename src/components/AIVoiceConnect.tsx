@@ -64,7 +64,7 @@ export default function AIVoiceConnect() {
                   <div className="h-16 bg-[#f9f7f4] flex items-center justify-center">
                     <div className="flex gap-1">
                       {[...Array(20)].map((_, i) => (
-                        <div key={i} className="w-1 bg-[#ff3621]" style={{ height: `${Math.random() * 32 + 8}px` }} />
+                        <div key={i} className="w-1 bg-[#ff3621]" style={{ height: `${(Math.sin(i * 1.7) * 0.5 + 0.5) * 32 + 8}px` }} />
                       ))}
                     </div>
                   </div>

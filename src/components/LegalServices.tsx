@@ -266,7 +266,7 @@ export default function LegalServices() {
                     <h3 className="text-xl font-black tracking-tight">{update.title}</h3>
                   </div>
                   <p className="text-white/60 text-sm leading-relaxed mb-6">{update.description}</p>
-                  <Link href="/legal-services/updates" className="text-[12px] font-black uppercase tracking-[0.2em] text-[#EE3D2C] hover:text-white transition-colors">
+                  <Link href="/updates" className="text-[12px] font-black uppercase tracking-[0.2em] text-[#EE3D2C] hover:text-white transition-colors">
                     Read Analysis
                   </Link>
                 </div>

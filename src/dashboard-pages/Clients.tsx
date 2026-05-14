@@ -22,7 +22,7 @@ export default function Clients() {
   });
 
   const filteredClients = clients?.filter(client =>
-    client.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    client.company_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     client.contact_person.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -81,7 +81,7 @@ export default function Clients() {
                   </div>
                   <div className="min-w-0 flex-auto">
                     <p className="text-sm font-semibold leading-6 text-gray-900">
-                      {client.name}
+                      {client.company_name}
                     </p>
                     <p className="mt-1 flex text-xs leading-5 text-gray-500">
                       <Mail className="mr-1 h-4 w-4" />
@@ -92,11 +92,11 @@ export default function Clients() {
                 <div className="flex flex-col items-end">
                   <p className="flex items-center text-sm leading-6 text-gray-900">
                     <Phone className="mr-1 h-4 w-4" />
-                    {client.phone}
+                    {client.phone || 'N/A'}
                   </p>
                   <p className="mt-1 flex items-center text-xs leading-5 text-gray-500">
                     <MapPin className="mr-1 h-4 w-4" />
-                    {client.address}
+                    {client.address || 'N/A'}
                   </p>
                 </div>
               </li>

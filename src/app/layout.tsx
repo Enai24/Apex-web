@@ -72,6 +72,33 @@ export const metadata: Metadata = {
     },
 };
 
+const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Apex Enterprises',
+    url: 'https://apexenterprises.net',
+    logo: 'https://apexenterprises.net/logo.png',
+    description: "India's leading AI-driven workforce solutions provider.",
+    address: {
+        '@type': 'PostalAddress',
+        streetAddress: '11, Shankar Chowk Road',
+        addressLocality: 'Gurgaon',
+        addressRegion: 'Haryana',
+        postalCode: '122016',
+        addressCountry: 'IN',
+    },
+    contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+91-0124-2340139',
+        contactType: 'customer service',
+        areaServed: 'IN',
+        availableLanguage: ['English', 'Hindi'],
+    },
+    sameAs: [
+        'https://www.linkedin.com/company/apex-enterprises1/',
+    ],
+};
+
 export default function RootLayout({
     children,
 }: {
@@ -80,10 +107,19 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning>
+                <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+                    Skip to main content
+                </a>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                />
                 <Providers>
                     <div className="min-h-screen flex flex-col">
                         <NavbarClient />
-                        <main className="flex-grow flex flex-col">{children}</main>
+                        <main id="main-content" className="flex-grow flex flex-col" role="main">
+                            {children}
+                        </main>
                         <Footer />
                     </div>
                 </Providers>

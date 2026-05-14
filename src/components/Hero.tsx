@@ -467,7 +467,7 @@ export default function Hero() {
             </div>
           </div>
           <div className="mt-10 flex justify-center">
-            <Link href="/testimonials" className="text-base font-semibold leading-7 text-[#1F4287] hover:text-[#F68B1F] transition-colors group flex items-center">
+            <Link href="/clients" className="text-base font-semibold leading-7 text-[#1F4287] hover:text-[#F68B1F] transition-colors group flex items-center">
               Read more testimonials <ArrowRight className="ml-2 h-4 w-4 transform transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>

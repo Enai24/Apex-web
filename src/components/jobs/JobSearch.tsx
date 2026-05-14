@@ -82,7 +82,7 @@ export default function JobSearch() {
             <p className="mt-2">Get early access to jobs, featured profile status, and direct recruiter messaging</p>
           </div>
           <Link
-            href="/premium"
+            href="/contact"
             className="bg-white text-blue-600 px-6 py-2 rounded-md font-semibold hover:bg-blue-50 transition-colors"
           >
             Upgrade Now
@@ -278,7 +278,7 @@ export default function JobSearch() {
                 View Details
               </Link>
               <Link
-                href="/apply/1"
+                href="/careers"
                 className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700"
               >
                 Quick Apply
@@ -297,7 +297,7 @@ export default function JobSearch() {
                 <h4 className="font-medium text-gray-900">Resume Building</h4>
                 <p className="mt-1 text-sm text-gray-500">Professional resume writing and ATS optimization</p>
                 <Link
-                  href="/services/resume"
+                  href="/services/specialised-hiring"
                   className="mt-3 inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-500"
                 >
                   Learn more
@@ -308,7 +308,7 @@ export default function JobSearch() {
                 <h4 className="font-medium text-gray-900">Career Coaching</h4>
                 <p className="mt-1 text-sm text-gray-500">One-on-one mentoring and interview preparation</p>
                 <Link
-                  href="/services/coaching"
+                  href="/services/contract-staffing"
                   className="mt-3 inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-500"
                 >
                   Learn more

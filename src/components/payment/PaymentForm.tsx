@@ -4,7 +4,7 @@ import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { CreditCard, Lock } from 'lucide-react';
 
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY || '');
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
 
 const plans = [
   {
@@ -57,13 +57,12 @@ export default function PaymentForm() {
 
       const session = await response.json();
 
-      // Redirect to Stripe checkout
-      const result = await stripe.redirectToCheckout({
-        sessionId: session.id,
-      });
-
-      if (result.error) {
-        throw new Error(result.error.message);
+      // Redirect to Stripe checkout URL
+      if (session.url) {
+        window.location.href = session.url;
+      } else if (session.id) {
+        // Fallback for older API responses
+        console.error('Stripe checkout URL not provided');
       }
     } catch (error) {
       console.error('Payment error:', error);

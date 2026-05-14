@@ -15,6 +15,10 @@ export interface Client {
   contact_person: string;
   role: 'client';
   subscription_status: 'active' | 'inactive' | 'pending';
+  phone?: string;
+  address?: string;
+  status?: string;
+  created_at?: string;
 }
 
 export interface Job {

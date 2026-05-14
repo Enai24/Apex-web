@@ -348,7 +348,7 @@ const ApplyForm: React.FC<ApplyFormProps> = ({
           </p>
           <div className="mt-2 bg-indigo-50 p-4 rounded-lg max-w-md">
             <p className="text-sm text-indigo-800">
-              A confirmation email has been sent to {formData.get('email')}. Please check your inbox and spam folder.
+              A confirmation email has been sent to {String(formData.get('email') || '')}. Please check your inbox and spam folder.
             </p>
           </div>
           <div className="mt-8">

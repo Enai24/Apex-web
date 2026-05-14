@@ -223,7 +223,7 @@ export default function JobSeekersPage() {
 
           <div className="mt-12 text-center">
             <Link
-              href="/all-jobs"
+              href="/careers"
               className="inline-flex items-center rounded-sm bg-white px-4 py-2 text-sm font-medium text-orange-red shadow-sm ring-1 ring-inset ring-orange-red/20 hover:bg-oat-medium"
             >
               View All Jobs <ArrowRight className="ml-2 h-4 w-4" />
@@ -277,7 +277,7 @@ export default function JobSeekersPage() {
 
           <div className="mt-12 text-center">
             <Link
-              href="/all-articles"
+              href="/updates"
               className="inline-flex items-center rounded-sm bg-white px-4 py-2 text-sm font-medium text-orange-red shadow-sm ring-1 ring-inset ring-orange-red/20 hover:bg-background"
             >
               View All Articles <ArrowRight className="ml-2 h-4 w-4" />
@@ -348,13 +348,13 @@ export default function JobSeekersPage() {
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link
-              href="/upload-resume"
+              href="/job-seekers"
               className="rounded-sm bg-white px-6 py-3 text-base font-semibold text-navy shadow-sm hover:bg-oat-medium transition-colors duration-300"
             >
               Upload Your Resume
             </Link>
             <Link
-              href="/create-profile"
+              href="/job-seekers"
               className="text-base font-semibold leading-6 text-white flex items-center group"
             >
               Create Job Seeker Profile <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

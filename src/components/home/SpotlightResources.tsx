@@ -82,7 +82,7 @@ const SpotlightResources = () => {
 
                 <div className="mt-16 md:mt-20 flex justify-center">
                     <a
-                        href="/resources"
+                        href="/updates"
                         className="bg-[#1B292E] text-white text-[14px] font-bold py-3 px-8 transition-colors hover:bg-opacity-90 shadow-lg"
                     >
                         {translate('See more resources')}

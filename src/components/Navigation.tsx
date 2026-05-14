@@ -3,12 +3,10 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-// TODO: Handle these router imports: NavLink;
 import {
-  Menu, X, ChevronDown, ChevronRight, LogIn, Users, Shield, BarChart2, FileText, 
+  Menu, X, ChevronDown, ChevronRight, LogIn, Users, Shield, BarChart2, FileText,
   FileCheck, Award, Briefcase, Cpu, Brain, Layers, Globe2
 } from 'lucide-react';
-import logo from '../assets/logo.png';
 
 interface NavigationItem {
   name: string;
@@ -43,34 +41,28 @@ const navigation: NavigationItem[] = [
         icon: Users
       },
       {
-        name: 'Payroll Services',
+        name: 'Payroll & Compliance',
         description: 'End-to-end payroll with statutory compliance',
-        href: '/services/payroll-services',
+        href: '/services/payroll-compliance',
         icon: FileCheck
       },
       {
-        name: 'Regulatory Compliance',
+        name: 'Labour Law Advisory',
         description: 'Labor law compliance across all Indian states',
-        href: '/services/regulatory-compliance',
+        href: '/services/labour-law-advisory',
         icon: Shield
       },
       {
-        name: 'AI Workforce Analytics',
-        description: 'Data-driven workforce insights and predictions',
-        href: '/services/workforce-analytics',
-        icon: Brain,
+        name: 'Industrial Housekeeping',
+        description: 'Managed facility and housekeeping services',
+        href: '/services/industrial-housekeeping',
+        icon: Layers,
       },
       {
-        name: 'Training & Development',
-        description: 'Industry-aligned upskilling programs',
-        href: '/services/training-development',
+        name: 'Specialised Hiring',
+        description: 'Industry-aligned upskilling and hiring programs',
+        href: '/services/specialised-hiring',
         icon: Award
-      },
-      {
-        name: 'Pan-India Deployment',
-        description: 'Workforce solutions across 25+ Indian cities',
-        href: '/services/india-deployment',
-        icon: Globe2
       }
     ]
   },
@@ -116,7 +108,7 @@ export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
-  const { pathname } = useLocation();
+  const pathname = usePathname();
 
   const toggleDropdown = (name: string) => {
     setActiveDropdown(activeDropdown === name ? null : name);
@@ -160,7 +152,7 @@ export default function Navigation() {
         <div className="flex lg:flex-1">
           <Link href="/" className="flex items-center -m-1.5 p-1.5">
             <span className="sr-only">Apex Enterprises</span>
-            <img className="h-12 w-auto" src={logo} alt="Apex Enterprises" />
+            <img className="h-12 w-auto" src="/logo.png" alt="Apex Enterprises" />
           </Link>
         </div>
         
@@ -232,18 +224,16 @@ export default function Navigation() {
                   </div>
                 </div>
               ) : (
-                <NavLink
-                  to={item.href}
-                  className={({ isActive }) => 
-                    `py-2 text-sm font-medium transition-colors ${
-                      isActive 
-                        ? 'text-blue-600' 
-                        : 'text-gray-700 hover:text-blue-600'
-                    } ${item.highlight ? 'px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full hover:shadow-md transition-all' : ''}`
-                  }
+                <Link
+                  href={item.href}
+                  className={`py-2 text-sm font-medium transition-colors ${
+                    pathname === item.href
+                      ? 'text-blue-600'
+                      : 'text-gray-700 hover:text-blue-600'
+                  } ${item.highlight ? 'px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full hover:shadow-md transition-all' : ''}`}
                 >
                   {item.name}
-                </NavLink>
+                </Link>
               )}
             </div>
           ))}
@@ -251,7 +241,7 @@ export default function Navigation() {
         
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link
-            href="/login"
+            href="/client"
             className="flex items-center gap-x-1 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
           >
             <LogIn className="h-4 w-4" />
@@ -281,7 +271,7 @@ export default function Navigation() {
             onClick={() => setMobileMenuOpen(false)}
           >
             <span className="sr-only">Apex Enterprises</span>
-            <img className="h-10 w-auto" src={logo} alt="Apex Enterprises" />
+            <img className="h-10 w-auto" src="/logo.png" alt="Apex Enterprises" />
           </Link>
           <button
             type="button"
@@ -345,7 +335,7 @@ export default function Navigation() {
           
           <div className="border-t border-gray-200 py-6">
             <Link
-              href="/login"
+              href="/client"
               className="flex items-center gap-x-2 -mx-3 rounded-lg px-3 py-2.5 text-base font-medium text-gray-900 hover:bg-gray-50"
               onClick={() => setMobileMenuOpen(false)}
             >

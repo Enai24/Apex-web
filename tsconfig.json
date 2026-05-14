@@ -37,6 +37,9 @@
   ],
   "exclude": [
     "node_modules",
+    "cypress",
+    "**/*.cy.ts",
+    "**/*.cy.tsx",
     "src/App.tsx",
     "src/main.tsx",
     "src/vite-env.d.ts"

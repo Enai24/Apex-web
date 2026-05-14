@@ -241,7 +241,7 @@ export default function DelhiLocation() {
               <p className="mt-4 text-gray-600">
                 Comprehensive payroll management with perfect compliance to Delhi NCR's complex regulatory framework. We handle all documentation, taxes, and statutory requirements across all NCR regions.
               </p>
-              <Link href="/services/payroll-services" className="mt-6 text-sm font-semibold leading-6 text-blue-600 flex items-center">
+              <Link href="/services/payroll-compliance" className="mt-6 text-sm font-semibold leading-6 text-blue-600 flex items-center">
                 Learn more <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </div>
@@ -259,7 +259,7 @@ export default function DelhiLocation() {
               <p className="mt-4 text-gray-600">
                 Leverage our powerful AI tools to gain insights into Delhi NCR's talent market. Get real-time data on salary benchmarks, skill availability, and workforce trends across the National Capital Region.
               </p>
-              <Link href="/services/ai-workforce-analytics" className="mt-6 text-sm font-semibold leading-6 text-blue-600 flex items-center">
+              <Link href="/ai-workforce-solutions" className="mt-6 text-sm font-semibold leading-6 text-blue-600 flex items-center">
                 Learn more <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </div>

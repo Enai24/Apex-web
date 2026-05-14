@@ -31,10 +31,15 @@ const getNavigation = (t: (key: string) => string): NavItem[] => [
         href: '/services',
         dropdown: [
             { name: t('nav.contractStaffing'), href: '/services/contract-staffing' },
+            { name: 'Permanent Recruitment', href: '/services/permanent-recruitment' },
+            { name: 'Executive Search', href: '/services/executive-search' },
+            { name: 'Specialised Hiring', href: '/services/specialised-hiring' },
             { name: t('nav.payrollCompliance'), href: '/services/payroll-compliance' },
-            { name: t('nav.industrialHousekeeping'), href: '/services/industrial-housekeeping' },
+            { name: 'Payroll Services', href: '/services/payroll-services' },
+            { name: 'Regulatory Compliance', href: '/services/regulatory-compliance' },
             { name: t('nav.labourLawAdvisory'), href: '/services/labour-law-advisory' },
-            { name: t('nav.specializedHiring'), href: '/services/specialised-hiring' },
+            { name: t('nav.industrialHousekeeping'), href: '/services/industrial-housekeeping' },
+            { name: 'HR Outsourcing', href: '/services/hr-outsourcing' },
         ],
     },
     {
@@ -55,9 +60,12 @@ const getNavigation = (t: (key: string) => string): NavItem[] => [
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [searchOpen, setSearchOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const pathname = usePathname();
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const searchInputRef = useRef<HTMLInputElement>(null);
     const { locale, setLocale, locales, localeNames, t } = useI18n();
 
     // Get translated navigation items
@@ -66,6 +74,36 @@ export default function Navbar() {
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
+
+    const toggleSearch = () => {
+        setSearchOpen(!searchOpen);
+        if (!searchOpen) {
+            setTimeout(() => searchInputRef.current?.focus(), 100);
+        }
+    };
+
+    const closeSearch = () => {
+        setSearchOpen(false);
+        setSearchQuery('');
+    };
+
+    const handleSearchSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (searchQuery.trim()) {
+            window.location.href = `/careers?search=${encodeURIComponent(searchQuery.trim())}`;
+            closeSearch();
+        }
+    };
+
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape' && searchOpen) {
+                closeSearch();
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [searchOpen]);
 
     useEffect(() => {
         setIsOpen(false);
@@ -186,7 +224,7 @@ export default function Navbar() {
                     {/* Right Side Actions */}
                     <div className="flex items-center space-x-4 md:space-x-6">
                         <div className="hidden lg:flex items-center space-x-6">
-                            <button className="text-[#1B292E] hover:text-[#EE3D2C] transition-colors p-1" aria-label="Search">
+                            <button onClick={toggleSearch} className="text-[#1B292E] hover:text-[#EE3D2C] transition-colors p-1" aria-label="Search">
                                 <Search size={20} strokeWidth={2} />
                             </button>
 
@@ -342,6 +380,38 @@ export default function Navbar() {
                                     Support
                                 </a>
                                 <Search size={22} className="text-[#1B292E]" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Search Overlay */}
+            {searchOpen && (
+                <div className="fixed inset-0 z-[200] bg-black/50 backdrop-blur-sm flex items-start justify-center pt-32" onClick={closeSearch}>
+                    <div className="w-full max-w-2xl mx-4 bg-white rounded-lg shadow-2xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
+                        <form onSubmit={handleSearchSubmit} className="flex items-center p-4 border-b border-gray-100">
+                            <Search size={20} className="text-gray-400 mr-3 flex-shrink-0" />
+                            <input
+                                ref={searchInputRef}
+                                type="text"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                placeholder="Search jobs, services, locations..."
+                                className="flex-1 text-lg outline-none text-gray-900 placeholder-gray-400"
+                            />
+                            <button type="button" onClick={closeSearch} className="ml-3 p-1 text-gray-400 hover:text-gray-600">
+                                <X size={20} />
+                            </button>
+                        </form>
+                        <div className="p-4 bg-gray-50">
+                            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Quick Links</p>
+                            <div className="flex flex-wrap gap-2">
+                                {['/services', '/careers', '/about', '/contact', '/industries'].map((link) => (
+                                    <a key={link} href={link} onClick={closeSearch} className="px-3 py-1.5 bg-white border border-gray-200 rounded-md text-sm text-gray-700 hover:border-[#EE3D2C] hover:text-[#EE3D2C] transition-colors">
+                                        {link.replace('/', '').replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                                    </a>
+                                ))}
                             </div>
                         </div>
                     </div>

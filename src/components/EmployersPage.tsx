@@ -276,7 +276,7 @@ export default function EmployersPage() {
               Contact Us Today
             </Link>
             <Link
-              href="/case-studies"
+              href="/portfolio"
               className="text-base font-semibold leading-6 text-white flex items-center group"
             >
               View Success Stories <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
