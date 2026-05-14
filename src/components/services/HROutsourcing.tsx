@@ -2,8 +2,10 @@
 
 import React, { useState } from 'react';
 import Head from '@/components/layout/Head';
-import { ArrowRight, Users, FileText, TrendingUp, Shield, Clock, BarChart3, ChevronRight, Zap, Rocket, Lock, Globe, Award } from 'lucide-react';
+import { ArrowRight, Users, FileText, TrendingUp, Shield, Clock, BarChart3, ChevronRight, Zap, Rocket } from 'lucide-react';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
+import FadeIn, { StaggerContainer, StaggerItem } from '@/components/animations/FadeIn';
 
 export default function HROutsourcing() {
   const [activeTab, setActiveTab] = useState<'startup' | 'midmarket' | 'enterprise'>('startup');
@@ -65,25 +67,45 @@ export default function HROutsourcing() {
           <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-orange-red/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
           <div className="container relative z-10">
             <div className="max-w-4xl">
-              <div className="flex items-center gap-x-2 eyebrow mb-6 text-white/70">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="flex items-center gap-x-2 eyebrow mb-6 text-white/70"
+              >
                 <Users className="h-4 w-4 text-orange-red" />
                 <span>Managed HR Services</span>
-              </div>
-              <h1 className="text-white mb-8 text-hxl max-w-4xl leading-[1.05] tracking-tight">
+              </motion.div>
+              <motion.h1
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="text-white mb-8 text-hxl max-w-4xl leading-[1.05] tracking-tight"
+              >
                 The Workforce Intelligence Platform for <span className="text-orange-red">HR Outsourcing</span>
-              </h1>
-              <p className="text-xl lg:text-2xl text-white/70 max-w-3xl mb-12 leading-relaxed">
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                className="text-xl lg:text-2xl text-white/70 max-w-3xl mb-12 leading-relaxed"
+              >
                 Transform your HR function with our end-to-end outsourcing solutions. From hiring to exit, we handle it all—so you can focus on your business.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center gap-4">
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="flex flex-col sm:flex-row items-center gap-4"
+              >
                 <Link href="/contact" className="btn-primary w-full sm:w-auto px-8 py-4">
                   Outsource Your HR
                   <ArrowRight className="h-4 w-4" />
                 </Link>
-                <a href="#use-cases" className="px-8 py-4 rounded-md border border-white/20 text-white font-semibold hover:bg-white/10 transition-colors">
+                <a href="#use-cases" className="px-8 py-4 rounded-md border border-white/20 text-white font-semibold hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-red">
                   Explore Use Cases
                 </a>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -91,7 +113,7 @@ export default function HROutsourcing() {
         {/* Sticky Tabs */}
         <section className="sticky top-[80px] z-40 bg-white border-b border-border shadow-sm">
           <div className="container">
-            <nav className="flex gap-8 overflow-x-auto py-4 text-sm font-medium">
+            <nav className="flex gap-6 md:gap-8 overflow-x-auto py-4 text-sm font-medium scroll-smooth snap-x snap-mandatory scrollbar-hide" aria-label="Page sections">
               {[
                 { label: 'Use Cases', href: '#use-cases' },
                 { label: 'Customers', href: '#customers' },
@@ -99,7 +121,11 @@ export default function HROutsourcing() {
                 { label: 'Resources', href: '#resources' },
                 { label: 'FAQ', href: '#faq' }
               ].map((item) => (
-                <a key={item.href} href={item.href} className="text-teal-gray hover:text-navy whitespace-nowrap transition-colors pb-1 border-b-2 border-transparent hover:border-orange-red">
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-teal-gray hover:text-navy whitespace-nowrap transition-colors pb-1 border-b-2 border-transparent hover:border-orange-red snap-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-red rounded-sm"
+                >
                   {item.label}
                 </a>
               ))}
@@ -110,21 +136,23 @@ export default function HROutsourcing() {
         {/* Use Cases with Sub-Tabs */}
         <section id="use-cases" className="py-24 lg:py-32 bg-white">
           <div className="container">
-            <div className="text-center mb-16">
+            <FadeIn className="text-center mb-16">
               <h3 className="eyebrow mb-6 text-orange-red">Use Cases</h3>
               <h2 className="text-navy text-4xl lg:text-5xl mb-6">Your HR, Your Future</h2>
               <p className="text-xl text-teal-gray max-w-2xl mx-auto leading-relaxed">
                 HR solutions scaled to your organization size and growth stage.
               </p>
-            </div>
+            </FadeIn>
 
-            <div className="flex justify-center mb-16">
-              <div className="inline-flex bg-oat rounded-lg p-1">
+            <FadeIn delay={0.1} className="flex justify-center mb-16">
+              <div className="inline-flex bg-oat rounded-lg p-1" role="tablist" aria-label="Company size segments">
                 {tabs.map((tab) => (
                   <button
                     key={tab.id}
+                    role="tab"
+                    aria-selected={activeTab === tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`px-6 py-2.5 rounded-md text-sm font-semibold transition-all ${
+                    className={`px-4 md:px-6 py-2.5 rounded-md text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-red ${
                       activeTab === tab.id
                         ? 'bg-navy text-white shadow-sm'
                         : 'text-teal-gray hover:text-navy'
@@ -134,154 +162,187 @@ export default function HROutsourcing() {
                   </button>
                 ))}
               </div>
-            </div>
+            </FadeIn>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {useCaseData[activeTab].map((item, i) => (
-                <div key={i} className="group p-8 bg-white rounded-2xl border border-oat-medium hover:border-orange-red/30 transition-all hover:shadow-databricks">
-                  <h4 className="text-xl font-bold text-navy mb-3 group-hover:text-orange-red transition-colors">
-                    {item.title}
-                  </h4>
-                  <p className="text-teal-gray leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
-            </div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                className="grid md:grid-cols-2 gap-6"
+              >
+                {useCaseData[activeTab].map((item, i) => (
+                  <FadeIn key={i} delay={i * 0.08}>
+                    <div className="group h-full p-8 bg-white rounded-2xl border border-oat-medium hover:border-orange-red/30 transition-all hover:shadow-databricks">
+                      <h4 className="text-xl font-bold text-navy mb-3 group-hover:text-orange-red transition-colors">
+                        {item.title}
+                      </h4>
+                      <p className="text-teal-gray leading-relaxed">{item.desc}</p>
+                    </div>
+                  </FadeIn>
+                ))}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </section>
 
         {/* Outcome Categories */}
         <section className="py-24 bg-oat">
           <div className="container">
-            <div className="text-center mb-16">
+            <FadeIn className="text-center mb-16">
               <h3 className="eyebrow mb-6 text-orange-red">Outcomes</h3>
               <h2 className="text-navy text-4xl lg:text-5xl mb-6">HR Outcomes That Matter</h2>
-            </div>
-            <div className="grid md:grid-cols-3 gap-8">
+            </FadeIn>
+            <StaggerContainer className="grid md:grid-cols-3 gap-8">
               {[
                 { title: "Reduce Cost", icon: BarChart3, items: ["25-40% HR cost reduction", "Zero compliance penalties", "Predictable monthly spend"] },
                 { title: "Ensure Compliance", icon: Shield, items: ["100% statutory adherence", "Monthly filing automation", "Audit-ready documentation"] },
                 { title: "Scale Flexibly", icon: Rocket, items: ["10 to 10,000+ employees", "Multi-state operations", "24/7 support coverage"] },
               ].map((cat, i) => (
-                <div key={i} className="p-8 bg-white rounded-2xl border border-oat-medium">
-                  <div className="w-12 h-12 bg-navy rounded-xl flex items-center justify-center text-white mb-6">
-                    <cat.icon className="h-6 w-6" />
+                <StaggerItem key={i}>
+                  <div className="h-full p-8 bg-white rounded-2xl border border-oat-medium hover:shadow-premium transition-all duration-500">
+                    <div className="w-12 h-12 bg-navy rounded-xl flex items-center justify-center text-white mb-6">
+                      <cat.icon className="h-6 w-6" />
+                    </div>
+                    <h4 className="text-2xl font-bold text-navy mb-4">{cat.title}</h4>
+                    <ul className="space-y-3">
+                      {cat.items.map((item, j) => (
+                        <li key={j} className="flex items-center gap-2 text-teal-gray">
+                          <ChevronRight className="h-4 w-4 text-orange-red flex-shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <h4 className="text-2xl font-bold text-navy mb-4">{cat.title}</h4>
-                  <ul className="space-y-3">
-                    {cat.items.map((item, j) => (
-                      <li key={j} className="flex items-center gap-2 text-teal-gray">
-                        <ChevronRight className="h-4 w-4 text-orange-red flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
         </section>
 
         {/* Customers */}
         <section id="customers" className="py-24 bg-white border-y border-border">
           <div className="container">
-            <div className="text-center mb-16">
+            <FadeIn className="text-center mb-16">
               <h3 className="eyebrow mb-6">Trusted By</h3>
               <p className="text-2xl font-bold text-navy">500+ enterprises trust Apex for HR outsourcing</p>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 items-center grayscale opacity-70">
-              {['Fortune 500 GCCs', 'Indian Conglomerates', 'Tech Unicorns', 'BFSI Leaders', 'Manufacturing Giants', 'Global MNCs'].map((client, i) => (
-                <div key={i} className="h-12 border border-navy/10 rounded flex items-center justify-center text-[10px] font-mono text-navy/40 uppercase tracking-widest px-4 text-center leading-tight">
-                  {client}
-                </div>
+            </FadeIn>
+            <StaggerContainer staggerDelay={0.08} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+              {[
+                { name: 'Google', abbr: 'G' },
+                { name: 'Microsoft', abbr: 'M' },
+                { name: 'Amazon', abbr: 'A' },
+                { name: 'TCS', abbr: 'T' },
+                { name: 'Infosys', abbr: 'I' },
+                { name: 'Wipro', abbr: 'W' },
+              ].map((client, i) => (
+                <StaggerItem key={i}>
+                  <div className="flex flex-col items-center gap-2 py-6 group cursor-default">
+                    <div className="w-14 h-14 bg-oat rounded-xl flex items-center justify-center text-navy/80 text-xl font-bold tracking-tighter group-hover:bg-navy group-hover:text-white transition-all duration-300">
+                      {client.abbr}
+                    </div>
+                    <span className="text-xs font-medium text-teal-gray tracking-wide">{client.name}</span>
+                  </div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
         </section>
 
         {/* Solution Accelerators */}
         <section id="accelerators" className="py-24 lg:py-32 bg-oat">
           <div className="container">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+            <FadeIn className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
               <div className="max-w-2xl">
                 <h3 className="eyebrow mb-6 text-orange-red">Solution Accelerators</h3>
                 <h2 className="text-navy text-4xl lg:text-5xl leading-tight">Apex-Developed Solutions to Deliver<br />HR Outcomes That Matter</h2>
               </div>
-              <Link href="/contact" className="btn-secondary bg-white border-navy text-navy hover:bg-navy hover:text-white transition-all">
+              <Link href="/contact" className="btn-secondary bg-white border-navy text-navy hover:bg-navy hover:text-white transition-all focus-visible:ring-2 focus-visible:ring-orange-red">
                 Explore All
               </Link>
-            </div>
+            </FadeIn>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 { title: "Talent Acquisition", icon: Users, tag: "Featured", desc: "AI-driven hiring with dedicated recruiters and skill-matching." },
                 { title: "Payroll Engine", icon: FileText, tag: "Essential", desc: "Zero-error payroll with 100% statutory compliance." },
                 { title: "Analytics Suite", icon: BarChart3, tag: null, desc: "Predictive dashboards for attrition and workforce planning." },
                 { title: "Compliance Shield", icon: Shield, tag: "New", desc: "Automated EPF, ESI, PT, LWF filing and audit readiness." }
               ].map((mod, i) => (
-                <div key={i} className="group p-8 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-databricks transition-all duration-500 border border-transparent hover:border-oat-medium">
-                  <div className="flex items-start justify-between mb-8">
-                    <div className="w-12 h-12 bg-navy rounded-xl flex items-center justify-center text-white group-hover:bg-orange-red transition-colors duration-500">
-                      <mod.icon className="h-6 w-6" />
+                <StaggerItem key={i}>
+                  <div className="group h-full p-8 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-databricks transition-all duration-500 border border-transparent hover:border-oat-medium">
+                    <div className="flex items-start justify-between mb-8">
+                      <div className="w-12 h-12 bg-navy rounded-xl flex items-center justify-center text-white group-hover:bg-orange-red transition-colors duration-500">
+                        <mod.icon className="h-6 w-6" />
+                      </div>
+                      {mod.tag && (
+                        <span className="text-[10px] font-bold uppercase tracking-widest bg-orange-red/10 text-orange-red px-2 py-1 rounded">
+                          {mod.tag}
+                        </span>
+                      )}
                     </div>
-                    {mod.tag && (
-                      <span className="text-[10px] font-bold uppercase tracking-widest bg-orange-red/10 text-orange-red px-2 py-1 rounded">
-                        {mod.tag}
-                      </span>
-                    )}
+                    <h4 className="text-navy text-lg font-bold mb-2">{mod.title}</h4>
+                    <p className="text-sm text-teal-gray leading-relaxed">{mod.desc}</p>
                   </div>
-                  <h4 className="text-navy text-lg font-bold mb-2">{mod.title}</h4>
-                  <p className="text-sm text-teal-gray leading-relaxed">{mod.desc}</p>
-                </div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
         </section>
 
         {/* Resources */}
         <section id="resources" className="py-24 bg-white">
           <div className="container">
-            <div className="max-w-2xl mb-16">
+            <FadeIn className="max-w-2xl mb-16">
               <h3 className="eyebrow mb-6 text-orange-red">Resources</h3>
               <h2 className="text-navy text-4xl leading-tight font-bold">Deepen Your HR Expertise</h2>
-            </div>
+            </FadeIn>
 
-            <div className="grid md:grid-cols-3 gap-12">
+            <StaggerContainer className="grid md:grid-cols-3 gap-12">
               {[
                 { type: "eBook", title: "The Complete Guide to HR Outsourcing in India", link: "/contact" },
                 { type: "Whitepaper", title: "Reducing HR Costs by 35% with Managed Services", link: "/contact" },
                 { type: "Case Study", title: "150K+ Employees Managed with 100% Compliance", link: "/contact" }
               ].map((res, i) => (
-                <Link key={i} href={res.link} className="group block">
-                  <div className="eyebrow text-[10px] mb-4 text-orange-red">{res.type}</div>
-                  <h4 className="text-xl font-bold text-navy group-hover:text-orange-red transition-colors mb-4">{res.title}</h4>
-                  <div className="flex items-center text-sm font-bold text-navy">
-                    Learn More <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </Link>
+                <StaggerItem key={i}>
+                  <Link href={res.link} className="group block h-full p-6 -m-6 rounded-2xl hover:bg-oat/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-red">
+                    <div className="eyebrow text-[10px] mb-4 text-orange-red">{res.type}</div>
+                    <h4 className="text-xl font-bold text-navy group-hover:text-orange-red transition-colors mb-4">{res.title}</h4>
+                    <div className="flex items-center text-sm font-bold text-navy">
+                      Learn More <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </Link>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
         </section>
 
         {/* FAQ */}
         <section id="faq" className="py-24 lg:py-32 bg-oat border-t border-border">
           <div className="container max-w-4xl">
-            <h2 className="text-navy text-4xl mb-16 font-bold text-center">Frequently Asked Questions</h2>
+            <FadeIn>
+              <h2 className="text-navy text-4xl mb-16 font-bold text-center">Frequently Asked Questions</h2>
+            </FadeIn>
             <div className="space-y-4">
               {[
                 { q: "What HR functions do you outsource?", a: "We manage the complete HR lifecycle—from talent acquisition and onboarding to payroll, compliance, performance management, and exit formalities. You can outsource specific modules or the entire function." },
                 { q: "How do you ensure data security?", a: "We are ISO 27001 certified with encrypted data transmission, role-based access controls, and regular security audits. All employee data is stored in India-compliant data centers." },
                 { q: "What is the typical cost savings?", a: "Our clients typically see 25-40% reduction in HR operational costs within the first year, driven by process automation, centralized management, and elimination of compliance penalties." }
               ].map((faq, i) => (
-                <details key={i} className="group p-8 bg-white rounded-2xl border border-oat-medium cursor-pointer">
-                  <summary className="font-bold text-navy text-lg list-none flex justify-between items-center">
-                    {faq.q}
-                    <div className="w-8 h-8 rounded-full bg-oat flex items-center justify-center group-open:bg-navy group-open:text-white transition-colors">
-                      <ChevronRight className="h-5 w-5 group-open:rotate-90 transition-transform" />
-                    </div>
-                  </summary>
-                  <p className="mt-6 text-teal-gray leading-relaxed text-lg">{faq.a}</p>
-                </details>
+                <FadeIn key={i} delay={i * 0.08}>
+                  <details className="group p-8 bg-white rounded-2xl border border-oat-medium cursor-pointer open:shadow-premium transition-shadow">
+                    <summary className="font-bold text-navy text-lg list-none flex justify-between items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-red rounded-lg">
+                      {faq.q}
+                      <div className="w-8 h-8 rounded-full bg-oat flex items-center justify-center group-open:bg-navy group-open:text-white transition-colors flex-shrink-0 ml-4">
+                        <ChevronRight className="h-5 w-5 group-open:rotate-90 transition-transform" />
+                      </div>
+                    </summary>
+                    <p className="mt-6 text-teal-gray leading-relaxed text-lg">{faq.a}</p>
+                  </details>
+                </FadeIn>
               ))}
             </div>
           </div>
@@ -291,19 +352,25 @@ export default function HROutsourcing() {
         <section className="py-24 lg:py-32 bg-navy relative overflow-hidden">
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange-red/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
           <div className="container relative z-10 text-center">
-            <h2 className="text-4xl lg:text-7xl text-white mb-8 leading-[1.05] font-bold">Ready to Transform<br />Your HR Function?</h2>
-            <p className="text-xl text-white/70 mb-12 max-w-2xl mx-auto leading-relaxed">
-              Join 500+ enterprises leveraging Apex for comprehensive, technology-driven HR outsourcing.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link href="/contact" className="btn-primary px-12 py-6 text-lg font-bold">
-                Get a Custom Proposal
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-              <Link href="/services" className="px-12 py-6 text-lg rounded-md border border-white/20 text-white font-bold hover:bg-white/10 transition-colors">
-                View All Services
-              </Link>
-            </div>
+            <FadeIn>
+              <h2 className="text-4xl lg:text-7xl text-white mb-8 leading-[1.05] font-bold">Ready to Transform<br />Your HR Function?</h2>
+            </FadeIn>
+            <FadeIn delay={0.15}>
+              <p className="text-xl text-white/70 mb-12 max-w-2xl mx-auto leading-relaxed">
+                Join 500+ enterprises leveraging Apex for comprehensive, technology-driven HR outsourcing.
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.3}>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <Link href="/contact" className="btn-primary px-12 py-6 text-lg font-bold focus-visible:ring-2 focus-visible:ring-orange-red focus-visible:ring-offset-2 focus-visible:ring-offset-navy">
+                  Get a Custom Proposal
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+                <Link href="/services" className="px-12 py-6 text-lg rounded-md border border-white/20 text-white font-bold hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-red focus-visible:ring-offset-2 focus-visible:ring-offset-navy">
+                  View All Services
+                </Link>
+              </div>
+            </FadeIn>
           </div>
         </section>
       </div>
